@@ -14,7 +14,9 @@ public class UrlController {
     private final UrlShortenerService service;
 
     @PostMapping("/createUrl")
-    public ResponseEntity<ShortUrlResponse> createUrl(@RequestBody ShortUrlRequest request) {
+    public ResponseEntity<ShortUrlResponse> createUrl(
+
+            @RequestBody ShortUrlRequest request) {
         ShortUrlResponse response = service.createShortUrl(request);
         return ResponseEntity.ok(response);
     }

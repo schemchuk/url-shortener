@@ -8,9 +8,11 @@ import de.telran.urlshortener.util.ShortUrlUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.view.RedirectView;
+
 @Service
 @RequiredArgsConstructor
 public class UrlShortenerService {
+
     private final ShortUrlRepository repository;
     private final ShortUrlUtil util;
 
@@ -19,12 +21,12 @@ public class UrlShortenerService {
 
         ShortUrlEntity existingShortUrl = repository.findByFullUrl(fullUrl);
 
-        if(existingShortUrl != null) {
+        if (existingShortUrl != null) {
             return ShortUrlResponse.builder().key(existingShortUrl.getKey()).build();
         } else {
             String newKey = util.generateUniqueKey();
             ShortUrlEntity newEntity = ShortUrlEntity.builder()
-                    .key(newKey).fullUrl(fullUrl).clickCount(0l)
+                    .key(newKey).fullUrl(fullUrl).clickCount(0L)
                     .build();
             repository.save(newEntity);
             return ShortUrlResponse.builder().key(newKey).build();
@@ -35,7 +37,8 @@ public class UrlShortenerService {
         ShortUrlEntity entityInDb = repository.findByKey(key);
 
         if (entityInDb == null) {
-            throw new RuntimeException("Url not found");
+            // Return some kind of 404 response or custom error handling
+            throw new RuntimeException("URL not found");
         }
 
         entityInDb.setClickCount(entityInDb.getClickCount() + 1);

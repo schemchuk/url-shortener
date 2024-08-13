@@ -1,7 +1,7 @@
 package de.telran.urlshortener.service;
 
 import de.telran.urlshortener.dto.urlDto.ShortUrlResponse;
-import de.telran.urlshortener.entity.ShortUrlEntity;
+import de.telran.urlshortener.entity.Urls;
 import de.telran.urlshortener.repository.ShortUrlRepository;
 import de.telran.urlshortener.util.ShortUrlUtil;
 import lombok.RequiredArgsConstructor;
@@ -15,7 +15,7 @@ public class UrlShortenerService {
     private final ShortUrlUtil util;
 
     public ShortUrlResponse createShortUrl(String fullUrl) {
-        ShortUrlEntity existingShortUrl = repository.findByFullUrl(fullUrl);
+        Urls existingShortUrl = repository.findByFullUrl(fullUrl);
 
         if (existingShortUrl != null) {
             return ShortUrlResponse.builder()
@@ -24,7 +24,7 @@ public class UrlShortenerService {
                     .build();
         } else {
             String newKey = util.generateUniqueKey();
-            ShortUrlEntity newEntity = ShortUrlEntity.builder()
+            Urls newEntity = Urls.builder()
                     .key(newKey)
                     .fullUrl(fullUrl)
                     .clickCount(0L)
@@ -38,7 +38,7 @@ public class UrlShortenerService {
     }
 
     public ShortUrlResponse getFullUrl(String key) {
-        ShortUrlEntity entityInDb = repository.findByKey(key);
+        Urls entityInDb = repository.findByKey(key);
 
         if (entityInDb == null) {
             // Return some kind of 404 response or custom error handling

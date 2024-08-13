@@ -23,4 +23,5 @@ public class ShortUrlEntity {
 
     @Column(nullable = false)
     private Long clickCount;
+
 }

@@ -1,6 +1,5 @@
 package de.telran.urlshortener.controller;
 
-
 import de.telran.urlshortener.dto.userDto.UserRequest;
 import de.telran.urlshortener.dto.userDto.UserResponse;
 import de.telran.urlshortener.service.UserService;

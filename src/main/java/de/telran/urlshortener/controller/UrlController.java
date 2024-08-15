@@ -15,7 +15,7 @@ public class UrlController {
 
     @PostMapping("/createUrl")
     public ResponseEntity<ShortUrlResponse> createUrl(@RequestBody ShortUrlRequest request) {
-        ShortUrlResponse response = service.createShortUrl(request.getUrl());
+        ShortUrlResponse response = service.createShortUrl(request.getUrl(), request.getEmail());
         return ResponseEntity.ok(response);
     }
 
@@ -25,4 +25,7 @@ public class UrlController {
         return ResponseEntity.ok(response);
     }
 }
+
+
+
 

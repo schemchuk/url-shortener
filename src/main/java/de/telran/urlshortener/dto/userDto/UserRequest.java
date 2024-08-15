@@ -1,12 +1,13 @@
 package de.telran.urlshortener.dto.userDto;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
-@Getter
-@Setter
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class UserRequest {
-    private String username;
+    private String userName;
     private String password;
     private String email;
 }

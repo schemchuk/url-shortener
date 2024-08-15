@@ -1,6 +1,5 @@
 package de.telran.urlshortener.dto.userDto;
 
-
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;

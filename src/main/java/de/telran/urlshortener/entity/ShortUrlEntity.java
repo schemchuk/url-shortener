@@ -6,29 +6,25 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Set;
+
 @Entity
 @Data
 @Builder
-@AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "short_urls")
-public class ShortUrlEntity {
+@AllArgsConstructor
+@Table(name = "roles")
+public class Role {
     @Id
     @Column(name = "id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "short_url", unique = true)
-    private String key;
+    @Column(nullable = false, unique = true)
+    private String name;
 
-    @Column(nullable = false, columnDefinition = "TEXT")
-    private String fullUrl;
-
-    @Column(nullable = false)
-    private Long clickCount;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", nullable = false)
-    private User user;
+    @ManyToMany(mappedBy = "roles")
+    private Set<User> users;
 }
+
 

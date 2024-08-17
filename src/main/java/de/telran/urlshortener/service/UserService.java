@@ -13,6 +13,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Set;
+
 @Service
 @RequiredArgsConstructor
 public class UserService {
@@ -22,6 +24,12 @@ public class UserService {
 
     @Transactional
     public UserResponse createUser(UserRequest request) {
+        // Проверка, существует ли пользователь с таким именем пользователя
+        userRepository.findByUserName(request.getUserName()).ifPresent(existingUser -> {
+            throw new UserNameAlreadyTakenException("Username is already taken");
+        });
+
+        // Создание нового пользователя, если имя пользователя не занято
         User newUser = User.builder()
                 .userName(request.getUserName())
                 .password(request.getPassword())
@@ -38,11 +46,18 @@ public class UserService {
         return toUserResponse(user);
     }
 
-    public User createUser(User user) {
-        if (userRepository.existsByUserName(user.getUserName())) {
-            throw new UserNameAlreadyTakenException("Username is already taken");
-        }
-        return userRepository.save(user);
+    @Transactional(readOnly = true)
+    public Set<Role> getUserRoles(Long userId) {
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found"));
+        return user.getRoles();
+    }
+
+    @Transactional(readOnly = true)
+    public Set<User> getUsersByRoleName(String roleName) {
+        Role role = roleRepository.findByName(roleName)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Role not found"));
+        return role.getUsers();
     }
 
     @Transactional
@@ -71,21 +86,5 @@ public class UserService {
                 .username(user.getUserName())
                 .email(user.getEmail())
                 .build();
-    }
-
-    @Transactional
-    public void assignRoleToUser(String userEmail, String roleName) {
-        User user = userRepository.findByEmail(userEmail)
-                .orElseThrow(() -> new RuntimeException("User not found"));
-
-        Role role = roleRepository.findByName(roleName)
-                .orElseThrow(() -> new RuntimeException("Role not found"));
-
-        user.getRoles().add(role);
-        userRepository.save(user);
-    }
-
-    public boolean isUserNameTaken(String userName) {
-        return userRepository.existsByUserName(userName);
     }
 }

@@ -2,10 +2,14 @@ package de.telran.urlshortener.controller;
 
 import de.telran.urlshortener.dto.userDto.UserRequest;
 import de.telran.urlshortener.dto.userDto.UserResponse;
+import de.telran.urlshortener.entity.Role;
+import de.telran.urlshortener.entity.User;
 import de.telran.urlshortener.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Set;
 
 @RestController
 @RequestMapping("/users")
@@ -37,5 +41,18 @@ public class UserController {
         userService.deleteUser(id);
         return ResponseEntity.noContent().build();
     }
+
+    @GetMapping("/{id}/roles")
+    public ResponseEntity<Set<Role>> getUserRoles(@PathVariable Long id) {
+        Set<Role> roles = userService.getUserRoles(id);
+        return ResponseEntity.ok(roles);
+    }
+
+    @GetMapping("/roles/{roleName}")
+    public ResponseEntity<Set<User>> getUsersByRoleName(@PathVariable String roleName) {
+        Set<User> users = userService.getUsersByRoleName(roleName);
+        return ResponseEntity.ok(users);
+    }
+
 }
 

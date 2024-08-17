@@ -3,6 +3,7 @@ package de.telran.urlshortener.service;
 import de.telran.urlshortener.dto.RoleDto.RoleRequest;
 import de.telran.urlshortener.dto.RoleDto.RoleResponse;
 import de.telran.urlshortener.entity.Role;
+import de.telran.urlshortener.exception.exceptionRole.RoleNotFoundException;
 import de.telran.urlshortener.repository.RoleRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -27,7 +28,7 @@ public class RoleService {
 
     public RoleResponse getRoleByName(String name) {
         Role role = roleRepository.findByName(name)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Role not found"));
+                .orElseThrow(() -> new RoleNotFoundException("Role not found with name: " + name));
 
         return toRoleResponse(role);
     }

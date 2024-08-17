@@ -5,6 +5,7 @@ import de.telran.urlshortener.dto.userDto.UserResponse;
 import de.telran.urlshortener.entity.Role;
 import de.telran.urlshortener.entity.User;
 import de.telran.urlshortener.exception.exceptionUser.UserNameAlreadyTakenException;
+import de.telran.urlshortener.exception.exceptionUser.UserNotFoundException;
 import de.telran.urlshortener.repository.RoleRepository;
 import de.telran.urlshortener.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -42,14 +43,14 @@ public class UserService {
 
     public UserResponse getUserById(Long id) {
         User user = userRepository.findById(id)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found"));
+                .orElseThrow(() -> new UserNotFoundException("User not found with id: " + id));
         return toUserResponse(user);
     }
 
     @Transactional(readOnly = true)
     public Set<Role> getUserRoles(Long userId) {
         User user = userRepository.findById(userId)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found"));
+                .orElseThrow(() -> new UserNotFoundException("User not found with id: " + userId));
         return user.getRoles();
     }
 
@@ -63,7 +64,7 @@ public class UserService {
     @Transactional
     public UserResponse updateUser(Long id, UserRequest request) {
         User user = userRepository.findById(id)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found"));
+                .orElseThrow(() -> new UserNotFoundException("User not found with id: " + id));
 
         user.setUserName(request.getUserName());
         user.setEmail(request.getEmail());
@@ -75,7 +76,7 @@ public class UserService {
     @Transactional
     public void deleteUser(Long id) {
         User user = userRepository.findById(id)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found"));
+                .orElseThrow(() -> new UserNotFoundException("User not found with id: " + id));
 
         userRepository.delete(user);
     }

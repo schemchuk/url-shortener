@@ -2,7 +2,8 @@ package de.telran.urlshortener.dto.userDto;
 
 import lombok.*;
 
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder

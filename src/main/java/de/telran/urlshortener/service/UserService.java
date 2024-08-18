@@ -1,5 +1,6 @@
 package de.telran.urlshortener.service;
 
+import de.telran.urlshortener.dto.RoleDto.RoleResponse;
 import de.telran.urlshortener.dto.userDto.UserRequest;
 import de.telran.urlshortener.dto.userDto.UserResponse;
 import de.telran.urlshortener.entity.Role;
@@ -8,13 +9,15 @@ import de.telran.urlshortener.exception.exceptionUser.UserNameAlreadyTakenExcept
 import de.telran.urlshortener.exception.exceptionUser.UserNotFoundException;
 import de.telran.urlshortener.repository.RoleRepository;
 import de.telran.urlshortener.repository.UserRepository;
+import de.telran.urlshortener.util.ConversionUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-import org.springframework.web.server.ResponseStatusException;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -25,12 +28,10 @@ public class UserService {
 
     @Transactional
     public UserResponse createUser(UserRequest request) {
-        // Проверка, существует ли пользователь с таким именем пользователя
         userRepository.findByUserName(request.getUserName()).ifPresent(existingUser -> {
             throw new UserNameAlreadyTakenException("Username is already taken");
         });
 
-        // Создание нового пользователя, если имя пользователя не занято
         User newUser = User.builder()
                 .userName(request.getUserName())
                 .password(request.getPassword())
@@ -48,17 +49,23 @@ public class UserService {
     }
 
     @Transactional(readOnly = true)
-    public Set<Role> getUserRoles(Long userId) {
+    public Set<RoleResponse> getUserRoles(Long userId) {
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new UserNotFoundException("User not found with id: " + userId));
-        return user.getRoles();
+
+        return user.getRoles().stream()
+                .map(ConversionUtils::toRoleResponse)
+                .collect(Collectors.toSet());
     }
 
     @Transactional(readOnly = true)
-    public Set<User> getUsersByRoleName(String roleName) {
+    public Set<UserResponse> getUsersByRoleName(String roleName) {
         Role role = roleRepository.findByName(roleName)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Role not found"));
-        return role.getUsers();
+
+        return role.getUsers().stream()
+                .map(this::toUserResponse)
+                .collect(Collectors.toSet());
     }
 
     @Transactional
@@ -86,6 +93,18 @@ public class UserService {
                 .id(user.getId())
                 .username(user.getUserName())
                 .email(user.getEmail())
+                .roles(user.getRoles().stream()
+                        .map(ConversionUtils::toRoleResponse)
+                        .collect(Collectors.toSet()))
+                .subscription(user.getSubscription() != null ? ConversionUtils.toSubscriptionResponse(user.getSubscription()) : null)
+                .shortUrls(user.getShortUrls().stream()
+                        .map(ConversionUtils::toShortUrlResponse)
+                        .collect(Collectors.toSet()))
                 .build();
     }
 }
+
+
+
+
+

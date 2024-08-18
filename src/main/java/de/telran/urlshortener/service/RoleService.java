@@ -5,10 +5,9 @@ import de.telran.urlshortener.dto.RoleDto.RoleResponse;
 import de.telran.urlshortener.entity.Role;
 import de.telran.urlshortener.exception.exceptionRole.RoleNotFoundException;
 import de.telran.urlshortener.repository.RoleRepository;
+import de.telran.urlshortener.util.ConversionUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.web.server.ResponseStatusException;
-import org.springframework.http.HttpStatus;
 
 @Service
 @RequiredArgsConstructor
@@ -22,24 +21,18 @@ public class RoleService {
                 .build();
 
         Role savedRole = roleRepository.save(newRole);
-
-        return toRoleResponse(savedRole);
+        return ConversionUtils.toRoleResponse(savedRole);
     }
 
     public RoleResponse getRoleByName(String name) {
         Role role = roleRepository.findByName(name)
                 .orElseThrow(() -> new RoleNotFoundException("Role not found with name: " + name));
 
-        return toRoleResponse(role);
-    }
-
-    private RoleResponse toRoleResponse(Role role) {
-        return RoleResponse.builder()
-                .id(role.getId())
-                .name(role.getName())
-                .build();
+        return ConversionUtils.toRoleResponse(role);
     }
 }
+
+
 
 
 

@@ -1,30 +1,22 @@
 package de.telran.urlshortener.config;
 
+import jakarta.annotation.PostConstruct;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Component;
 
-@Configuration
+@Component
 @ConfigurationProperties(prefix = "shorturl")
+@Getter
+@Setter
 public class ShortUrlConfig {
-
     private String allowedCharacters;
     private int keyLength;
 
-    // Getters and setters
-    public String getAllowedCharacters() {
-        return allowedCharacters;
-    }
-
-    public void setAllowedCharacters(String allowedCharacters) {
-        this.allowedCharacters = allowedCharacters;
-    }
-
-    public int getKeyLength() {
-        return keyLength;
-    }
-
-    public void setKeyLength(int keyLength) {
-        this.keyLength = keyLength;
+    @PostConstruct
+    public void init() {
+        System.out.println("Allowed Characters: " + allowedCharacters);
+        System.out.println("Key Length: " + keyLength);
     }
 }
-

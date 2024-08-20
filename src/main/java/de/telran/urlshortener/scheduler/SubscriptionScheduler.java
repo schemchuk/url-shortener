@@ -1,24 +1,27 @@
-package de.telran.urlshortener.service;
+package de.telran.urlshortener.scheduler;
 
 import de.telran.urlshortener.entity.Subscription;
 import de.telran.urlshortener.repository.SubscriptionRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
-@Service
+@Component
 @RequiredArgsConstructor
-public class SubscriptionService {
+@Slf4j
+public class SubscriptionScheduler {
 
     private final SubscriptionRepository subscriptionRepository;
 
-    @Transactional
-    public void removeExpiredSubscriptions() {
+    @Scheduled(cron = "0 0 0 * * ?") // Запуск каждый день в полночь
+    public void deleteExpiredSubscriptions() {
         LocalDateTime now = LocalDateTime.now();
         List<Subscription> expiredSubscriptions = subscriptionRepository.findByEndDateBefore(now);
         subscriptionRepository.deleteAll(expiredSubscriptions);
+        log.info("Deleted {} expired subscriptions", expiredSubscriptions.size());
     }
 }

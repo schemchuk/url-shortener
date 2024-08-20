@@ -1,14 +1,12 @@
 package de.telran.urlshortener.dto.RoleDto;
 
+import de.telran.urlshortener.entity.Role;
+import lombok.Builder;
+import lombok.Data;
 
-import lombok.*;
-
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Data
 @Builder
 public class RoleResponse {
     private Long id;
-    private String name;
+    private Role.RoleName name;
 }

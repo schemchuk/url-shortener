@@ -5,4 +5,3 @@ public class UserNameAlreadyTakenException extends RuntimeException {
         super(message);
     }
 }
-

@@ -1,108 +1,119 @@
 package de.telran.urlshortener.service;
 
-import de.telran.urlshortener.dto.RoleDto.RoleResponse;
 import de.telran.urlshortener.dto.userDto.UserRequest;
 import de.telran.urlshortener.dto.userDto.UserResponse;
 import de.telran.urlshortener.entity.Role;
+import de.telran.urlshortener.entity.Subscription;
 import de.telran.urlshortener.entity.User;
-import de.telran.urlshortener.exception.exceptionUser.UserNameAlreadyTakenException;
-import de.telran.urlshortener.exception.exceptionUser.UserNotFoundException;
+import de.telran.urlshortener.mapper.UserMapper;
 import de.telran.urlshortener.repository.RoleRepository;
+import de.telran.urlshortener.repository.SubscriptionRepository;
 import de.telran.urlshortener.repository.UserRepository;
-import de.telran.urlshortener.util.ConversionUtils;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.server.ResponseStatusException;
 
+import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
-import java.util.stream.Collectors;
+import de.telran.urlshortener.enums.SubscriptionType;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class UserService {
 
     private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
     private final RoleRepository roleRepository;
+    private final SubscriptionRepository subscriptionRepository;
 
     @Transactional
     public UserResponse createUser(UserRequest request) {
-        userRepository.findByUserName(request.getUserName()).ifPresent(existingUser -> {
-            throw new UserNameAlreadyTakenException("Username is already taken");
-        });
+        // Создаем роль TRIAL, если она еще не существует
+        Role trialRole = roleRepository.findByName(Role.RoleName.TRIAL)
+                .orElseGet(() -> roleRepository.save(new Role(Role.RoleName.TRIAL)));
 
-        User newUser = User.builder()
+        // Создаем подписку TRIAL с текущей датой начала и окончания через месяц
+        Subscription subscription = Subscription.builder()
+                .subscriptionType(SubscriptionType.TRIAL)
+                .startDate(LocalDateTime.now())
+                .endDate(LocalDateTime.now().plusMonths(1))
+                .build();
+        subscriptionRepository.save(subscription);
+
+        // Создаем пользователя
+        User user = User.builder()
                 .userName(request.getUserName())
-                .password(request.getPassword())
                 .email(request.getEmail())
+                .password(passwordEncoder.encode(request.getPassword()))
+                .roles(Set.of(trialRole)) // Назначаем роль TRIAL
+                .subscription(subscription) // Назначаем подписку
                 .build();
 
-        User savedUser = userRepository.save(newUser);
-        return toUserResponse(savedUser);
+        userRepository.save(user);
+
+        return UserMapper.mapToUserResponse(user);
     }
 
+    @Transactional
     public UserResponse getUserById(Long id) {
         User user = userRepository.findById(id)
-                .orElseThrow(() -> new UserNotFoundException("User not found with id: " + id));
-        return toUserResponse(user);
+                .orElseThrow(() -> new RuntimeException("User not found"));
+
+        if (user.getShortUrls() == null) {
+            user.setShortUrls(new HashSet<>());
+        }
+
+        return UserMapper.mapToUserResponse(user);
     }
 
-    @Transactional(readOnly = true)
-    public Set<RoleResponse> getUserRoles(Long userId) {
+    public UserResponse getUserByEmail(String email) {
+        User user = userRepository.findByEmail(email)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+        return UserMapper.mapToUserResponse(user);
+    }
+
+    @Transactional
+    public void assignRoleToUser(Long userId, String roleName) {
         User user = userRepository.findById(userId)
-                .orElseThrow(() -> new UserNotFoundException("User not found with id: " + userId));
+                .orElseThrow(() -> new RuntimeException("User not found"));
 
-        return user.getRoles().stream()
-                .map(ConversionUtils::toRoleResponse)
-                .collect(Collectors.toSet());
-    }
+        Role.RoleName roleEnum;
+        try {
+            roleEnum = Role.RoleName.valueOf(roleName);
+        } catch (IllegalArgumentException e) {
+            log.error("Invalid role name: {}", roleName);
+            throw new RuntimeException("Invalid role name");
+        }
 
-    @Transactional(readOnly = true)
-    public Set<UserResponse> getUsersByRoleName(String roleName) {
-        Role role = roleRepository.findByName(roleName)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Role not found"));
+        Optional<Role> existingRole = user.getRoles().stream()
+                .filter(role -> role.getName() == roleEnum)
+                .findFirst();
 
-        return role.getUsers().stream()
-                .map(this::toUserResponse)
-                .collect(Collectors.toSet());
-    }
-
-    @Transactional
-    public UserResponse updateUser(Long id, UserRequest request) {
-        User user = userRepository.findById(id)
-                .orElseThrow(() -> new UserNotFoundException("User not found with id: " + id));
-
-        user.setUserName(request.getUserName());
-        user.setEmail(request.getEmail());
-
-        User updatedUser = userRepository.save(user);
-        return toUserResponse(updatedUser);
-    }
-
-    @Transactional
-    public void deleteUser(Long id) {
-        User user = userRepository.findById(id)
-                .orElseThrow(() -> new UserNotFoundException("User not found with id: " + id));
-
-        userRepository.delete(user);
-    }
-
-    private UserResponse toUserResponse(User user) {
-        return UserResponse.builder()
-                .id(user.getId())
-                .username(user.getUserName())
-                .email(user.getEmail())
-                .roles(user.getRoles().stream()
-                        .map(ConversionUtils::toRoleResponse)
-                        .collect(Collectors.toSet()))
-                .subscription(user.getSubscription() != null ? ConversionUtils.toSubscriptionResponse(user.getSubscription()) : null)
-                .shortUrls(user.getShortUrls().stream()
-                        .map(ConversionUtils::toShortUrlResponse)
-                        .collect(Collectors.toSet()))
-                .build();
+        if (existingRole.isEmpty()) {
+            Role role = roleRepository.findByName(roleEnum)
+                    .orElseGet(() -> roleRepository.save(new Role(roleEnum)));
+            user.getRoles().add(role);
+            userRepository.save(user);
+            log.info("Assigned role {} to user {}", roleName, userId);
+        } else {
+            log.info("Role {} already assigned to user {}", roleName, userId);
+        }
     }
 }
+
+
+
+
+
+
+
+
+
 
 
 

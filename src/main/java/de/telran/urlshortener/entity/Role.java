@@ -2,6 +2,7 @@ package de.telran.urlshortener.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+
 import java.util.Set;
 
 @Entity
@@ -9,6 +10,7 @@ import java.util.Set;
 @Getter
 @Setter
 @NoArgsConstructor
+@RequiredArgsConstructor
 @AllArgsConstructor
 @Builder
 public class Role {
@@ -17,9 +19,16 @@ public class Role {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NonNull
+    @Enumerated(EnumType.STRING)
     @Column(nullable = false, unique = true)
-    private String name;
+    private RoleName name;
 
     @ManyToMany(mappedBy = "roles")
     private Set<User> users;
+
+    public enum RoleName {
+        TRIAL, USER, ADMIN
+    }
 }
+

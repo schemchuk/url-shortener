@@ -2,17 +2,16 @@ package de.telran.urlshortener.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "short_urls")
-@Getter
-@Setter
+@Table(name = "short_url")
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 public class ShortUrl {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -33,3 +32,5 @@ public class ShortUrl {
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 }
+
+

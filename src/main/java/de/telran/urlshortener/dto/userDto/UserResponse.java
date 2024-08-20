@@ -14,9 +14,10 @@ import java.util.Set;
 @Builder
 public class UserResponse {
     private Long id;
-    private String username;
+    private String userName;
     private String email;
     private Set<RoleResponse> roles;
     private SubscriptionResponse subscription;
     private Set<ShortUrlResponse> shortUrls;
 }
+

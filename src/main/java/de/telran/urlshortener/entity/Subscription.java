@@ -1,11 +1,13 @@
 package de.telran.urlshortener.entity;
 
+import de.telran.urlshortener.enums.SubscriptionType;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
 
 @Entity
+@Table(name = "subscriptions")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -17,8 +19,7 @@ public class Subscription {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id")
+    @OneToOne(mappedBy = "subscription")
     private User user;
 
     private LocalDateTime startDate;
@@ -27,10 +28,21 @@ public class Subscription {
     @Enumerated(EnumType.STRING)
     private SubscriptionType subscriptionType;
 
-    public enum SubscriptionType {
-        TRIAL, PAID
+    @PostPersist
+    @PostLoad
+    public void updateDates() {
+        this.startDate = LocalDateTime.now();
+        if (subscriptionType == SubscriptionType.TRIAL) {
+            this.endDate = this.startDate.plusMonths(1);
+        } else if (subscriptionType == SubscriptionType.PAID) {
+            this.endDate = this.startDate.plusYears(1);
+        }
     }
 }
+
+
+
+
 
 
 

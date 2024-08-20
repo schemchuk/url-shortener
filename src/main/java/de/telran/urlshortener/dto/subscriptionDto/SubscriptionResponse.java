@@ -2,8 +2,6 @@ package de.telran.urlshortener.dto.subscriptionDto;
 
 import lombok.*;
 
-import java.time.LocalDateTime;
-
 @Getter
 @Setter
 @NoArgsConstructor
@@ -11,13 +9,10 @@ import java.time.LocalDateTime;
 @Builder
 public class SubscriptionResponse {
     private Long id;
-    private LocalDateTime startDate;
-    private LocalDateTime endDate;
-    private SubscriptionType subscriptionType;
-
-    public enum SubscriptionType {
-        TRIAL, PAID
-    }
+    private String startDate;
+    private String endDate;
+    private String subscriptionType; // Используем String для типа подписки
 }
+
 
 

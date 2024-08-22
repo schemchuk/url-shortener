@@ -9,7 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/shorturls")
+@RequestMapping("/short-urls")
 @RequiredArgsConstructor
 public class ShortUrlController {
 
@@ -22,9 +22,15 @@ public class ShortUrlController {
     }
 
     @GetMapping("/{shortKey}")
-    public ResponseEntity<ShortUrlResponse> getShortUrl(@PathVariable String shortKey) {
+    public ResponseEntity<ShortUrlResponse> getShortUrlByKey(@PathVariable String shortKey) {
         ShortUrlResponse response = shortUrlService.getShortUrlByKey(shortKey);
         return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteShortUrl(@PathVariable Long id) {
+        shortUrlService.deleteShortUrl(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }
 

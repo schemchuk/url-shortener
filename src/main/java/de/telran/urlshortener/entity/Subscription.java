@@ -19,8 +19,9 @@ public class Subscription {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne(mappedBy = "subscription")
-    private User user;
+    @OneToOne
+    @JoinColumn(name = "user_id")
+    private User user; // Связь с User
 
     private LocalDateTime startDate;
     private LocalDateTime endDate;
@@ -28,17 +29,21 @@ public class Subscription {
     @Enumerated(EnumType.STRING)
     private SubscriptionType subscriptionType;
 
-    @PostPersist
-    @PostLoad
-    public void updateDates() {
-        this.startDate = LocalDateTime.now();
-        if (subscriptionType == SubscriptionType.TRIAL) {
-            this.endDate = this.startDate.plusMonths(1);
-        } else if (subscriptionType == SubscriptionType.PAID) {
-            this.endDate = this.startDate.plusYears(1);
+    @PrePersist
+    public void prePersist() {
+        if (this.startDate == null) {
+            this.startDate = LocalDateTime.now();
+        }
+        if (this.endDate == null) {
+            if (this.subscriptionType == SubscriptionType.TRIAL) {
+                this.endDate = this.startDate.plusMonths(1);
+            } else if (this.subscriptionType == SubscriptionType.PAID) {
+                this.endDate = this.startDate.plusYears(1);
+            }
         }
     }
 }
+
 
 
 

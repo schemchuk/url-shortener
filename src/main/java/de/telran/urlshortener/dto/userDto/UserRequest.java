@@ -3,6 +3,8 @@ package de.telran.urlshortener.dto.userDto;
 import de.telran.urlshortener.dto.subscriptionDto.SubscriptionRequest;
 import lombok.*;
 
+import java.util.Set;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -13,4 +15,5 @@ public class UserRequest {
     private String email;
     private String password;
     private SubscriptionRequest subscription;
+    private Set<String> roles;
 }

@@ -1,4 +1,4 @@
-package de.telran.urlshortener.exception.exceptionUrlshortener;
+package de.telran.urlshortener.exception;
 
 public class ShortUrlNotFoundException extends RuntimeException {
     public ShortUrlNotFoundException(String message) {

@@ -20,8 +20,17 @@ public class SubscriptionScheduler {
     @Scheduled(cron = "0 0 0 * * ?") // Запуск каждый день в полночь
     public void deleteExpiredSubscriptions() {
         LocalDateTime now = LocalDateTime.now();
-        List<Subscription> expiredSubscriptions = subscriptionRepository.findByEndDateBefore(now);
-        subscriptionRepository.deleteAll(expiredSubscriptions);
-        log.info("Deleted {} expired subscriptions", expiredSubscriptions.size());
+        try {
+            List<Subscription> expiredSubscriptions = subscriptionRepository.findByEndDateBefore(now);
+            if (!expiredSubscriptions.isEmpty()) {
+                subscriptionRepository.deleteAll(expiredSubscriptions);
+                log.info("Deleted {} expired subscriptions at {}", expiredSubscriptions.size(), now);
+            } else {
+                log.info("No expired subscriptions to delete at {}", now);
+            }
+        } catch (Exception e) {
+            log.error("Failed to delete expired subscriptions at {} due to {}", now, e.getMessage());
+        }
     }
 }
+

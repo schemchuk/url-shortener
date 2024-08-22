@@ -16,7 +16,7 @@
     <description>URL shortener</description>
     <properties>
         <java.version>17</java.version>
-        <springdoc.version>2.2.0</springdoc.version> <!-- Ensure this version is up-to-date -->
+        <springdoc.version>2.5.0</springdoc.version> <!-- Убедитесь, что эта версия актуальна -->
     </properties>
     <dependencies>
         <!-- Spring Data JPA -->
@@ -38,21 +38,21 @@
             <scope>runtime</scope>
         </dependency>
 
-        <!-- Lombok for automatic getters, setters, etc. -->
+        <!-- Lombok для автоматического создания геттеров, сеттеров, и других методов -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.28</version>
+            <version>1.18.30</version>
             <optional>true</optional>
         </dependency>
 
-        <!-- Spring Transactions (required for @Transactional) -->
+        <!-- Транзакции Spring (необходимая зависимость для @Transactional) -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-tx</artifactId>
         </dependency>
 
-        <!-- Testing -->
+        <!-- Тестирование -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -65,11 +65,11 @@
             <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
 
-        <!-- Springdoc & Swagger support -->
+        <!-- Spring doc & Swagger support. URL: http://localhost:8080/swagger-ui/index.html -->
         <dependency>
             <groupId>org.springdoc</groupId>
             <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
-            <version>2.5.0</version>
+            <version>${springdoc.version}</version>
         </dependency>
     </dependencies>
 
@@ -91,3 +91,4 @@
         </plugins>
     </build>
 </project>
+

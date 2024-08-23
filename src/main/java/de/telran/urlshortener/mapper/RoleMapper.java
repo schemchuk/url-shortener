@@ -8,10 +8,16 @@ public class RoleMapper {
     public static RoleResponse toRoleResponse(Role role) {
         return RoleResponse.builder()
                 .id(role.getId())
-                .name(role.getName()) // RoleName уже подходит, если используется RoleName в RoleResponse
+                .roleName(role.getName().name())  // Получаем строковое значение из enum RoleName
                 .build();
     }
 }
+
+
+
+
+
+
 
 
 

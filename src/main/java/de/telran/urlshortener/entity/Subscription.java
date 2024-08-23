@@ -21,9 +21,10 @@ public class Subscription {
 
     @OneToOne
     @JoinColumn(name = "user_id")
-    private User user; // Связь с User
+    private User user;
 
     private LocalDateTime startDate;
+
     private LocalDateTime endDate;
 
     @Enumerated(EnumType.STRING)
@@ -35,21 +36,17 @@ public class Subscription {
             this.startDate = LocalDateTime.now();
         }
         if (this.endDate == null) {
-            if (this.subscriptionType == SubscriptionType.TRIAL) {
-                this.endDate = this.startDate.plusMonths(1);
-            } else if (this.subscriptionType == SubscriptionType.PAID) {
-                this.endDate = this.startDate.plusYears(1);
+            switch (this.subscriptionType) {
+                case TRIAL:
+                    this.endDate = this.startDate.plusMonths(1);
+                    break;
+                case PAID:
+                    this.endDate = this.startDate.plusYears(1);
+                    break;
+                case ADMIN:
+                    this.endDate = null; // Бессрочная подписка
+                    break;
             }
         }
     }
 }
-
-
-
-
-
-
-
-
-
-

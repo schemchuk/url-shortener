@@ -1,5 +1,6 @@
 package de.telran.urlshortener.mapper;
 
+import de.telran.urlshortener.dto.userDto.UserRequest;
 import de.telran.urlshortener.dto.userDto.UserResponse;
 import de.telran.urlshortener.entity.User;
 
@@ -15,13 +16,23 @@ public class UserMapper {
                 .roles(user.getRoles().stream()
                         .map(RoleMapper::toRoleResponse)
                         .collect(Collectors.toSet()))
-                .subscription(user.getSubscription() != null ? SubscriptionMapper.toSubscriptionResponse(user.getSubscription()) : null)
-                .shortUrls(user.getShortUrls() != null ? user.getShortUrls().stream()
+                .shortUrls(user.getShortUrls().stream()
                         .map(ShortUrlMapper::toShortUrlResponse)
-                        .collect(Collectors.toSet()) : null)
+                        .collect(Collectors.toSet()))
+                .build();
+    }
+
+    public static User mapToUser(UserRequest userRequest) {
+        return User.builder()
+                .userName(userRequest.getUserName())
+                .email(userRequest.getEmail())
+                .password(userRequest.getPassword())
                 .build();
     }
 }
+
+
+
 
 
 

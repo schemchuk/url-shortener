@@ -1,5 +1,6 @@
 package de.telran.urlshortener.config;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -7,28 +8,21 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.web.header.writers.frameoptions.XFrameOptionsHeaderWriter;
+
+import static org.springframework.security.config.Customizer.withDefaults;
 
 @Configuration
 @EnableWebSecurity
+@RequiredArgsConstructor
 public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                .csrf(csrf -> csrf.disable()) // Отключаем защиту от CSRF для упрощения тестирования
-                .authorizeHttpRequests(authorizeRequests ->
-                        authorizeRequests
-                                .requestMatchers("/h2-console/**").permitAll() // Разрешаем доступ к H2 консоли
-                                .requestMatchers("/public/**").permitAll() // Разрешаем доступ к публичным URL
-                                .anyRequest().permitAll() // Разрешаем доступ ко всем остальным URL
-                )
-                .logout(logout ->
-                        logout.permitAll() // Разрешаем доступ к logout
-                )
-                .headers(headers -> headers
-                        .addHeaderWriter(new XFrameOptionsHeaderWriter(XFrameOptionsHeaderWriter.XFrameOptionsMode.SAMEORIGIN)) // Разрешаем использование фреймов
-                );
+                .csrf(csrf -> csrf.disable()) // Новая версия метода csrf().disable()
+                .authorizeHttpRequests(auth -> auth
+                        .anyRequest().authenticated())
+                .httpBasic(withDefaults()); // Новая версия метода httpBasic()
 
         return http.build();
     }
@@ -38,6 +32,7 @@ public class SecurityConfig {
         return new BCryptPasswordEncoder();
     }
 }
+
 
 
 

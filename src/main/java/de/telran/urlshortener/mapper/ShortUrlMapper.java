@@ -10,8 +10,10 @@ public class ShortUrlMapper {
                 .id(shortUrl.getId())
                 .shortKey(shortUrl.getShortKey())
                 .fullUrl(shortUrl.getFullUrl())
+                .clickCount(shortUrl.getClickCount())
                 .build();
     }
 }
+
 
 

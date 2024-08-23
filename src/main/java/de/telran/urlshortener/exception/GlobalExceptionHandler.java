@@ -8,25 +8,26 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
-    @ExceptionHandler(RoleException.RoleAlreadyExistsException.class)
-    public ResponseEntity<String> handleRoleAlreadyExistsException(RoleException.RoleAlreadyExistsException ex) {
-        return new ResponseEntity<>(ex.getMessage(), HttpStatus.CONFLICT);
-    }
-
-    @ExceptionHandler(ShortUrlNotFoundException.class)
-    public ResponseEntity<String> handleShortUrlNotFoundException(ShortUrlNotFoundException ex) {
-        return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<String> handleGlobalException(Exception ex) {
+        return new ResponseEntity<>(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
     @ExceptionHandler(UserNameAlreadyTakenException.class)
     public ResponseEntity<String> handleUserNameAlreadyTakenException(UserNameAlreadyTakenException ex) {
-        return new ResponseEntity<>(ex.getMessage(), HttpStatus.CONFLICT);
+        return new ResponseEntity<>(ex.getMessage(), HttpStatus.BAD_REQUEST);
     }
 
-    @ExceptionHandler(RuntimeException.class)
-    public ResponseEntity<String> handleRuntimeException(RuntimeException ex) {
+    @ExceptionHandler(RoleException.class)
+    public ResponseEntity<String> handleRoleException(RoleException ex) {
+        if (ex instanceof RoleException.RoleAlreadyExistsException) {
+            return new ResponseEntity<>(ex.getMessage(), HttpStatus.CONFLICT);
+        } else if (ex instanceof RoleException.RoleNotFoundException) {
+            return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
+        }
         return new ResponseEntity<>(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }
+
 
 

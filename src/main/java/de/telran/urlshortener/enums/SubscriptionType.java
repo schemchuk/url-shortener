@@ -1,5 +1,5 @@
 package de.telran.urlshortener.enums;
 
 public enum SubscriptionType {
-    TRIAL, PAID
+    ADMIN, TRIAL, PAID
 }

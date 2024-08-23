@@ -7,5 +7,5 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 public interface SubscriptionRepository extends JpaRepository<Subscription, Long> {
-    List<Subscription> findByEndDateBefore(LocalDateTime now);
+    List<Subscription> findByEndDateBefore(LocalDateTime date);
 }

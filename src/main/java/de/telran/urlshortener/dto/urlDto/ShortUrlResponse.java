@@ -12,6 +12,6 @@ public class ShortUrlResponse {
     private String shortKey;
     private String fullUrl;
     private Long clickCount;
-    private String creationDate;
 }
+
 

@@ -2,7 +2,9 @@ package de.telran.urlshortener.controller;
 
 import de.telran.urlshortener.dto.userDto.UserRequest;
 import de.telran.urlshortener.dto.userDto.UserResponse;
+import de.telran.urlshortener.entity.User;
 import de.telran.urlshortener.service.UserService;
+import de.telran.urlshortener.mapper.UserMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,19 +19,27 @@ public class UserController {
 
     @PostMapping
     public ResponseEntity<UserResponse> createUser(@RequestBody UserRequest userRequest) {
-        UserResponse response = userService.createUser(userRequest);
+        User user = userService.createUser(userRequest.getUserName(), userRequest.getEmail(), userRequest.getPassword());
+        UserResponse response = UserMapper.mapToUserResponse(user);
         return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<UserResponse> getUserById(@PathVariable Long id) {
-        UserResponse response = userService.getUserById(id);
+        User user = userService.getUserById(id);
+        UserResponse response = UserMapper.mapToUserResponse(user);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<UserResponse> updateUser(@PathVariable Long id, @RequestBody UserRequest userRequest) {
-        UserResponse response = userService.updateUser(id, userRequest);
+        User userToUpdate = User.builder()
+                .userName(userRequest.getUserName())
+                .email(userRequest.getEmail())
+                .password(userRequest.getPassword()) // Consider updating password only if provided
+                .build();
+        User updatedUser = userService.updateUser(id, userToUpdate);
+        UserResponse response = UserMapper.mapToUserResponse(updatedUser);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 

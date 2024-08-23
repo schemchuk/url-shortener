@@ -1,88 +1,72 @@
 package de.telran.urlshortener.service.impl;
 
-import de.telran.urlshortener.dto.userDto.UserRequest;
-import de.telran.urlshortener.dto.userDto.UserResponse;
-import de.telran.urlshortener.entity.Role;
 import de.telran.urlshortener.entity.User;
-import de.telran.urlshortener.mapper.UserMapper;
-import de.telran.urlshortener.repository.RoleRepository;
+import de.telran.urlshortener.exception.UserNameAlreadyTakenException;
 import de.telran.urlshortener.repository.UserRepository;
 import de.telran.urlshortener.service.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-
-import java.util.HashSet;
-import java.util.Optional;
-import java.util.Set;
 
 @Service
 @RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
-    private final RoleRepository roleRepository;
+    private final PasswordEncoder passwordEncoder;
 
     @Override
-    public UserResponse createUser(UserRequest userRequest) {
+    public User createUser(String userName, String email, String password) {
+        validateEmail(email);
+        validatePassword(password);
+
         User user = User.builder()
-                .userName(userRequest.getUserName())
-                .email(userRequest.getEmail())
-                .password(userRequest.getPassword())
-                .roles(new HashSet<>()) // Инициализация ролей
+                .userName(userName)
+                .email(email)
+                .password(passwordEncoder.encode(password))
                 .build();
 
-        addRolesToUser(user, userRequest.getRoles());
+        // Auto-assign TRIAL role and subscription here if needed
 
-        User savedUser = userRepository.save(user);
-        return UserMapper.mapToUserResponse(savedUser);
+        return userRepository.save(user);
     }
 
     @Override
-    public UserResponse getUserById(Long userId) {
-        User user = userRepository.findById(userId).orElseThrow(() -> new RuntimeException("User not found"));
-        return UserMapper.mapToUserResponse(user);
+    public User updateUser(Long id, User user) {
+        User existingUser = userRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("User not found with id: " + id));
+
+        existingUser.setUserName(user.getUserName());
+        existingUser.setEmail(user.getEmail());
+        if (user.getPassword() != null) { // Handle password update
+            existingUser.setPassword(passwordEncoder.encode(user.getPassword()));
+        }
+
+        return userRepository.save(existingUser);
     }
 
     @Override
-    public void deleteUser(Long userId) {
-        userRepository.deleteById(userId);
+    public void deleteUser(Long id) {
+        User user = userRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("User not found with id: " + id));
+        userRepository.delete(user);
     }
 
     @Override
-    public UserResponse updateUser(Long userId, UserRequest userRequest) {
-        User user = userRepository.findById(userId).orElseThrow(() -> new RuntimeException("User not found"));
-        user.setUserName(userRequest.getUserName());
-        user.setEmail(userRequest.getEmail());
-
-        updateUserRoles(user, userRequest.getRoles());
-
-        User updatedUser = userRepository.save(user);
-        return UserMapper.mapToUserResponse(updatedUser);
+    public User getUserById(Long id) {
+        return userRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("User not found with id: " + id));
     }
 
-    private void addRolesToUser(User user, Set<String> roleNames) {
-        if (roleNames != null) {
-            for (String roleName : roleNames) {
-                Role role = roleRepository.findByName(Role.RoleName.valueOf(roleName))
-                        .orElseThrow(() -> new RuntimeException("Role not found: " + roleName));
-                user.addRole(role);
-            }
+    private void validateEmail(String email) {
+        if (userRepository.existsByEmail(email)) {
+            throw new UserNameAlreadyTakenException("Email already in use");
         }
     }
 
-    private void updateUserRoles(User user, Set<String> roleNames) {
-        // Убедимся, что коллекция инициализирована
-        if (user.getRoles() == null) {
-            user.setRoles(new HashSet<>());
-        } else {
-            user.getRoles().clear(); // Очищаем существующие роли
+    private void validatePassword(String password) {
+        if (password.length() < 8) {
+            throw new RuntimeException("Password must be at least 8 characters long");
         }
-
-        addRolesToUser(user, roleNames);
     }
 }
-
-
-
-
-

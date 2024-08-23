@@ -7,13 +7,13 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Data
+@Table(name = "users")
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Table(name = "users")
 public class User {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -21,11 +21,11 @@ public class User {
     @Column(nullable = false, unique = true)
     private String userName;
 
-    @Column(nullable = false)
-    private String password;
-
     @Column(nullable = false, unique = true)
     private String email;
+
+    @Column(nullable = false)
+    private String password;
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
@@ -36,24 +36,12 @@ public class User {
     @Builder.Default
     private Set<Role> roles = new HashSet<>();
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @Builder.Default
     private Set<ShortUrl> shortUrls = new HashSet<>();
 
-    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Subscription subscription;
-
-    // Конструктор для инициализации имени пользователя, пароля и электронной почты
-    public User(String userName, String password, String email) {
-        this.userName = userName;
-        this.password = password;
-        this.email = email;
-    }
-
-    // Методы для безопасного получения и изменения ролей
-    public Set<Role> getRoles() {
-        return roles;
-    }
 
     public void addRole(Role role) {
         if (this.roles == null) {
@@ -62,14 +50,9 @@ public class User {
         this.roles.add(role);
     }
 
-
     public void removeRole(Role role) {
-        roles.remove(role);
+        if (this.roles != null) {
+            this.roles.remove(role);
+        }
     }
 }
-
-
-
-
-
-

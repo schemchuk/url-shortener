@@ -3,15 +3,13 @@ package de.telran.urlshortener.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.HashSet;
-import java.util.Set;
-
 @Entity
-@Data
+@Table(name = "roles")
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Table(name = "roles")
 public class Role {
 
     @Id
@@ -22,12 +20,11 @@ public class Role {
     @Column(nullable = false, unique = true)
     private RoleName name;
 
-    @ManyToMany(mappedBy = "roles", fetch = FetchType.EAGER)
-    private Set<User> users = new HashSet<>();
-
     public enum RoleName {
-        USER, ADMIN
+        ADMIN, TRIAL, PAID
     }
 }
+
+
 
 

@@ -22,13 +22,21 @@ public class AdminInitializer {
             Role adminRole = roleRepository.findByName(Role.RoleName.ADMIN)
                     .orElseThrow(() -> new RuntimeException("Admin role not found"));
 
-            User adminUser = new User("admin", "admin", "admin@example.com");
-            adminUser.addRole(adminRole);
+            if (!userRepository.existsByEmail("admin@example.com")) {
+                User adminUser = User.builder()
+                        .userName("admin")
+                        .email("admin@example.com")
+                        .password("admin") // Убедитесь, что пароль будет закодирован
+                        .build();
+                adminUser.addRole(adminRole);
 
-            userRepository.save(adminUser);
+                userRepository.save(adminUser);
+            }
         };
     }
 }
+
+
 
 
 

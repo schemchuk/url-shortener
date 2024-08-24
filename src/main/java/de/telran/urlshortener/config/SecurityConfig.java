@@ -19,10 +19,10 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                .csrf(csrf -> csrf.disable()) // Новая версия метода csrf().disable()
+                .csrf(csrf -> csrf.disable()) // Отключение CSRF защиты
                 .authorizeHttpRequests(auth -> auth
-                        .anyRequest().authenticated())
-                .httpBasic(withDefaults()); // Новая версия метода httpBasic()
+                        .anyRequest().permitAll()) // Разрешение доступа ко всем запросам без аутентификации
+                .httpBasic(withDefaults()); // Оставляем HTTP Basic аутентификацию, если она используется
 
         return http.build();
     }
@@ -32,7 +32,5 @@ public class SecurityConfig {
         return new BCryptPasswordEncoder();
     }
 }
-
-
 
 

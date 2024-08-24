@@ -3,7 +3,8 @@ package de.telran.urlshortener.scheduler;
 import de.telran.urlshortener.entity.Subscription;
 import de.telran.urlshortener.repository.SubscriptionRepository;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
@@ -12,8 +13,9 @@ import java.util.List;
 
 @Component
 @RequiredArgsConstructor
-@Slf4j
 public class SubscriptionScheduler {
+
+    private static final Logger log = LogManager.getLogger(SubscriptionScheduler.class);
 
     private final SubscriptionRepository subscriptionRepository;
 
@@ -33,4 +35,6 @@ public class SubscriptionScheduler {
         }
     }
 }
+
+
 

@@ -1,17 +1,37 @@
 package de.telran.urlshortener.mapper;
 
+import de.telran.urlshortener.dto.RoleDto.RoleRequest;
 import de.telran.urlshortener.dto.RoleDto.RoleResponse;
 import de.telran.urlshortener.entity.Role;
+import org.springframework.stereotype.Component;
 
+@Component
 public class RoleMapper {
 
-    public static RoleResponse toRoleResponse(Role role) {
-        return RoleResponse.builder()
-                .id(role.getId())
-                .roleName(role.getName().name())  // Получаем строковое значение из enum RoleName
+    public Role toRole(RoleResponse roleResponse) {
+        return Role.builder()
+                .id(roleResponse.getId())
+                .name(Role.RoleName.valueOf(roleResponse.getRoleName().toUpperCase()))
                 .build();
     }
+
+    public RoleResponse toRoleResponse(Role role) {
+        return new RoleResponse(role.getId(), role.getName().name());
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

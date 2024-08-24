@@ -4,18 +4,20 @@
         <Property name="LOG_PATTERN">
             %d{yyyy-MM-dd HH:mm:ss.SSS} %5p --- [%15.15t] %-40.40c{1.} : %m%n%ex
         </Property>
+        <!-- Убедитесь, что путь к папке 'logs' правильный -->
+        <Property name="LOG_DIR">/home/volodymyr/url-shortener/logs</Property>
     </Properties>
     <Appenders>
         <Console name="ConsoleAppender" target="SYSTEM_OUT" follow="true">
             <PatternLayout pattern="${LOG_PATTERN}"/>
         </Console>
-        <RollingFile name="FileAppender" fileName="logs/url-shortener.log"
-                     filePattern="logs/libraryLogs-%d{yyyy-MM-dd}-%i.log">
+        <RollingFile name="FileAppender" fileName="${LOG_DIR}/url-shortener.log"
+                     filePattern="${LOG_DIR}/libraryLogs-%d{yyyy-MM-dd}-%i.log">
             <PatternLayout>
                 <Pattern>${LOG_PATTERN}</Pattern>
             </PatternLayout>
             <Policies>
-                <SizeBasedTriggeringPolicy size="1MB" />
+                <SizeBasedTriggeringPolicy size="10MB" />
             </Policies>
             <DefaultRolloverStrategy max="10"/>
         </RollingFile>

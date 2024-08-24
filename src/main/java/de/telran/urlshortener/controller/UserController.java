@@ -3,11 +3,12 @@ package de.telran.urlshortener.controller;
 import de.telran.urlshortener.dto.userDto.UserRequest;
 import de.telran.urlshortener.dto.userDto.UserResponse;
 import de.telran.urlshortener.entity.User;
-import de.telran.urlshortener.service.UserService;
 import de.telran.urlshortener.mapper.UserMapper;
+import de.telran.urlshortener.service.UserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -15,39 +16,46 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 public class UserController {
 
+    private static final Logger log = LogManager.getLogger(UserController.class);
+
     private final UserService userService;
+    private final UserMapper userMapper;
 
     @PostMapping
-    public ResponseEntity<UserResponse> createUser(@RequestBody UserRequest userRequest) {
-        User user = userService.createUser(userRequest.getUserName(), userRequest.getEmail(), userRequest.getPassword());
-        UserResponse response = UserMapper.mapToUserResponse(user);
-        return new ResponseEntity<>(response, HttpStatus.CREATED);
+    public UserResponse createUser(@RequestBody UserRequest userRequest) {
+        log.info("Received request to create user with username: {}", userRequest.getUserName());
+        User user = userMapper.mapToUser(userRequest);
+        User createdUser = userService.createUser(user.getUserName(), user.getEmail(), user.getPassword());
+        log.info("User created successfully with ID: {}", createdUser.getId());
+        return userMapper.mapToUserResponse(createdUser);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<UserResponse> getUserById(@PathVariable Long id) {
+    public UserResponse getUserById(@PathVariable Long id) {
+        log.info("Received request to get user with ID: {}", id);
         User user = userService.getUserById(id);
-        UserResponse response = UserMapper.mapToUserResponse(user);
-        return new ResponseEntity<>(response, HttpStatus.OK);
+        log.info("User fetched successfully with ID: {}", id);
+        return userMapper.mapToUserResponse(user);
     }
 
+    @PreAuthorize("hasRole('ADMIN')")  // Только для пользователей с ролью ADMIN
     @PutMapping("/{id}")
-    public ResponseEntity<UserResponse> updateUser(@PathVariable Long id, @RequestBody UserRequest userRequest) {
-        User userToUpdate = User.builder()
-                .userName(userRequest.getUserName())
-                .email(userRequest.getEmail())
-                .password(userRequest.getPassword()) // Consider updating password only if provided
-                .build();
-        User updatedUser = userService.updateUser(id, userToUpdate);
-        UserResponse response = UserMapper.mapToUserResponse(updatedUser);
-        return new ResponseEntity<>(response, HttpStatus.OK);
+    public UserResponse updateUser(@PathVariable Long id, @RequestBody UserRequest userRequest) {
+        log.info("Received request to update user with ID: {}", id);
+        User user = userMapper.mapToUser(userRequest);
+        User updatedUser = userService.updateUser(id, user);
+        log.info("User updated successfully with ID: {}", id);
+        return userMapper.mapToUserResponse(updatedUser);
     }
 
+    @PreAuthorize("hasRole('ADMIN')")  // Только для пользователей с ролью ADMIN
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteUser(@PathVariable Long id) {
+    public void deleteUser(@PathVariable Long id) {
+        log.info("Received request to delete user with ID: {}", id);
         userService.deleteUser(id);
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        log.info("User deleted successfully with ID: {}", id);
     }
 }
+
 
 

@@ -10,6 +10,8 @@ import de.telran.urlshortener.repository.ShortUrlRepository;
 import de.telran.urlshortener.repository.UserRepository;
 import de.telran.urlshortener.service.ShortUrlService;
 import lombok.RequiredArgsConstructor;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
 import org.springframework.stereotype.Service;
 
 import java.security.SecureRandom;
@@ -18,52 +20,76 @@ import java.security.SecureRandom;
 @RequiredArgsConstructor
 public class ShortUrlServiceImpl implements ShortUrlService {
 
+    private static final Logger log = LogManager.getLogger(ShortUrlServiceImpl.class);
+
     private final ShortUrlRepository shortUrlRepository;
     private final UserRepository userRepository;
     private final ShortUrlConfig shortUrlConfig;
-    private final SecureRandom random = new SecureRandom(); // Используем SecureRandom для генерации случайных чисел
+    private final SecureRandom random = new SecureRandom();
 
     @Override
     public ShortUrlResponse createShortUrl(ShortUrlRequest request) {
+        log.info("Creating short URL for user email: {}", request.getEmail());
         User user = userRepository.findByEmail(request.getEmail())
-                .orElseThrow(() -> new RuntimeException("User not found with email: " + request.getEmail()));
+                .orElseThrow(() -> {
+                    log.error("User not found with email: {}", request.getEmail());
+                    return new RuntimeException("User not found with email: " + request.getEmail());
+                });
 
-        String shortKey = generateShortKey(); // Генерация короткого ключа
+        String shortKey = generateShortKey();
+        log.info("Generated short key: {}", shortKey);
 
         ShortUrl shortUrl = ShortUrl.builder()
                 .shortKey(shortKey)
                 .fullUrl(request.getFullUrl())
-                .clickCount(0L) // Инициализация счетчика кликов
-                .user(user) // Установка связи с пользователем
+                .clickCount(0L)
+                .user(user)
                 .build();
 
         ShortUrl savedShortUrl = shortUrlRepository.save(shortUrl);
+        log.info("Short URL created with ID: {}", savedShortUrl.getId());
         return ShortUrlMapper.toShortUrlResponse(savedShortUrl);
     }
 
     @Override
     public ShortUrlResponse getShortUrlByKey(String shortKey) {
+        log.info("Fetching short URL with key: {}", shortKey);
         ShortUrl shortUrl = shortUrlRepository.findByShortKey(shortKey)
-                .orElseThrow(() -> new RuntimeException("Short URL not found with key: " + shortKey));
+                .orElseThrow(() -> {
+                    log.error("Short URL not found with key: {}", shortKey);
+                    return new RuntimeException("Short URL not found with key: " + shortKey);
+                });
+        log.info("Short URL fetched successfully with key: {}", shortKey);
         return ShortUrlMapper.toShortUrlResponse(shortUrl);
     }
 
     @Override
     public void incrementClickCount(String shortKey) {
+        log.info("Incrementing click count for short URL with key: {}", shortKey);
         ShortUrl shortUrl = shortUrlRepository.findByShortKey(shortKey)
-                .orElseThrow(() -> new RuntimeException("Short URL not found with key: " + shortKey));
+                .orElseThrow(() -> {
+                    log.error("Short URL not found with key: {}", shortKey);
+                    return new RuntimeException("Short URL not found with key: " + shortKey);
+                });
         shortUrl.setClickCount(shortUrl.getClickCount() + 1);
         shortUrlRepository.save(shortUrl);
+        log.info("Click count incremented successfully for short URL with key: {}", shortKey);
     }
 
     @Override
     public void deleteShortUrl(Long id) {
+        log.info("Attempting to delete short URL with ID: {}", id);
         ShortUrl shortUrl = shortUrlRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Short URL not found with id: " + id));
+                .orElseThrow(() -> {
+                    log.error("Short URL not found with ID: {}", id);
+                    return new RuntimeException("Short URL not found with ID: " + id);
+                });
         shortUrlRepository.delete(shortUrl);
+        log.info("Short URL with ID: {} deleted successfully", id);
     }
 
     private String generateShortKey() {
+        log.info("Generating short key with length: {}", shortUrlConfig.getKeyLength());
         StringBuilder key = new StringBuilder(shortUrlConfig.getKeyLength());
         String allowedCharacters = shortUrlConfig.getAllowedCharacters();
         int length = allowedCharacters.length();
@@ -73,9 +99,12 @@ public class ShortUrlServiceImpl implements ShortUrlService {
             key.append(allowedCharacters.charAt(index));
         }
 
+        log.info("Generated short key: {}", key);
         return key.toString();
     }
 }
+
+
 
 
 

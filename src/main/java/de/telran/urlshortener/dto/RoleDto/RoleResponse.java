@@ -1,16 +1,21 @@
 package de.telran.urlshortener.dto.RoleDto;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import java.time.LocalDateTime;
 
 @Getter
-@Builder
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class RoleResponse {
     private Long id;
-    private String roleName; // Должно быть строкой, соответствующей RoleName в сущности
+    private String roleName;
+    private LocalDateTime expiryDate;
 }
+
+
 

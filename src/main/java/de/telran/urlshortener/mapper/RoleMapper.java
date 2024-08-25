@@ -12,13 +12,15 @@ public class RoleMapper {
         return Role.builder()
                 .id(roleResponse.getId())
                 .name(Role.RoleName.valueOf(roleResponse.getRoleName().toUpperCase()))
+                .expiryDate(roleResponse.getExpiryDate())
                 .build();
     }
 
     public RoleResponse toRoleResponse(Role role) {
-        return new RoleResponse(role.getId(), role.getName().name());
+        return new RoleResponse(role.getId(), role.getName().name(), role.getExpiryDate());
     }
 }
+
 
 
 

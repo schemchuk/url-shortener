@@ -10,5 +10,6 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class RoleRequest {
-    private String roleName; // Должно быть строкой, соответствующей RoleName в сущности
+    private String roleName;
 }
+

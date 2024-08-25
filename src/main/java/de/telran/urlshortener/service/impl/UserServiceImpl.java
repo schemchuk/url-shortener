@@ -9,8 +9,8 @@ import de.telran.urlshortener.repository.UserRepository;
 import de.telran.urlshortener.service.RoleService;
 import de.telran.urlshortener.service.UserService;
 import lombok.RequiredArgsConstructor;
-import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -97,5 +97,3 @@ public class UserServiceImpl implements UserService {
         }
     }
 }
-
-

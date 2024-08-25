@@ -10,6 +10,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDateTime;
+
 @Component
 @RequiredArgsConstructor
 public class AdminInitializer {
@@ -22,9 +24,9 @@ public class AdminInitializer {
     public ApplicationRunner initializer() {
         return args -> {
             // Создание ролей, если они отсутствуют
-            createRoleIfNotExists(Role.RoleName.ADMIN);
-            createRoleIfNotExists(Role.RoleName.TRIAL);
-            createRoleIfNotExists(Role.RoleName.PAID);
+            createRoleIfNotExists(Role.RoleName.ADMIN, null);  // Устанавливаем null или задаем конкретное значение
+            createRoleIfNotExists(Role.RoleName.TRIAL, LocalDateTime.now().plusMonths(1));  // Пример с конкретной датой
+            createRoleIfNotExists(Role.RoleName.PAID, LocalDateTime.now().plusYears(1));  // Пример с конкретной датой
 
             // Поиск ролей
             Role adminRole = roleRepository.findByName(Role.RoleName.ADMIN)
@@ -55,15 +57,8 @@ public class AdminInitializer {
         };
     }
 
-    private void createRoleIfNotExists(Role.RoleName roleName) {
+    private void createRoleIfNotExists(Role.RoleName roleName, LocalDateTime expiryDate) {
         roleRepository.findByName(roleName)
-                .orElseGet(() -> roleRepository.save(new Role(null, roleName)));
+                .orElseGet(() -> roleRepository.save(new Role(null, roleName, expiryDate)));
     }
 }
-
-
-
-
-
-
-

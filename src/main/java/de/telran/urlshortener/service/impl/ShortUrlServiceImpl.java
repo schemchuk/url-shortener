@@ -61,6 +61,9 @@ public class ShortUrlServiceImpl implements ShortUrlService {
                     log.error("Short URL not found with key: {}", shortKey);
                     return new RuntimeException("Short URL not found with key: " + shortKey);
                 });
+
+        incrementClickCount(shortKey); // UPDATED: Увеличиваем счетчик кликов при доступе к URL
+
         log.info("Short URL fetched successfully with key: {}", shortKey);
         return ShortUrlMapper.toShortUrlResponse(shortUrl);
     }
@@ -73,8 +76,8 @@ public class ShortUrlServiceImpl implements ShortUrlService {
                     log.error("Short URL not found with key: {}", shortKey);
                     return new RuntimeException("Short URL not found with key: " + shortKey);
                 });
-        shortUrl.incrementClickCount();
-        shortUrlRepository.save(shortUrl);
+        shortUrl.incrementClickCount(); // UPDATED: Увеличиваем счетчик кликов
+        shortUrlRepository.save(shortUrl); // UPDATED: Сохраняем обновленный короткий URL
         log.info("Click count incremented successfully for short URL with key: {}", shortKey);
     }
 
@@ -105,10 +108,3 @@ public class ShortUrlServiceImpl implements ShortUrlService {
         return key.toString();
     }
 }
-
-
-
-
-
-
-

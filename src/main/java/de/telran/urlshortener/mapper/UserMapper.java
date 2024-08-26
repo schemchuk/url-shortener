@@ -14,6 +14,7 @@ public class UserMapper {
     @Autowired
     private RoleMapper roleMapper;
 
+    // Обновленный метод для маппинга User в UserResponse без поля shortUrls
     public UserResponse mapToUserResponse(User user) {
         return UserResponse.builder()
                 .id(user.getId())
@@ -22,9 +23,7 @@ public class UserMapper {
                 .roles(user.getRoles().stream()
                         .map(roleMapper::toRoleResponse) // Используем нестатический метод из RoleMapper
                         .collect(Collectors.toSet()))
-                .shortUrls(user.getShortUrls().stream()
-                        .map(ShortUrlMapper::toShortUrlResponse)
-                        .collect(Collectors.toSet()))
+                // Удалено поле shortUrls
                 .build();
     }
 
@@ -36,6 +35,7 @@ public class UserMapper {
                 .build();
     }
 }
+
 
 
 

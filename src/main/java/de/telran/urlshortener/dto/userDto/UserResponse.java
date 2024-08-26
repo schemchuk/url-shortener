@@ -16,7 +16,6 @@ public class UserResponse {
     private String userName;
     private String email;
     private Set<RoleResponse> roles;
-    private Set<ShortUrlResponse> shortUrls;
 }
 
 

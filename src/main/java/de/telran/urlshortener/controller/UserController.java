@@ -56,6 +56,3 @@ public class UserController {
         log.info("User deleted successfully with ID: {}", id);
     }
 }
-
-
-

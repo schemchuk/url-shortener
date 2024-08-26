@@ -4,8 +4,8 @@ import de.telran.urlshortener.dto.urlDto.ShortUrlRequest;
 import de.telran.urlshortener.dto.urlDto.ShortUrlResponse;
 import de.telran.urlshortener.service.ShortUrlService;
 import lombok.RequiredArgsConstructor;
-import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -43,7 +43,3 @@ public class ShortUrlController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }
-
-
-
-

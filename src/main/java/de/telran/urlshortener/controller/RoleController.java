@@ -20,11 +20,4 @@ public class RoleController {
         RoleResponse roleResponse = roleService.getRoleByName(roleName);
         return ResponseEntity.ok(roleResponse);
     }
-
-    @PreAuthorize("hasRole('ADMIN')")
-    @PutMapping("/{id}")
-    public ResponseEntity<RoleResponse> updateRole(@PathVariable Long id, @RequestBody RoleRequest roleRequest) {
-        RoleResponse roleResponse = roleService.updateRole(id, roleRequest);
-        return ResponseEntity.ok(roleResponse);
-    }
 }

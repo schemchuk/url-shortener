@@ -38,7 +38,7 @@ public class UserController {
         return userMapper.mapToUserResponse(user);
     }
 
-    @PreAuthorize("hasRole('ADMIN')")  // Только для пользователей с ролью ADMIN
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/{id}")
     public UserResponse updateUser(@PathVariable Long id, @RequestBody UserRequest userRequest) {
         log.info("Received request to update user with ID: {}", id);
@@ -48,11 +48,20 @@ public class UserController {
         return userMapper.mapToUserResponse(updatedUser);
     }
 
-    @PreAuthorize("hasRole('ADMIN')")  // Только для пользователей с ролью ADMIN
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/{id}")
     public void deleteUser(@PathVariable Long id) {
         log.info("Received request to delete user with ID: {}", id);
         userService.deleteUser(id);
         log.info("User deleted successfully with ID: {}", id);
+    }
+
+    @PreAuthorize("hasRole('ADMIN')")
+    @PatchMapping("/{id}/role")
+    public UserResponse changeUserRole(@PathVariable Long id, @RequestParam String newRole) {
+        log.info("Received request to change role for user with ID: {} to {}", id, newRole);
+        User updatedUser = userService.changeUserRole(id, newRole);
+        log.info("User role updated successfully with ID: {}", id);
+        return userMapper.mapToUserResponse(updatedUser);
     }
 }

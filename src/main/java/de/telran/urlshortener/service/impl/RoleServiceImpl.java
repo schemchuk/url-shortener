@@ -38,26 +38,6 @@ public class RoleServiceImpl implements RoleService {
         return roleMapper.toRoleResponse(role);
     }
 
-    @Override
-    public RoleResponse updateRole(Long id, RoleRequest roleRequest) {
-        Role existingRole = roleRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Role not found with id: " + id));
-
-        Role.RoleName newRoleName;
-        try {
-            newRoleName = Role.RoleName.valueOf(roleRequest.getRoleName().toUpperCase());
-        } catch (IllegalArgumentException e) {
-            log.error("Role name {} is invalid", roleRequest.getRoleName());
-            throw new RuntimeException("Invalid role name: " + roleRequest.getRoleName());
-        }
-
-        existingRole.setName(newRoleName);
-        existingRole.setExpiryDate(calculateExpiryDate(newRoleName)); // Установка даты окончания действия
-
-        Role updatedRole = roleRepository.save(existingRole);
-        return roleMapper.toRoleResponse(updatedRole);
-    }
-
     private LocalDateTime calculateExpiryDate(Role.RoleName roleName) {
         LocalDateTime now = LocalDateTime.now();
         switch (roleName) {

@@ -2,11 +2,15 @@ package de.telran.urlshortener.service.impl;
 
 import de.telran.urlshortener.dto.RoleDto.RoleResponse;
 import de.telran.urlshortener.entity.Role;
+import de.telran.urlshortener.entity.Subscription;
 import de.telran.urlshortener.entity.User;
+import de.telran.urlshortener.enums.SubscriptionType;
 import de.telran.urlshortener.exception.UserNameAlreadyTakenException;
 import de.telran.urlshortener.mapper.RoleMapper;
+import de.telran.urlshortener.mapper.UserMapper;
 import de.telran.urlshortener.repository.UserRepository;
 import de.telran.urlshortener.service.RoleService;
+import de.telran.urlshortener.service.SubscriptionService;
 import de.telran.urlshortener.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.apache.logging.log4j.LogManager;
@@ -24,6 +28,7 @@ public class UserServiceImpl implements UserService {
     private final PasswordEncoder passwordEncoder;
     private final RoleService roleService;
     private final RoleMapper roleMapper;
+    private final SubscriptionService subscriptionService;
 
     @Override
     public User createUser(String userName, String email, String password) {
@@ -37,13 +42,22 @@ public class UserServiceImpl implements UserService {
                 .password(passwordEncoder.encode(password))
                 .build();
 
+        // Сначала сохранить пользователя
+        User savedUser = userRepository.save(user);
+
         // Fetch the TRIAL role and assign it to the user
         RoleResponse trialRoleResponse = roleService.getRoleByName("TRIAL");
-        Role trialRole = roleMapper.toRole(trialRoleResponse);  // Convert RoleResponse to Role
+        Role trialRole = roleMapper.toRole(trialRoleResponse);
 
-        user.addRole(trialRole);
+        savedUser.addRole(trialRole); // Использовать сохраненного пользователя
 
-        User savedUser = userRepository.save(user);
+        // Создание подписки для пользователя
+        Subscription subscription = Subscription.builder()
+                .user(savedUser)  // Использовать сохраненного пользователя
+                .subscriptionType(SubscriptionType.TRIAL)
+                .build();
+        subscriptionService.createSubscription(subscription);  // Сохранение подписки
+
         log.info("User created successfully with ID: {}", savedUser.getId());
         return savedUser;
     }
@@ -83,6 +97,39 @@ public class UserServiceImpl implements UserService {
         return user;
     }
 
+    @Override
+    public User changeUserRole(Long userId, String newRoleName) {
+        log.info("Attempting to change role for user with ID: {} to {}", userId, newRoleName);
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new RuntimeException("User not found with id: " + userId));
+
+        RoleResponse newRoleResponse = roleService.getRoleByName(newRoleName);
+        Role newRole = roleMapper.toRole(newRoleResponse);
+
+        // Remove all existing roles and add the new role
+        user.getRoles().clear();
+        user.addRole(newRole);
+
+        // Update user subscription based on the new role
+        SubscriptionType newSubscriptionType = SubscriptionType.valueOf(newRoleName);
+        Subscription existingSubscription = subscriptionService.getSubscriptionByUser(user);
+
+        if (existingSubscription != null) {
+            existingSubscription.setSubscriptionType(newSubscriptionType);
+            subscriptionService.updateSubscription(existingSubscription);
+        } else {
+            Subscription newSubscription = Subscription.builder()
+                    .user(user)
+                    .subscriptionType(newSubscriptionType)
+                    .build();
+            subscriptionService.createSubscription(newSubscription);
+        }
+
+        User updatedUser = userRepository.save(user);
+        log.info("User role updated successfully with ID: {}", updatedUser.getId());
+        return updatedUser;
+    }
+
     private void validateEmail(String email) {
         if (userRepository.existsByEmail(email)) {
             log.warn("Attempted to create user with already existing email: {}", email);
@@ -97,5 +144,3 @@ public class UserServiceImpl implements UserService {
         }
     }
 }
-
-

@@ -82,6 +82,14 @@ public class ShortUrlServiceImpl implements ShortUrlService {
     }
 
     @Override
+    public String getFullUrlByKey(String shortKey) {
+        ShortUrl shortUrl = shortUrlRepository.findByShortKey(shortKey)
+                .orElseThrow(() -> new RuntimeException("Short URL not found with key: " + shortKey));
+        return shortUrl.getFullUrl();
+    }
+
+
+    @Override
     public void deleteShortUrl(Long id) {
         log.info("Attempting to delete short URL with ID: {}", id);
         ShortUrl shortUrl = shortUrlRepository.findById(id)

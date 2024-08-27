@@ -6,6 +6,7 @@ import de.telran.urlshortener.dto.urlDto.ShortUrlResponse;
 public interface ShortUrlService {
     ShortUrlResponse createShortUrl(ShortUrlRequest request);
     ShortUrlResponse getShortUrlByKey(String shortKey);
+    String getFullUrlByKey(String shortKey);
     void incrementClickCount(String shortKey);
     void deleteShortUrl(Long id);
 }

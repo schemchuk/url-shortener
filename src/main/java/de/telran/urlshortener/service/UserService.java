@@ -4,11 +4,14 @@ import de.telran.urlshortener.dto.RoleDto.RoleResponse;
 import de.telran.urlshortener.entity.Role;
 import de.telran.urlshortener.entity.Subscription;
 import de.telran.urlshortener.entity.User;
-import de.telran.urlshortener.enums.SubscriptionType;
+import de.telran.urlshortener.entity.enums.SubscriptionType;
+import de.telran.urlshortener.exception.EmailValidationException;
+import de.telran.urlshortener.exception.PasswordValidationException;
 import de.telran.urlshortener.exception.UserNameAlreadyTakenException;
 import de.telran.urlshortener.mapper.RoleMapper;
-import de.telran.urlshortener.mapper.UserMapper;
 import de.telran.urlshortener.repository.UserRepository;
+import de.telran.urlshortener.validator.EmailValidator;
+import de.telran.urlshortener.validator.PasswordValidator;
 import lombok.RequiredArgsConstructor;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -29,8 +32,13 @@ public class UserService {
 
     public User createUser(String userName, String email, String password) {
         log.info("Attempting to create user with username: {} and email: {}", userName, email);
-        validateEmail(email);
-        validatePassword(password);
+        EmailValidator.validate(email);
+        PasswordValidator.validate(password);
+
+        if (userRepository.existsByEmail(email)) {
+            log.warn("Attempted to create user with already existing email: {}", email);
+            throw new UserNameAlreadyTakenException("Email already in use");
+        }
 
         User user = User.builder()
                 .userName(userName)
@@ -63,6 +71,7 @@ public class UserService {
         existingUser.setUserName(user.getUserName());
         existingUser.setEmail(user.getEmail());
         if (user.getPassword() != null) {
+            PasswordValidator.validate(user.getPassword());
             existingUser.setPassword(passwordEncoder.encode(user.getPassword()));
         }
 
@@ -116,18 +125,5 @@ public class UserService {
         log.info("User role updated successfully with ID: {}", updatedUser.getId());
         return updatedUser;
     }
-
-    private void validateEmail(String email) {
-        if (userRepository.existsByEmail(email)) {
-            log.warn("Attempted to create user with already existing email: {}", email);
-            throw new UserNameAlreadyTakenException("Email already in use");
-        }
-    }
-
-    private void validatePassword(String password) {
-        if (password.length() < 8) {
-            log.warn("Attempted to create user with weak password");
-            throw new RuntimeException("Password must be at least 8 characters long");
-        }
-    }
 }
+

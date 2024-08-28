@@ -1,6 +1,6 @@
 package de.telran.urlshortener.entity;
 
-import de.telran.urlshortener.enums.SubscriptionType;
+import de.telran.urlshortener.entity.enums.SubscriptionType;
 import jakarta.persistence.*;
 import lombok.*;
 

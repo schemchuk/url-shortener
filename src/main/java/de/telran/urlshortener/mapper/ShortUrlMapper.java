@@ -2,7 +2,9 @@ package de.telran.urlshortener.mapper;
 
 import de.telran.urlshortener.dto.urlDto.ShortUrlResponse;
 import de.telran.urlshortener.entity.ShortUrl;
+import org.springframework.stereotype.Component;
 
+@Component
 public class ShortUrlMapper {
 
     public static ShortUrlResponse toShortUrlResponse(ShortUrl shortUrl) {

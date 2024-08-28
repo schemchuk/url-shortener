@@ -38,7 +38,7 @@ public class UserController {
         return userMapper.mapToUserResponse(user);
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('PAID')")
     @PutMapping("/{id}")
     public UserResponse updateUser(@PathVariable Long id, @RequestBody UserRequest userRequest) {
         log.info("Received request to update user with ID: {}", id);

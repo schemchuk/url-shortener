@@ -18,6 +18,8 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 @RequiredArgsConstructor
 public class UserService {
@@ -124,6 +126,15 @@ public class UserService {
         User updatedUser = userRepository.save(user);
         log.info("User role updated successfully with ID: {}", updatedUser.getId());
         return updatedUser;
+    }
+
+    public Optional<User> getUserByEmail(String email) {
+        log.info("Fetching user with email: {}", email);
+        return userRepository.findByEmail(email);
+    }
+
+    public Optional<User> getByLogin(String login) {
+        return userRepository.findByEmail(login);
     }
 }
 

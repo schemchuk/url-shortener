@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <!-- ChangeSet for the 'roles' table -->
+    <changeSet id="1" author="shemchuk">
+        <createTable tableName="roles">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints unique="true" nullable="false"/>
+            </column>
+            <column name="expiry_date" type="TIMESTAMP"/>
+        </createTable>
+    </changeSet>
+
+    <!-- ChangeSet for the 'users' table -->
+    <changeSet id="2" author="shemchuk">
+        <createTable tableName="users">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="user_name" type="VARCHAR(255)">
+                <constraints unique="true" nullable="false"/>
+            </column>
+            <column name="email" type="VARCHAR(255)">
+                <constraints unique="true" nullable="false"/>
+            </column>
+            <column name="password" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <!-- ChangeSet for the 'subscriptions' table -->
+    <changeSet id="3" author="shemchuk">
+        <createTable tableName="subscriptions">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="user_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="start_date" type="TIMESTAMP"/>
+            <column name="end_date" type="TIMESTAMP"/>
+            <column name="subscription_type" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addForeignKeyConstraint baseTableName="subscriptions"
+                                 baseColumnNames="user_id"
+                                 constraintName="fk_subscriptions_user"
+                                 referencedTableName="users"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+
+    <!-- ChangeSet for the 'short_urls' table -->
+    <changeSet id="4" author="shemchuk">
+        <createTable tableName="short_urls">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="short_key" type="VARCHAR(255)">
+                <constraints unique="true" nullable="false"/>
+            </column>
+            <column name="full_url" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="creation_date" type="TIMESTAMP"/>
+            <column name="expiry_date" type="TIMESTAMP"/>
+            <column name="click_count" type="BIGINT" defaultValue="0"/>
+            <column name="user_id" type="BIGINT"/>
+        </createTable>
+        <addForeignKeyConstraint baseTableName="short_urls"
+                                 baseColumnNames="user_id"
+                                 constraintName="fk_short_urls_user"
+                                 referencedTableName="users"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+
+    <!-- ChangeSet for the 'user_roles' join table -->
+    <changeSet id="5" author="shemchuk">
+        <createTable tableName="user_roles">
+            <column name="user_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="role_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addPrimaryKey columnNames="user_id, role_id"
+                       constraintName="pk_user_roles"
+                       tableName="user_roles"/>
+        <addForeignKeyConstraint baseTableName="user_roles"
+                                 baseColumnNames="user_id"
+                                 constraintName="fk_user_roles_user"
+                                 referencedTableName="users"
+                                 referencedColumnNames="id"/>
+        <addForeignKeyConstraint baseTableName="user_roles"
+                                 baseColumnNames="role_id"
+                                 constraintName="fk_user_roles_role"
+                                 referencedTableName="roles"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+
+</databaseChangeLog>

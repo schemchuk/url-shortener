@@ -1,10 +1,11 @@
 package de.telran.urlshortener.controller;
 
-
 import de.telran.urlshortener.dto.JwtDto.JwtRequest;
 import de.telran.urlshortener.dto.JwtDto.JwtRequestRefresh;
 import de.telran.urlshortener.dto.JwtDto.JwtResponse;
 import de.telran.urlshortener.security.AuthService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.security.auth.message.AuthException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -33,6 +34,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("api/auth")
 @RequiredArgsConstructor
+@Tag(name = "Auth Controller", description = "Handles authentication and token operations")
 public class AuthController {
 
     /**
@@ -47,6 +49,7 @@ public class AuthController {
      * @return a ResponseEntity containing the JWT response.
      * @throws AuthException if authentication fails.
      */
+    @Operation(summary = "User Login", description = "Authenticates a user and returns a JWT token")
     @PostMapping("login")
     public ResponseEntity<JwtResponse> login(@RequestBody JwtRequest authRequest) throws AuthException {
         final JwtResponse token = authService.login(authRequest);
@@ -60,6 +63,7 @@ public class AuthController {
      * @return a ResponseEntity containing the JWT response.
      * @throws AuthException if token refresh fails.
      */
+    @Operation(summary = "Get New Access Token", description = "Generates a new access token using the provided refresh token")
     @PostMapping("token")
     public ResponseEntity<JwtResponse> getNewAccessToken(@RequestBody JwtRequestRefresh request) throws AuthException {
         final JwtResponse token = authService.getAccessToken(request.getRefreshToken());
@@ -73,6 +77,7 @@ public class AuthController {
      * @return a ResponseEntity containing the JWT response.
      * @throws AuthException if token refresh fails.
      */
+    @Operation(summary = "Get New Refresh Token", description = "Generates a new refresh token using the existing refresh token")
     @PostMapping("refresh")
     public ResponseEntity<JwtResponse> getNewRefreshToken(@RequestBody JwtRequestRefresh request) throws AuthException {
         final JwtResponse token = authService.refresh(request.getRefreshToken());
@@ -80,4 +85,3 @@ public class AuthController {
     }
 
 }
-

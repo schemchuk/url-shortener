@@ -18,7 +18,13 @@ public class RedirectController {
 
     private final ShortUrlService shortUrlService;
 
-    @Operation(summary = "Redirect to full URL", description = "Redirects to the full URL based on the short key")
+    /**
+     * Redirects to the full URL based on the short key.
+     *
+     * @param shortKey the short key used to find the full URL.
+     * @return a RedirectView to the full URL.
+     */
+    @Operation(summary = "Redirect to Full URL", description = "Redirects to the full URL based on the short key")
     @GetMapping("/{shortKey}")
     public RedirectView redirectToFullUrl(@PathVariable String shortKey) {
         String fullUrl = shortUrlService.getFullUrlByKey(shortKey);

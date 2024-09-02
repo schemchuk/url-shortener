@@ -22,6 +22,12 @@ public class ShortUrlController {
 
     private final ShortUrlService shortUrlService;
 
+    /**
+     * Creates a new short URL from a full URL.
+     *
+     * @param request the request containing the full URL.
+     * @return the response containing the short URL and key.
+     */
     @Operation(summary = "Create Short URL", description = "Creates a new short URL from a full URL")
     @PostMapping
     public ResponseEntity<ShortUrlResponse> createShortUrl(@RequestBody ShortUrlRequest request) {
@@ -31,6 +37,12 @@ public class ShortUrlController {
         return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
 
+    /**
+     * Fetches the details of a short URL by its key.
+     *
+     * @param shortKey the short key of the URL.
+     * @return the response containing the full URL and key.
+     */
     @Operation(summary = "Get Short URL by Key", description = "Fetches the details of a short URL by its key")
     @GetMapping("/{shortKey}")
     public ResponseEntity<ShortUrlResponse> getShortUrlByKey(@PathVariable String shortKey) {
@@ -40,6 +52,12 @@ public class ShortUrlController {
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
+    /**
+     * Deletes a short URL by its ID.
+     *
+     * @param id the ID of the short URL to be deleted.
+     * @return a response entity with no content.
+     */
     @Operation(summary = "Delete Short URL", description = "Deletes a short URL by its ID")
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteShortUrl(@PathVariable Long id) {

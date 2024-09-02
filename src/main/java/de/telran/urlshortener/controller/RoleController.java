@@ -17,6 +17,12 @@ public class RoleController {
 
     private final RoleService roleService;
 
+    /**
+     * Fetches a role by its name.
+     *
+     * @param roleName the name of the role to fetch.
+     * @return the role response.
+     */
     @Operation(summary = "Get Role by Name", description = "Fetches a role by its name")
     @GetMapping("/{roleName}")
     public ResponseEntity<RoleResponse> getRoleByName(@PathVariable String roleName) {

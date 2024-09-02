@@ -24,9 +24,9 @@ public class AdminInitializer {
     public ApplicationRunner initializer() {
         return args -> {
             // Создание ролей, если они отсутствуют
-            createRoleIfNotExists(Role.RoleName.ADMIN, null);  // Устанавливаем null или задаем конкретное значение
-            createRoleIfNotExists(Role.RoleName.TRIAL, new Date(System.currentTimeMillis() + 30L * 24 * 60 * 60 * 1000));  // Пример с конкретной датой
-            createRoleIfNotExists(Role.RoleName.PAID, new Date(System.currentTimeMillis() + 365L * 24 * 60 * 60 * 1000));  // Пример с конкретной датой
+            createRoleIfNotExists(Role.RoleName.ADMIN, new Date(System.currentTimeMillis() + 3L * 365 * 24 * 60 * 60 * 1000)); // 3 года
+            createRoleIfNotExists(Role.RoleName.TRIAL, new Date(System.currentTimeMillis() + 30L * 24 * 60 * 60 * 1000)); // 30 дней
+            createRoleIfNotExists(Role.RoleName.PAID, new Date(System.currentTimeMillis() + 365L * 24 * 60 * 60 * 1000)); // 1 год
 
             // Поиск ролей
             Role adminRole = roleRepository.findByName(Role.RoleName.ADMIN)
@@ -39,7 +39,7 @@ public class AdminInitializer {
                 User adminUser = User.builder()
                         .userName("admin")
                         .email("admin@example.com")
-                        .password(passwordEncoder.encode("adminpassword")) // Кодирование пароля
+                        .password(passwordEncoder.encode("adminpassword"))
                         .build();
                 adminUser.addRole(adminRole);
                 userRepository.save(adminUser);
@@ -49,7 +49,7 @@ public class AdminInitializer {
                 User regularUser = User.builder()
                         .userName("user")
                         .email("user@example.com")
-                        .password(passwordEncoder.encode("userpassword")) // Кодирование пароля
+                        .password(passwordEncoder.encode("userpassword"))
                         .build();
                 regularUser.addRole(userRole);
                 userRepository.save(regularUser);

@@ -39,7 +39,7 @@ public class RoleService {
         Date now = new Date();
         switch (roleName) {
             case ADMIN:
-                return null; // Бессрочная подписка
+                return new Date(now.getTime() + 3L * 365 * 24 * 60 * 60 * 1000); // 3 года
             case TRIAL:
                 return new Date(now.getTime() + 30L * 24 * 60 * 60 * 1000); // 1 месяц
             case PAID:

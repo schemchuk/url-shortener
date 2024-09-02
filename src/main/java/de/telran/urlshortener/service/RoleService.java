@@ -1,6 +1,5 @@
 package de.telran.urlshortener.service;
 
-import de.telran.urlshortener.dto.RoleDto.RoleRequest;
 import de.telran.urlshortener.dto.RoleDto.RoleResponse;
 import de.telran.urlshortener.entity.Role;
 import de.telran.urlshortener.mapper.RoleMapper;
@@ -10,7 +9,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 
 @Service
 @RequiredArgsConstructor
@@ -36,35 +35,17 @@ public class RoleService {
         return roleMapper.toRoleResponse(role);
     }
 
-    private LocalDateTime calculateExpiryDate(Role.RoleName roleName) {
-        LocalDateTime now = LocalDateTime.now();
+    private Date calculateExpiryDate(Role.RoleName roleName) {
+        Date now = new Date();
         switch (roleName) {
             case ADMIN:
                 return null; // Бессрочная подписка
             case TRIAL:
-                return now.plusMonths(1); // 1 месяц
+                return new Date(now.getTime() + 30L * 24 * 60 * 60 * 1000); // 1 месяц
             case PAID:
-                return now.plusYears(1); // 1 год
+                return new Date(now.getTime() + 365L * 24 * 60 * 60 * 1000); // 1 год
             default:
                 throw new IllegalArgumentException("Unexpected role: " + roleName);
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

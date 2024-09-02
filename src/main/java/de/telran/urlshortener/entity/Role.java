@@ -2,7 +2,7 @@ package de.telran.urlshortener.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
-import java.time.LocalDateTime;
+import java.util.Date;
 
 @Entity
 @Table(name = "roles")
@@ -22,7 +22,7 @@ public class Role {
     private RoleName name;
 
     @Column(name = "expiry_date")
-    private LocalDateTime expiryDate;
+    private Date expiryDate;
 
     public enum RoleName {
         ADMIN, TRIAL, PAID

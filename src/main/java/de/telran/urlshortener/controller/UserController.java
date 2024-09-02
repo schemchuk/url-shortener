@@ -43,7 +43,7 @@ public class UserController {
         return userMapper.mapToUserResponse(user);
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('ROLE_PAID')")
     @Operation(summary = "Update User", description = "Updates the details of an existing user")
     @PutMapping("/{id}")
     public UserResponse updateUser(@PathVariable Long id, @RequestBody UserRequest userRequest) {
@@ -54,7 +54,7 @@ public class UserController {
         return userMapper.mapToUserResponse(updatedUser);
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @Operation(summary = "Delete User", description = "Deletes a user by their ID")
     @DeleteMapping("/{id}")
     public void deleteUser(@PathVariable Long id) {
@@ -63,7 +63,7 @@ public class UserController {
         log.info("User deleted successfully with ID: {}", id);
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @Operation(summary = "Change User Role", description = "Changes the role of a user")
     @PatchMapping("/{id}/role")
     public UserResponse changeUserRole(@PathVariable Long id, @RequestParam String newRole) {

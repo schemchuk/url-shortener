@@ -1,6 +1,5 @@
 package de.telran.urlshortener.mapper;
 
-import de.telran.urlshortener.dto.RoleDto.RoleRequest;
 import de.telran.urlshortener.dto.RoleDto.RoleResponse;
 import de.telran.urlshortener.entity.Role;
 import org.springframework.stereotype.Component;
@@ -20,6 +19,7 @@ public class RoleMapper {
         return new RoleResponse(role.getId(), role.getName().name(), role.getExpiryDate());
     }
 }
+
 
 
 

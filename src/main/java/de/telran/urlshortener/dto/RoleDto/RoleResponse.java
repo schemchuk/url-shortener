@@ -5,7 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 
 @Getter
 @Setter
@@ -14,8 +14,5 @@ import java.time.LocalDateTime;
 public class RoleResponse {
     private Long id;
     private String roleName;
-    private LocalDateTime expiryDate;
+    private Date expiryDate;
 }
-
-
-

@@ -26762,3 +26762,1318 @@ This generated password is for development use only. Your security configuration
         (user_id, role_id) 
     values
         (?, ?)
+2024-09-02 14:12:01.524  INFO --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [de.telran.urlshortener.UrlShortenerApplicationTests]: UrlShortenerApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-09-02 14:12:01.689  INFO --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration de.telran.urlshortener.UrlShortenerApplication for test class de.telran.urlshortener.UrlShortenerApplicationTests
+2024-09-02 14:12:02.350  INFO --- [kground-preinit] o.h.v.i.u.Version                        : HV000001: Hibernate Validator 8.0.1.Final
+2024-09-02 14:12:02.414  INFO --- [           main] d.t.u.UrlShortenerApplicationTests       : Starting UrlShortenerApplicationTests using Java 21.0.2 with PID 231123 (started by volodymyr in /home/volodymyr/url-shortener)
+2024-09-02 14:12:02.430  INFO --- [           main] d.t.u.UrlShortenerApplicationTests       : The following 1 profile is active: "devdb"
+2024-09-02 14:12:02.525 DEBUG --- [           main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@31da6b2e
+2024-09-02 14:12:04.460  INFO --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-02 14:12:04.584  INFO --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 109 ms. Found 4 JPA repository interfaces.
+2024-09-02 14:12:05.586  INFO --- [           main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2024-09-02 14:12:05.883  INFO --- [           main] c.z.h.p.HikariPool                       : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:4d4d858c-d79f-4139-a800-2b1dec7cc2b0 user=SA
+2024-09-02 14:12:05.886  INFO --- [           main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2024-09-02 14:12:06.026  INFO --- [           main] l.database                               : Set default schema name to PUBLIC
+2024-09-02 14:12:06.865  INFO --- [           main] l.changelog                              : Creating database history table with name: PUBLIC.DATABASECHANGELOG
+2024-09-02 14:12:07.338  INFO --- [           main] l.changelog                              : Reading from PUBLIC.DATABASECHANGELOG
+2024-09-02 14:12:07.492  INFO --- [           main] l.lockservice                            : Successfully acquired change log lock
+2024-09-02 14:12:07.494  INFO --- [           main] l.command                                : Using deploymentId: 5279127493
+2024-09-02 14:12:07.497  INFO --- [           main] l.changelog                              : Reading from PUBLIC.DATABASECHANGELOG
+2024-09-02 14:12:07.540  INFO --- [           main] l.ui                                     : Running Changeset: db/migrations/db.changelog-1.0.xml::1::shemchuk
+2024-09-02 14:12:07.555  INFO --- [           main] l.changelog                              : Table roles created
+2024-09-02 14:12:07.556  INFO --- [           main] l.changelog                              : ChangeSet db/migrations/db.changelog-1.0.xml::1::shemchuk ran successfully in 15ms
+2024-09-02 14:12:07.568  INFO --- [           main] l.ui                                     : Running Changeset: db/migrations/db.changelog-1.0.xml::2::shemchuk
+2024-09-02 14:12:07.574  INFO --- [           main] l.changelog                              : Table users created
+2024-09-02 14:12:07.575  INFO --- [           main] l.changelog                              : ChangeSet db/migrations/db.changelog-1.0.xml::2::shemchuk ran successfully in 7ms
+2024-09-02 14:12:07.582  INFO --- [           main] l.ui                                     : Running Changeset: db/migrations/db.changelog-1.0.xml::3::shemchuk
+2024-09-02 14:12:07.588  INFO --- [           main] l.changelog                              : Table subscriptions created
+2024-09-02 14:12:07.597  INFO --- [           main] l.changelog                              : Foreign key constraint added to subscriptions (user_id)
+2024-09-02 14:12:07.598  INFO --- [           main] l.changelog                              : ChangeSet db/migrations/db.changelog-1.0.xml::3::shemchuk ran successfully in 15ms
+2024-09-02 14:12:07.623  INFO --- [           main] l.ui                                     : Running Changeset: db/migrations/db.changelog-1.0.xml::4::shemchuk
+2024-09-02 14:12:07.632  INFO --- [           main] l.changelog                              : Table short_urls created
+2024-09-02 14:12:07.636  INFO --- [           main] l.changelog                              : Foreign key constraint added to short_urls (user_id)
+2024-09-02 14:12:07.637  INFO --- [           main] l.changelog                              : ChangeSet db/migrations/db.changelog-1.0.xml::4::shemchuk ran successfully in 13ms
+2024-09-02 14:12:07.643  INFO --- [           main] l.ui                                     : Running Changeset: db/migrations/db.changelog-1.0.xml::5::shemchuk
+2024-09-02 14:12:07.648  INFO --- [           main] l.changelog                              : Table user_roles created
+2024-09-02 14:12:07.652  INFO --- [           main] l.changelog                              : Primary key added to user_roles (user_id, role_id)
+2024-09-02 14:12:07.657  INFO --- [           main] l.changelog                              : Foreign key constraint added to user_roles (user_id)
+2024-09-02 14:12:07.663  INFO --- [           main] l.changelog                              : Foreign key constraint added to user_roles (role_id)
+2024-09-02 14:12:07.664  INFO --- [           main] l.changelog                              : ChangeSet db/migrations/db.changelog-1.0.xml::5::shemchuk ran successfully in 20ms
+2024-09-02 14:12:07.676  INFO --- [           main] l.util                                   : UPDATE SUMMARY
+2024-09-02 14:12:07.676  INFO --- [           main] l.util                                   : Run:                          5
+2024-09-02 14:12:07.677  INFO --- [           main] l.util                                   : Previously run:               0
+2024-09-02 14:12:07.677  INFO --- [           main] l.util                                   : Filtered out:                 0
+2024-09-02 14:12:07.678  INFO --- [           main] l.util                                   : -------------------------------
+2024-09-02 14:12:07.678  INFO --- [           main] l.util                                   : Total change sets:            5
+2024-09-02 14:12:07.680  INFO --- [           main] l.util                                   : Update summary generated
+2024-09-02 14:12:07.684  INFO --- [           main] l.command                                : Update command completed successfully.
+2024-09-02 14:12:07.684  INFO --- [           main] l.ui                                     : Liquibase: Update has been successful. Rows affected: 5
+2024-09-02 14:12:07.688  INFO --- [           main] l.lockservice                            : Successfully released change log lock
+2024-09-02 14:12:07.689  INFO --- [           main] l.command                                : Command execution complete
+2024-09-02 14:12:07.825  INFO --- [           main] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-02 14:12:07.900  INFO --- [           main] o.h.Version                              : HHH000412: Hibernate ORM core version 6.3.1.Final
+2024-09-02 14:12:07.946  INFO --- [           main] o.h.c.i.RegionFactoryInitiator           : HHH000026: Second-level cache disabled
+2024-09-02 14:12:08.250  INFO --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-02 14:12:09.644  INFO --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-02 14:12:09.705  INFO --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-02 14:12:10.719  WARN --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-02 14:12:10.756  WARN --- [           main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 0eece3d9-da23-453b-90d9-46a147aa4c88
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2024-09-02 14:12:11.066 DEBUG --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : 19 mappings in 'requestMappingHandlerMapping'
+2024-09-02 14:12:11.352 DEBUG --- [           main] o.s.w.s.h.SimpleUrlHandlerMapping        : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2024-09-02 14:12:11.418  INFO --- [           main] o.s.s.w.DefaultSecurityFilterChain       : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@12a719ed, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@79dd79eb, org.springframework.security.web.context.SecurityContextHolderFilter@6fe43257, org.springframework.security.web.header.HeaderWriterFilter@5cc088a8, org.springframework.web.filter.CorsFilter@368617cd, org.springframework.security.web.authentication.logout.LogoutFilter@3ea3b20d, de.telran.urlshortener.security.JwtFilter@4ee41c66, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1a35343e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7f994055, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7ae88df1, org.springframework.security.web.session.SessionManagementFilter@3d2be0df, org.springframework.security.web.access.ExceptionTranslationFilter@657f1fc3, org.springframework.security.web.access.intercept.AuthorizationFilter@2c48eb31]
+2024-09-02 14:12:11.715 DEBUG --- [           main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-09-02 14:12:11.771 DEBUG --- [           main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-09-02 14:12:11.999  INFO --- [           main] o.s.b.a.h.H2ConsoleAutoConfiguration     : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:4d4d858c-d79f-4139-a800-2b1dec7cc2b0'
+2024-09-02 14:12:12.149  INFO --- [           main] d.t.u.UrlShortenerApplicationTests       : Started UrlShortenerApplicationTests in 10.22 seconds (process running for 12.887)
+2024-09-02 14:12:12.366 DEBUG --- [           main] o.h.SQL                                  : 
+    select
+        r1_0.id,
+        r1_0.expiry_date,
+        r1_0.name 
+    from
+        roles r1_0 
+    where
+        r1_0.name=?
+2024-09-02 14:12:12.458 DEBUG --- [           main] o.h.SQL                                  : 
+    insert 
+    into
+        roles
+        (expiry_date, name, id) 
+    values
+        (?, ?, default)
+2024-09-02 14:12:12.484 DEBUG --- [           main] o.h.SQL                                  : 
+    select
+        r1_0.id,
+        r1_0.expiry_date,
+        r1_0.name 
+    from
+        roles r1_0 
+    where
+        r1_0.name=?
+2024-09-02 14:12:12.497 DEBUG --- [           main] o.h.SQL                                  : 
+    select
+        r1_0.id,
+        r1_0.expiry_date,
+        r1_0.name 
+    from
+        roles r1_0 
+    where
+        r1_0.name=?
+2024-09-02 14:12:12.499 DEBUG --- [           main] o.h.SQL                                  : 
+    insert 
+    into
+        roles
+        (expiry_date, name, id) 
+    values
+        (?, ?, default)
+2024-09-02 14:12:12.504 DEBUG --- [           main] o.h.SQL                                  : 
+    select
+        r1_0.id,
+        r1_0.expiry_date,
+        r1_0.name 
+    from
+        roles r1_0 
+    where
+        r1_0.name=?
+2024-09-02 14:12:12.506 DEBUG --- [           main] o.h.SQL                                  : 
+    insert 
+    into
+        roles
+        (expiry_date, name, id) 
+    values
+        (?, ?, default)
+2024-09-02 14:12:12.510 DEBUG --- [           main] o.h.SQL                                  : 
+    select
+        r1_0.id,
+        r1_0.expiry_date,
+        r1_0.name 
+    from
+        roles r1_0 
+    where
+        r1_0.name=?
+2024-09-02 14:12:12.513 DEBUG --- [           main] o.h.SQL                                  : 
+    select
+        r1_0.id,
+        r1_0.expiry_date,
+        r1_0.name 
+    from
+        roles r1_0 
+    where
+        r1_0.name=?
+2024-09-02 14:12:12.521 DEBUG --- [           main] o.h.SQL                                  : 
+    select
+        u1_0.id 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+    fetch
+        first ? rows only
+2024-09-02 14:12:12.688 DEBUG --- [           main] o.h.SQL                                  : 
+    insert 
+    into
+        users
+        (email, password, user_name, id) 
+    values
+        (?, ?, ?, default)
+2024-09-02 14:12:12.704 DEBUG --- [           main] o.h.SQL                                  : 
+    insert 
+    into
+        user_roles
+        (user_id, role_id) 
+    values
+        (?, ?)
+2024-09-02 14:12:12.711 DEBUG --- [           main] o.h.SQL                                  : 
+    select
+        u1_0.id 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+    fetch
+        first ? rows only
+2024-09-02 14:12:12.828 DEBUG --- [           main] o.h.SQL                                  : 
+    insert 
+    into
+        users
+        (email, password, user_name, id) 
+    values
+        (?, ?, ?, default)
+2024-09-02 14:12:12.830 DEBUG --- [           main] o.h.SQL                                  : 
+    insert 
+    into
+        user_roles
+        (user_id, role_id) 
+    values
+        (?, ?)
+2024-09-02 14:12:13.633 DEBUG --- [ionShutdownHook] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@31da6b2e, started on Mon Sep 02 14:12:02 CEST 2024
+2024-09-02 14:12:13.644  INFO --- [ionShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-02 14:12:13.649  INFO --- [ionShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2024-09-02 14:12:13.657  INFO --- [ionShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2024-09-02 14:19:56.173  INFO --- [kground-preinit] o.h.v.i.u.Version                        : HV000001: Hibernate Validator 8.0.1.Final
+2024-09-02 14:19:56.215  INFO --- [           main] d.t.u.UrlShortenerApplication            : Starting UrlShortenerApplication using Java 21.0.2 with PID 234788 (/home/volodymyr/url-shortener/target/classes started by volodymyr in /home/volodymyr/url-shortener)
+2024-09-02 14:19:56.220  INFO --- [           main] d.t.u.UrlShortenerApplication            : The following 1 profile is active: "devdb"
+2024-09-02 14:19:57.431  INFO --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-02 14:19:57.518  INFO --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 78 ms. Found 4 JPA repository interfaces.
+2024-09-02 14:19:58.321  INFO --- [           main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port 8080 (http)
+2024-09-02 14:19:58.334  INFO --- [           main] o.a.c.h.Http11NioProtocol                : Initializing ProtocolHandler ["http-nio-8080"]
+2024-09-02 14:19:58.337  INFO --- [           main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2024-09-02 14:19:58.337  INFO --- [           main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/10.1.16]
+2024-09-02 14:19:58.400  INFO --- [           main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2024-09-02 14:19:58.402  INFO --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2131 ms
+2024-09-02 14:19:58.475  INFO --- [           main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2024-09-02 14:19:58.741  INFO --- [           main] c.z.h.p.HikariPool                       : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:28ad4163-5650-4f28-bf0a-bfb99d9ed9dd user=SA
+2024-09-02 14:19:58.743  INFO --- [           main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2024-09-02 14:19:58.759  INFO --- [           main] o.s.b.a.h.H2ConsoleAutoConfiguration     : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:28ad4163-5650-4f28-bf0a-bfb99d9ed9dd'
+2024-09-02 14:19:59.025  INFO --- [           main] l.database                               : Set default schema name to PUBLIC
+2024-09-02 14:19:59.565  INFO --- [           main] l.changelog                              : Creating database history table with name: PUBLIC.DATABASECHANGELOG
+2024-09-02 14:19:59.731  INFO --- [           main] l.changelog                              : Reading from PUBLIC.DATABASECHANGELOG
+2024-09-02 14:19:59.870  INFO --- [           main] l.lockservice                            : Successfully acquired change log lock
+2024-09-02 14:19:59.872  INFO --- [           main] l.command                                : Using deploymentId: 5279599871
+2024-09-02 14:19:59.875  INFO --- [           main] l.changelog                              : Reading from PUBLIC.DATABASECHANGELOG
+2024-09-02 14:19:59.914  INFO --- [           main] l.ui                                     : Running Changeset: db/migrations/db.changelog-1.0.xml::1::shemchuk
+2024-09-02 14:19:59.928  INFO --- [           main] l.changelog                              : Table roles created
+2024-09-02 14:19:59.929  INFO --- [           main] l.changelog                              : ChangeSet db/migrations/db.changelog-1.0.xml::1::shemchuk ran successfully in 14ms
+2024-09-02 14:19:59.939  INFO --- [           main] l.ui                                     : Running Changeset: db/migrations/db.changelog-1.0.xml::2::shemchuk
+2024-09-02 14:19:59.945  INFO --- [           main] l.changelog                              : Table users created
+2024-09-02 14:19:59.945  INFO --- [           main] l.changelog                              : ChangeSet db/migrations/db.changelog-1.0.xml::2::shemchuk ran successfully in 6ms
+2024-09-02 14:19:59.952  INFO --- [           main] l.ui                                     : Running Changeset: db/migrations/db.changelog-1.0.xml::3::shemchuk
+2024-09-02 14:19:59.957  INFO --- [           main] l.changelog                              : Table subscriptions created
+2024-09-02 14:19:59.965  INFO --- [           main] l.changelog                              : Foreign key constraint added to subscriptions (user_id)
+2024-09-02 14:19:59.965  INFO --- [           main] l.changelog                              : ChangeSet db/migrations/db.changelog-1.0.xml::3::shemchuk ran successfully in 13ms
+2024-09-02 14:19:59.972  INFO --- [           main] l.ui                                     : Running Changeset: db/migrations/db.changelog-1.0.xml::4::shemchuk
+2024-09-02 14:19:59.977  INFO --- [           main] l.changelog                              : Table short_urls created
+2024-09-02 14:19:59.980  INFO --- [           main] l.changelog                              : Foreign key constraint added to short_urls (user_id)
+2024-09-02 14:19:59.981  INFO --- [           main] l.changelog                              : ChangeSet db/migrations/db.changelog-1.0.xml::4::shemchuk ran successfully in 9ms
+2024-09-02 14:19:59.986  INFO --- [           main] l.ui                                     : Running Changeset: db/migrations/db.changelog-1.0.xml::5::shemchuk
+2024-09-02 14:19:59.988  INFO --- [           main] l.changelog                              : Table user_roles created
+2024-09-02 14:19:59.991  INFO --- [           main] l.changelog                              : Primary key added to user_roles (user_id, role_id)
+2024-09-02 14:19:59.994  INFO --- [           main] l.changelog                              : Foreign key constraint added to user_roles (user_id)
+2024-09-02 14:20:00.000  INFO --- [           main] l.changelog                              : Foreign key constraint added to user_roles (role_id)
+2024-09-02 14:20:00.000  INFO --- [           main] l.changelog                              : ChangeSet db/migrations/db.changelog-1.0.xml::5::shemchuk ran successfully in 14ms
+2024-09-02 14:20:00.009  INFO --- [           main] l.util                                   : UPDATE SUMMARY
+2024-09-02 14:20:00.009  INFO --- [           main] l.util                                   : Run:                          5
+2024-09-02 14:20:00.010  INFO --- [           main] l.util                                   : Previously run:               0
+2024-09-02 14:20:00.010  INFO --- [           main] l.util                                   : Filtered out:                 0
+2024-09-02 14:20:00.010  INFO --- [           main] l.util                                   : -------------------------------
+2024-09-02 14:20:00.010  INFO --- [           main] l.util                                   : Total change sets:            5
+2024-09-02 14:20:00.012  INFO --- [           main] l.util                                   : Update summary generated
+2024-09-02 14:20:00.015  INFO --- [           main] l.command                                : Update command completed successfully.
+2024-09-02 14:20:00.015  INFO --- [           main] l.ui                                     : Liquibase: Update has been successful. Rows affected: 5
+2024-09-02 14:20:00.018  INFO --- [           main] l.lockservice                            : Successfully released change log lock
+2024-09-02 14:20:00.019  INFO --- [           main] l.command                                : Command execution complete
+2024-09-02 14:20:00.130  INFO --- [           main] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-02 14:20:00.210  INFO --- [           main] o.h.Version                              : HHH000412: Hibernate ORM core version 6.3.1.Final
+2024-09-02 14:20:00.253  INFO --- [           main] o.h.c.i.RegionFactoryInitiator           : HHH000026: Second-level cache disabled
+2024-09-02 14:20:00.524  INFO --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-02 14:20:01.793  INFO --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-02 14:20:01.849  INFO --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-02 14:20:02.735  WARN --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-02 14:20:02.772  WARN --- [           main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 6bd1938d-4644-478a-b212-3e246fdceed4
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2024-09-02 14:20:03.049 DEBUG --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : 19 mappings in 'requestMappingHandlerMapping'
+2024-09-02 14:20:03.204 DEBUG --- [           main] o.s.w.s.h.SimpleUrlHandlerMapping        : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2024-09-02 14:20:03.281  INFO --- [           main] o.s.s.w.DefaultSecurityFilterChain       : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@198eeb36, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4690cb47, org.springframework.security.web.context.SecurityContextHolderFilter@3fc4e667, org.springframework.security.web.header.HeaderWriterFilter@340ef431, org.springframework.web.filter.CorsFilter@77d80294, org.springframework.security.web.authentication.logout.LogoutFilter@e9e25b5, de.telran.urlshortener.security.JwtFilter@6e068ac9, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@61c1be2f, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@423325e0, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@74940388, org.springframework.security.web.session.SessionManagementFilter@e87c4cf, org.springframework.security.web.access.ExceptionTranslationFilter@45c8db36, org.springframework.security.web.access.intercept.AuthorizationFilter@7854f2a2]
+2024-09-02 14:20:03.431 DEBUG --- [           main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-09-02 14:20:03.481 DEBUG --- [           main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-09-02 14:20:03.840  INFO --- [           main] o.a.c.h.Http11NioProtocol                : Starting ProtocolHandler ["http-nio-8080"]
+2024-09-02 14:20:03.857  INFO --- [           main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port 8080 (http) with context path ''
+2024-09-02 14:20:03.870  INFO --- [           main] d.t.u.UrlShortenerApplication            : Started UrlShortenerApplication in 8.14 seconds (process running for 9.542)
+2024-09-02 14:20:04.062 DEBUG --- [           main] o.h.SQL                                  : 
+    select
+        r1_0.id,
+        r1_0.expiry_date,
+        r1_0.name 
+    from
+        roles r1_0 
+    where
+        r1_0.name=?
+2024-09-02 14:20:04.136 DEBUG --- [           main] o.h.SQL                                  : 
+    insert 
+    into
+        roles
+        (expiry_date, name, id) 
+    values
+        (?, ?, default)
+2024-09-02 14:20:04.158 DEBUG --- [           main] o.h.SQL                                  : 
+    select
+        r1_0.id,
+        r1_0.expiry_date,
+        r1_0.name 
+    from
+        roles r1_0 
+    where
+        r1_0.name=?
+2024-09-02 14:20:04.168 DEBUG --- [           main] o.h.SQL                                  : 
+    select
+        r1_0.id,
+        r1_0.expiry_date,
+        r1_0.name 
+    from
+        roles r1_0 
+    where
+        r1_0.name=?
+2024-09-02 14:20:04.170 DEBUG --- [           main] o.h.SQL                                  : 
+    insert 
+    into
+        roles
+        (expiry_date, name, id) 
+    values
+        (?, ?, default)
+2024-09-02 14:20:04.173 DEBUG --- [           main] o.h.SQL                                  : 
+    select
+        r1_0.id,
+        r1_0.expiry_date,
+        r1_0.name 
+    from
+        roles r1_0 
+    where
+        r1_0.name=?
+2024-09-02 14:20:04.175 DEBUG --- [           main] o.h.SQL                                  : 
+    insert 
+    into
+        roles
+        (expiry_date, name, id) 
+    values
+        (?, ?, default)
+2024-09-02 14:20:04.178 DEBUG --- [           main] o.h.SQL                                  : 
+    select
+        r1_0.id,
+        r1_0.expiry_date,
+        r1_0.name 
+    from
+        roles r1_0 
+    where
+        r1_0.name=?
+2024-09-02 14:20:04.181 DEBUG --- [           main] o.h.SQL                                  : 
+    select
+        r1_0.id,
+        r1_0.expiry_date,
+        r1_0.name 
+    from
+        roles r1_0 
+    where
+        r1_0.name=?
+2024-09-02 14:20:04.188 DEBUG --- [           main] o.h.SQL                                  : 
+    select
+        u1_0.id 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+    fetch
+        first ? rows only
+2024-09-02 14:20:04.344 DEBUG --- [           main] o.h.SQL                                  : 
+    insert 
+    into
+        users
+        (email, password, user_name, id) 
+    values
+        (?, ?, ?, default)
+2024-09-02 14:20:04.362 DEBUG --- [           main] o.h.SQL                                  : 
+    insert 
+    into
+        user_roles
+        (user_id, role_id) 
+    values
+        (?, ?)
+2024-09-02 14:20:04.368 DEBUG --- [           main] o.h.SQL                                  : 
+    select
+        u1_0.id 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+    fetch
+        first ? rows only
+2024-09-02 14:20:04.502 DEBUG --- [           main] o.h.SQL                                  : 
+    insert 
+    into
+        users
+        (email, password, user_name, id) 
+    values
+        (?, ?, ?, default)
+2024-09-02 14:20:04.504 DEBUG --- [           main] o.h.SQL                                  : 
+    insert 
+    into
+        user_roles
+        (user_id, role_id) 
+    values
+        (?, ?)
+2024-09-02 14:20:44.705  INFO --- [nio-8080-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-02 14:20:44.706  INFO --- [nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2024-09-02 14:20:44.706 DEBUG --- [nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Detected StandardServletMultipartResolver
+2024-09-02 14:20:44.706 DEBUG --- [nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Detected AcceptHeaderLocaleResolver
+2024-09-02 14:20:44.706 DEBUG --- [nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Detected FixedThemeResolver
+2024-09-02 14:20:44.708 DEBUG --- [nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@77510da
+2024-09-02 14:20:44.709 DEBUG --- [nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Detected org.springframework.web.servlet.support.SessionFlashMapManager@2aef651
+2024-09-02 14:20:44.709 DEBUG --- [nio-8080-exec-1] o.s.w.s.DispatcherServlet                : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2024-09-02 14:20:44.709  INFO --- [nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Completed initialization in 3 ms
+2024-09-02 14:20:44.726  WARN --- [nio-8080-exec-1] o.s.w.s.h.HandlerMappingIntrospector     : Cache miss for REQUEST dispatch to '/swagger-ui/index.html' (previous null). Performing CorsConfiguration lookup. This is logged once only at WARN level, and every time at TRACE.
+2024-09-02 14:20:44.741  WARN --- [nio-8080-exec-1] o.s.w.s.h.HandlerMappingIntrospector     : Cache miss for REQUEST dispatch to '/swagger-ui/index.html' (previous null). Performing MatchableHandlerMapping lookup. This is logged once only at WARN level, and every time at TRACE.
+2024-09-02 14:20:44.755 DEBUG --- [nio-8080-exec-1] o.s.w.s.DispatcherServlet                : GET "/swagger-ui/index.html", parameters={}
+2024-09-02 14:20:44.759 DEBUG --- [nio-8080-exec-1] o.s.w.s.h.SimpleUrlHandlerMapping        : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2024-09-02 14:20:44.795 DEBUG --- [nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Completed 200 OK
+2024-09-02 14:20:44.827 DEBUG --- [nio-8080-exec-2] o.s.w.s.DispatcherServlet                : GET "/swagger-ui/swagger-ui.css", parameters={}
+2024-09-02 14:20:44.829 DEBUG --- [nio-8080-exec-2] o.s.w.s.h.SimpleUrlHandlerMapping        : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2024-09-02 14:20:44.833 DEBUG --- [nio-8080-exec-2] o.s.w.s.DispatcherServlet                : Completed 200 OK
+2024-09-02 14:20:44.864 DEBUG --- [nio-8080-exec-3] o.s.w.s.DispatcherServlet                : GET "/swagger-ui/index.css", parameters={}
+2024-09-02 14:20:44.865 DEBUG --- [nio-8080-exec-3] o.s.w.s.h.SimpleUrlHandlerMapping        : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2024-09-02 14:20:44.869 DEBUG --- [nio-8080-exec-3] o.s.w.s.DispatcherServlet                : Completed 200 OK
+2024-09-02 14:20:44.869 DEBUG --- [nio-8080-exec-5] o.s.w.s.DispatcherServlet                : GET "/swagger-ui/swagger-initializer.js", parameters={}
+2024-09-02 14:20:44.871 DEBUG --- [nio-8080-exec-5] o.s.w.s.h.SimpleUrlHandlerMapping        : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2024-09-02 14:20:44.880 DEBUG --- [nio-8080-exec-6] o.s.w.s.DispatcherServlet                : GET "/swagger-ui/swagger-ui-standalone-preset.js", parameters={}
+2024-09-02 14:20:44.881 DEBUG --- [nio-8080-exec-6] o.s.w.s.h.SimpleUrlHandlerMapping        : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2024-09-02 14:20:44.880 DEBUG --- [nio-8080-exec-4] o.s.w.s.DispatcherServlet                : GET "/swagger-ui/swagger-ui-bundle.js", parameters={}
+2024-09-02 14:20:44.885 DEBUG --- [nio-8080-exec-4] o.s.w.s.h.SimpleUrlHandlerMapping        : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2024-09-02 14:20:44.889 DEBUG --- [nio-8080-exec-6] o.s.w.s.DispatcherServlet                : Completed 200 OK
+2024-09-02 14:20:44.919 DEBUG --- [nio-8080-exec-4] o.s.w.s.DispatcherServlet                : Completed 200 OK
+2024-09-02 14:20:44.946 DEBUG --- [nio-8080-exec-5] o.s.w.s.DispatcherServlet                : Completed 200 OK
+2024-09-02 14:20:45.655 DEBUG --- [nio-8080-exec-7] o.s.w.s.DispatcherServlet                : GET "/swagger-ui/favicon-32x32.png", parameters={}
+2024-09-02 14:20:45.656 DEBUG --- [nio-8080-exec-7] o.s.w.s.h.SimpleUrlHandlerMapping        : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2024-09-02 14:20:45.660 DEBUG --- [nio-8080-exec-7] o.s.w.s.DispatcherServlet                : Completed 200 OK
+2024-09-02 14:20:45.697 DEBUG --- [nio-8080-exec-8] o.s.w.s.DispatcherServlet                : GET "/v3/api-docs/swagger-config", parameters={}
+2024-09-02 14:20:45.698 DEBUG --- [nio-8080-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springdoc.webmvc.ui.SwaggerConfigResource#openapiJson(HttpServletRequest)
+2024-09-02 14:20:45.704 DEBUG --- [nio-8080-exec-9] o.s.w.s.DispatcherServlet                : GET "/swagger-ui/favicon-32x32.png", parameters={}
+2024-09-02 14:20:45.705 DEBUG --- [nio-8080-exec-9] o.s.w.s.h.SimpleUrlHandlerMapping        : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2024-09-02 14:20:45.711 DEBUG --- [nio-8080-exec-9] o.s.w.s.DispatcherServlet                : Completed 200 OK
+2024-09-02 14:20:45.733 DEBUG --- [nio-8080-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json]
+2024-09-02 14:20:45.741 DEBUG --- [nio-8080-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Writing [{configUrl=/v3/api-docs/swagger-config, oauth2RedirectUrl=http://localhost:8080/swagger-ui/oauth2-re (truncated)...]
+2024-09-02 14:20:45.754 DEBUG --- [nio-8080-exec-8] o.s.w.s.DispatcherServlet                : Completed 200 OK
+2024-09-02 14:20:45.793 DEBUG --- [io-8080-exec-10] o.s.w.s.DispatcherServlet                : GET "/v3/api-docs", parameters={}
+2024-09-02 14:20:45.795 DEBUG --- [io-8080-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springdoc.webmvc.api.OpenApiWebMvcResource#openapiJson(HttpServletRequest, String, Locale)
+2024-09-02 14:20:46.710  INFO --- [io-8080-exec-10] o.s.a.AbstractOpenApiResource            : Init duration for springdoc-openapi is: 889 ms
+2024-09-02 14:20:46.740 DEBUG --- [io-8080-exec-10] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json, */*] and supported [application/json]
+2024-09-02 14:20:46.744 DEBUG --- [io-8080-exec-10] m.m.a.RequestResponseBodyMethodProcessor : Writing [{123, 34, 111, 112, 101, 110, 97, 112, 105, 34, 58, 34, 51, 46, 48, 46, 49, 34, 44, 34, 115, 101, 11 (truncated)...]
+2024-09-02 14:20:46.745 DEBUG --- [io-8080-exec-10] o.s.w.s.DispatcherServlet                : Completed 200 OK
+2024-09-02 14:21:03.725 DEBUG --- [nio-8080-exec-1] o.s.w.s.DispatcherServlet                : POST "/api/auth/login", parameters={}
+2024-09-02 14:21:03.726 DEBUG --- [nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to de.telran.urlshortener.controller.AuthController#login(JwtRequest)
+2024-09-02 14:21:03.746 DEBUG --- [nio-8080-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [de.telran.urlshortener.dto.JwtDto.JwtRequest@4cdfd580]
+2024-09-02 14:21:03.757 DEBUG --- [nio-8080-exec-1] o.h.SQL                                  : 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.password,
+        u1_0.user_name 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+2024-09-02 14:21:03.768 DEBUG --- [nio-8080-exec-1] o.h.SQL                                  : 
+    select
+        s1_0.id,
+        s1_0.end_date,
+        s1_0.start_date,
+        s1_0.subscription_type,
+        u1_0.id,
+        u1_0.email,
+        u1_0.password,
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.expiry_date,
+        r1_1.name,
+        u1_0.user_name 
+    from
+        subscriptions s1_0 
+    left join
+        users u1_0 
+            on u1_0.id=s1_0.user_id 
+    left join
+        (user_roles r1_0 
+    join
+        roles r1_1 
+            on r1_1.id=r1_0.role_id) 
+        on u1_0.id=r1_0.user_id 
+    where
+        s1_0.user_id=?
+2024-09-02 14:21:03.774 DEBUG --- [nio-8080-exec-1] o.h.SQL                                  : 
+    select
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.expiry_date,
+        r1_1.name 
+    from
+        user_roles r1_0 
+    join
+        roles r1_1 
+            on r1_1.id=r1_0.role_id 
+    where
+        r1_0.user_id=?
+2024-09-02 14:21:03.952 DEBUG --- [nio-8080-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2024-09-02 14:21:03.953 DEBUG --- [nio-8080-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [de.telran.urlshortener.dto.JwtDto.JwtResponse@7d50f518]
+2024-09-02 14:21:03.954 DEBUG --- [nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Completed 200 OK
+2024-09-02 14:22:05.777 DEBUG --- [nio-8080-exec-5] o.s.w.s.DispatcherServlet                : PATCH "/users/2/role?newRole=PAID", parameters={masked}
+2024-09-02 14:22:05.778 DEBUG --- [nio-8080-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to de.telran.urlshortener.controller.UserController#changeUserRole(Long, String)
+2024-09-02 14:22:05.804 DEBUG --- [nio-8080-exec-5] o.s.w.s.DispatcherServlet                : Failed to complete request: org.springframework.security.access.AccessDeniedException: Access Denied
+2024-09-02 14:22:05.819 DEBUG --- [nio-8080-exec-5] o.s.w.s.DispatcherServlet                : "ERROR" dispatch for PATCH "/error?newRole=PAID", parameters={masked}
+2024-09-02 14:22:05.819 DEBUG --- [nio-8080-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
+2024-09-02 14:22:05.822 DEBUG --- [nio-8080-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2024-09-02 14:22:05.823 DEBUG --- [nio-8080-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{timestamp=Mon Sep 02 14:22:05 CEST 2024, status=403, error=Forbidden, path=/users/2/role}]
+2024-09-02 14:22:05.828 DEBUG --- [nio-8080-exec-5] o.s.w.s.DispatcherServlet                : Exiting from "ERROR" dispatch, status 403
+2024-09-02 17:01:11.978 ERROR --- [nio-8080-exec-9] d.t.u.s.JwtProvider                      : Token expired
+io.jsonwebtoken.ExpiredJwtException: JWT expired at 2024-09-02T12:26:03Z. Current time: 2024-09-02T15:01:11Z, a difference of 9308977 milliseconds.  Allowed clock skew: 0 milliseconds.
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:427)
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:529)
+	at io.jsonwebtoken.impl.DefaultJwtParser.parseClaimsJws(DefaultJwtParser.java:589)
+	at io.jsonwebtoken.impl.ImmutableJwtParser.parseClaimsJws(ImmutableJwtParser.java:173)
+	at de.telran.urlshortener.security.JwtProvider.validateToken(JwtProvider.java:91)
+	at de.telran.urlshortener.security.JwtProvider.validateAccessToken(JwtProvider.java:66)
+	at de.telran.urlshortener.security.JwtFilter.doFilter(JwtFilter.java:67)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:340)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2024-09-02 17:01:11.982 ERROR --- [nio-8080-exec-9] d.t.u.s.JwtProvider                      : Token expired
+io.jsonwebtoken.ExpiredJwtException: JWT expired at 2024-09-02T12:26:03Z. Current time: 2024-09-02T15:01:11Z, a difference of 9308982 milliseconds.  Allowed clock skew: 0 milliseconds.
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:427)
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:529)
+	at io.jsonwebtoken.impl.DefaultJwtParser.parseClaimsJws(DefaultJwtParser.java:589)
+	at io.jsonwebtoken.impl.ImmutableJwtParser.parseClaimsJws(ImmutableJwtParser.java:173)
+	at de.telran.urlshortener.security.JwtProvider.validateToken(JwtProvider.java:91)
+	at de.telran.urlshortener.security.JwtProvider.validateAccessToken(JwtProvider.java:66)
+	at de.telran.urlshortener.security.JwtFilter.doFilter(JwtFilter.java:67)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at de.telran.urlshortener.security.JwtFilter.doFilter(JwtFilter.java:80)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:340)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2024-09-02 17:01:11.984 DEBUG --- [nio-8080-exec-9] o.s.w.s.DispatcherServlet                : POST "/api/auth/login", parameters={}
+2024-09-02 17:01:11.985 DEBUG --- [nio-8080-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to de.telran.urlshortener.controller.AuthController#login(JwtRequest)
+2024-09-02 17:01:11.986 DEBUG --- [nio-8080-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [de.telran.urlshortener.dto.JwtDto.JwtRequest@7d615f50]
+2024-09-02 17:01:11.989 DEBUG --- [nio-8080-exec-9] o.h.SQL                                  : 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.password,
+        u1_0.user_name 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+2024-09-02 17:01:11.993 DEBUG --- [nio-8080-exec-9] o.h.SQL                                  : 
+    select
+        s1_0.id,
+        s1_0.end_date,
+        s1_0.start_date,
+        s1_0.subscription_type,
+        u1_0.id,
+        u1_0.email,
+        u1_0.password,
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.expiry_date,
+        r1_1.name,
+        u1_0.user_name 
+    from
+        subscriptions s1_0 
+    left join
+        users u1_0 
+            on u1_0.id=s1_0.user_id 
+    left join
+        (user_roles r1_0 
+    join
+        roles r1_1 
+            on r1_1.id=r1_0.role_id) 
+        on u1_0.id=r1_0.user_id 
+    where
+        s1_0.user_id=?
+2024-09-02 17:01:11.998 DEBUG --- [nio-8080-exec-9] o.h.SQL                                  : 
+    select
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.expiry_date,
+        r1_1.name 
+    from
+        user_roles r1_0 
+    join
+        roles r1_1 
+            on r1_1.id=r1_0.role_id 
+    where
+        r1_0.user_id=?
+2024-09-02 17:01:12.123 DEBUG --- [nio-8080-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2024-09-02 17:01:12.124 DEBUG --- [nio-8080-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [de.telran.urlshortener.dto.JwtDto.JwtResponse@395add71]
+2024-09-02 17:01:12.124 DEBUG --- [nio-8080-exec-9] o.s.w.s.DispatcherServlet                : Completed 200 OK
+2024-09-02 17:01:40.900 DEBUG --- [nio-8080-exec-8] o.s.w.s.DispatcherServlet                : GET "/users/1", parameters={}
+2024-09-02 17:01:40.901 DEBUG --- [nio-8080-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to de.telran.urlshortener.controller.UserController#getUserById(Long)
+2024-09-02 17:01:40.902  INFO --- [nio-8080-exec-8] d.t.u.c.UserController                   : Received request to get user with ID: 1
+2024-09-02 17:01:40.902  INFO --- [nio-8080-exec-8] d.t.u.s.UserService                      : Fetching user with ID: 1
+2024-09-02 17:01:40.913 DEBUG --- [nio-8080-exec-8] o.h.SQL                                  : 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.password,
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.expiry_date,
+        r1_1.name,
+        u1_0.user_name 
+    from
+        users u1_0 
+    left join
+        (user_roles r1_0 
+    join
+        roles r1_1 
+            on r1_1.id=r1_0.role_id) 
+        on u1_0.id=r1_0.user_id 
+    where
+        u1_0.id=?
+2024-09-02 17:01:40.916 DEBUG --- [nio-8080-exec-8] o.h.SQL                                  : 
+    select
+        s1_0.id,
+        s1_0.end_date,
+        s1_0.start_date,
+        s1_0.subscription_type,
+        u1_0.id,
+        u1_0.email,
+        u1_0.password,
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.expiry_date,
+        r1_1.name,
+        u1_0.user_name 
+    from
+        subscriptions s1_0 
+    left join
+        users u1_0 
+            on u1_0.id=s1_0.user_id 
+    left join
+        (user_roles r1_0 
+    join
+        roles r1_1 
+            on r1_1.id=r1_0.role_id) 
+        on u1_0.id=r1_0.user_id 
+    where
+        s1_0.user_id=?
+2024-09-02 17:01:40.917  INFO --- [nio-8080-exec-8] d.t.u.s.UserService                      : User with ID: 1 fetched successfully
+2024-09-02 17:01:40.918  INFO --- [nio-8080-exec-8] d.t.u.c.UserController                   : User fetched successfully with ID: 1
+2024-09-02 17:01:40.920 DEBUG --- [nio-8080-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2024-09-02 17:01:40.920 DEBUG --- [nio-8080-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [de.telran.urlshortener.dto.userDto.UserResponse@8344538]
+2024-09-02 17:01:40.921 DEBUG --- [nio-8080-exec-8] o.s.w.s.DispatcherServlet                : Completed 200 OK
+2024-09-02 17:12:14.036  INFO --- [ionShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-02 17:12:14.041  INFO --- [ionShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2024-09-02 17:12:14.043  INFO --- [ionShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2024-09-02 17:12:20.069  INFO --- [kground-preinit] o.h.v.i.u.Version                        : HV000001: Hibernate Validator 8.0.1.Final
+2024-09-02 17:12:20.116  INFO --- [           main] d.t.u.UrlShortenerApplication            : Starting UrlShortenerApplication using Java 21.0.2 with PID 274133 (/home/volodymyr/url-shortener/target/classes started by volodymyr in /home/volodymyr/url-shortener)
+2024-09-02 17:12:20.121  INFO --- [           main] d.t.u.UrlShortenerApplication            : The following 1 profile is active: "devdb"
+2024-09-02 17:12:21.327  INFO --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-02 17:12:21.409  INFO --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 73 ms. Found 4 JPA repository interfaces.
+2024-09-02 17:12:22.211  INFO --- [           main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port 8080 (http)
+2024-09-02 17:12:22.223  INFO --- [           main] o.a.c.h.Http11NioProtocol                : Initializing ProtocolHandler ["http-nio-8080"]
+2024-09-02 17:12:22.226  INFO --- [           main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2024-09-02 17:12:22.226  INFO --- [           main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/10.1.16]
+2024-09-02 17:12:22.289  INFO --- [           main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2024-09-02 17:12:22.292  INFO --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2113 ms
+2024-09-02 17:12:22.365  INFO --- [           main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2024-09-02 17:12:22.651  INFO --- [           main] c.z.h.p.HikariPool                       : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:ed528adb-bd3a-49d6-ad16-225ceda77aaf user=SA
+2024-09-02 17:12:22.654  INFO --- [           main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2024-09-02 17:12:22.669  INFO --- [           main] o.s.b.a.h.H2ConsoleAutoConfiguration     : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:ed528adb-bd3a-49d6-ad16-225ceda77aaf'
+2024-09-02 17:12:22.939  INFO --- [           main] l.database                               : Set default schema name to PUBLIC
+2024-09-02 17:12:23.478  INFO --- [           main] l.changelog                              : Creating database history table with name: PUBLIC.DATABASECHANGELOG
+2024-09-02 17:12:23.852  INFO --- [           main] l.changelog                              : Reading from PUBLIC.DATABASECHANGELOG
+2024-09-02 17:12:23.987  INFO --- [           main] l.lockservice                            : Successfully acquired change log lock
+2024-09-02 17:12:23.989  INFO --- [           main] l.command                                : Using deploymentId: 5289943988
+2024-09-02 17:12:23.991  INFO --- [           main] l.changelog                              : Reading from PUBLIC.DATABASECHANGELOG
+2024-09-02 17:12:24.030  INFO --- [           main] l.ui                                     : Running Changeset: db/migrations/db.changelog-1.0.xml::1::shemchuk
+2024-09-02 17:12:24.043  INFO --- [           main] l.changelog                              : Table roles created
+2024-09-02 17:12:24.044  INFO --- [           main] l.changelog                              : ChangeSet db/migrations/db.changelog-1.0.xml::1::shemchuk ran successfully in 12ms
+2024-09-02 17:12:24.054  INFO --- [           main] l.ui                                     : Running Changeset: db/migrations/db.changelog-1.0.xml::2::shemchuk
+2024-09-02 17:12:24.061  INFO --- [           main] l.changelog                              : Table users created
+2024-09-02 17:12:24.062  INFO --- [           main] l.changelog                              : ChangeSet db/migrations/db.changelog-1.0.xml::2::shemchuk ran successfully in 6ms
+2024-09-02 17:12:24.070  INFO --- [           main] l.ui                                     : Running Changeset: db/migrations/db.changelog-1.0.xml::3::shemchuk
+2024-09-02 17:12:24.076  INFO --- [           main] l.changelog                              : Table subscriptions created
+2024-09-02 17:12:24.086  INFO --- [           main] l.changelog                              : Foreign key constraint added to subscriptions (user_id)
+2024-09-02 17:12:24.087  INFO --- [           main] l.changelog                              : ChangeSet db/migrations/db.changelog-1.0.xml::3::shemchuk ran successfully in 16ms
+2024-09-02 17:12:24.095  INFO --- [           main] l.ui                                     : Running Changeset: db/migrations/db.changelog-1.0.xml::4::shemchuk
+2024-09-02 17:12:24.102  INFO --- [           main] l.changelog                              : Table short_urls created
+2024-09-02 17:12:24.106  INFO --- [           main] l.changelog                              : Foreign key constraint added to short_urls (user_id)
+2024-09-02 17:12:24.107  INFO --- [           main] l.changelog                              : ChangeSet db/migrations/db.changelog-1.0.xml::4::shemchuk ran successfully in 10ms
+2024-09-02 17:12:24.113  INFO --- [           main] l.ui                                     : Running Changeset: db/migrations/db.changelog-1.0.xml::5::shemchuk
+2024-09-02 17:12:24.117  INFO --- [           main] l.changelog                              : Table user_roles created
+2024-09-02 17:12:24.121  INFO --- [           main] l.changelog                              : Primary key added to user_roles (user_id, role_id)
+2024-09-02 17:12:24.126  INFO --- [           main] l.changelog                              : Foreign key constraint added to user_roles (user_id)
+2024-09-02 17:12:24.133  INFO --- [           main] l.changelog                              : Foreign key constraint added to user_roles (role_id)
+2024-09-02 17:12:24.134  INFO --- [           main] l.changelog                              : ChangeSet db/migrations/db.changelog-1.0.xml::5::shemchuk ran successfully in 19ms
+2024-09-02 17:12:24.146  INFO --- [           main] l.util                                   : UPDATE SUMMARY
+2024-09-02 17:12:24.147  INFO --- [           main] l.util                                   : Run:                          5
+2024-09-02 17:12:24.147  INFO --- [           main] l.util                                   : Previously run:               0
+2024-09-02 17:12:24.147  INFO --- [           main] l.util                                   : Filtered out:                 0
+2024-09-02 17:12:24.148  INFO --- [           main] l.util                                   : -------------------------------
+2024-09-02 17:12:24.148  INFO --- [           main] l.util                                   : Total change sets:            5
+2024-09-02 17:12:24.149  INFO --- [           main] l.util                                   : Update summary generated
+2024-09-02 17:12:24.153  INFO --- [           main] l.command                                : Update command completed successfully.
+2024-09-02 17:12:24.153  INFO --- [           main] l.ui                                     : Liquibase: Update has been successful. Rows affected: 5
+2024-09-02 17:12:24.156  INFO --- [           main] l.lockservice                            : Successfully released change log lock
+2024-09-02 17:12:24.157  INFO --- [           main] l.command                                : Command execution complete
+2024-09-02 17:12:24.287  INFO --- [           main] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-02 17:12:24.402  INFO --- [           main] o.h.Version                              : HHH000412: Hibernate ORM core version 6.3.1.Final
+2024-09-02 17:12:24.444  INFO --- [           main] o.h.c.i.RegionFactoryInitiator           : HHH000026: Second-level cache disabled
+2024-09-02 17:12:24.728  INFO --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-02 17:12:26.003  INFO --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-02 17:12:26.059  INFO --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-02 17:12:26.945  WARN --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-02 17:12:26.981  WARN --- [           main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: fe9d6b02-527b-420e-ab34-f51b57834b24
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2024-09-02 17:12:27.234 DEBUG --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : 19 mappings in 'requestMappingHandlerMapping'
+2024-09-02 17:12:27.397 DEBUG --- [           main] o.s.w.s.h.SimpleUrlHandlerMapping        : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2024-09-02 17:12:27.491  INFO --- [           main] o.s.s.w.DefaultSecurityFilterChain       : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5aa7bb86, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6ddccee4, org.springframework.security.web.context.SecurityContextHolderFilter@7a4ea134, org.springframework.security.web.header.HeaderWriterFilter@230383a7, org.springframework.web.filter.CorsFilter@39000894, org.springframework.security.web.authentication.logout.LogoutFilter@e00f822, de.telran.urlshortener.security.JwtFilter@710ae6a7, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4dd56393, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7793eaca, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4f5080ea, org.springframework.security.web.session.SessionManagementFilter@61c1be2f, org.springframework.security.web.access.ExceptionTranslationFilter@314e240c, org.springframework.security.web.access.intercept.AuthorizationFilter@77d80294]
+2024-09-02 17:12:27.638 DEBUG --- [           main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-09-02 17:12:27.689 DEBUG --- [           main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-09-02 17:12:28.042  INFO --- [           main] o.a.c.h.Http11NioProtocol                : Starting ProtocolHandler ["http-nio-8080"]
+2024-09-02 17:12:28.060  INFO --- [           main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port 8080 (http) with context path ''
+2024-09-02 17:12:28.074  INFO --- [           main] d.t.u.UrlShortenerApplication            : Started UrlShortenerApplication in 8.479 seconds (process running for 9.966)
+2024-09-02 17:12:28.299 DEBUG --- [           main] o.h.SQL                                  : 
+    select
+        r1_0.id,
+        r1_0.expiry_date,
+        r1_0.name 
+    from
+        roles r1_0 
+    where
+        r1_0.name=?
+2024-09-02 17:12:28.394 DEBUG --- [           main] o.h.SQL                                  : 
+    insert 
+    into
+        roles
+        (expiry_date, name, id) 
+    values
+        (?, ?, default)
+2024-09-02 17:12:28.418 DEBUG --- [           main] o.h.SQL                                  : 
+    select
+        r1_0.id,
+        r1_0.expiry_date,
+        r1_0.name 
+    from
+        roles r1_0 
+    where
+        r1_0.name=?
+2024-09-02 17:12:28.427 DEBUG --- [           main] o.h.SQL                                  : 
+    select
+        r1_0.id,
+        r1_0.expiry_date,
+        r1_0.name 
+    from
+        roles r1_0 
+    where
+        r1_0.name=?
+2024-09-02 17:12:28.429 DEBUG --- [           main] o.h.SQL                                  : 
+    insert 
+    into
+        roles
+        (expiry_date, name, id) 
+    values
+        (?, ?, default)
+2024-09-02 17:12:28.432 DEBUG --- [           main] o.h.SQL                                  : 
+    select
+        r1_0.id,
+        r1_0.expiry_date,
+        r1_0.name 
+    from
+        roles r1_0 
+    where
+        r1_0.name=?
+2024-09-02 17:12:28.434 DEBUG --- [           main] o.h.SQL                                  : 
+    insert 
+    into
+        roles
+        (expiry_date, name, id) 
+    values
+        (?, ?, default)
+2024-09-02 17:12:28.437 DEBUG --- [           main] o.h.SQL                                  : 
+    select
+        r1_0.id,
+        r1_0.expiry_date,
+        r1_0.name 
+    from
+        roles r1_0 
+    where
+        r1_0.name=?
+2024-09-02 17:12:28.440 DEBUG --- [           main] o.h.SQL                                  : 
+    select
+        r1_0.id,
+        r1_0.expiry_date,
+        r1_0.name 
+    from
+        roles r1_0 
+    where
+        r1_0.name=?
+2024-09-02 17:12:28.446 DEBUG --- [           main] o.h.SQL                                  : 
+    select
+        u1_0.id 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+    fetch
+        first ? rows only
+2024-09-02 17:12:28.601 DEBUG --- [           main] o.h.SQL                                  : 
+    insert 
+    into
+        users
+        (email, password, user_name, id) 
+    values
+        (?, ?, ?, default)
+2024-09-02 17:12:28.617 DEBUG --- [           main] o.h.SQL                                  : 
+    insert 
+    into
+        user_roles
+        (user_id, role_id) 
+    values
+        (?, ?)
+2024-09-02 17:12:28.623 DEBUG --- [           main] o.h.SQL                                  : 
+    select
+        u1_0.id 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+    fetch
+        first ? rows only
+2024-09-02 17:12:28.753 DEBUG --- [           main] o.h.SQL                                  : 
+    insert 
+    into
+        users
+        (email, password, user_name, id) 
+    values
+        (?, ?, ?, default)
+2024-09-02 17:12:28.755 DEBUG --- [           main] o.h.SQL                                  : 
+    insert 
+    into
+        user_roles
+        (user_id, role_id) 
+    values
+        (?, ?)
+2024-09-02 17:12:45.298  INFO --- [nio-8080-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-02 17:12:45.299  INFO --- [nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2024-09-02 17:12:45.299 DEBUG --- [nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Detected StandardServletMultipartResolver
+2024-09-02 17:12:45.300 DEBUG --- [nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Detected AcceptHeaderLocaleResolver
+2024-09-02 17:12:45.300 DEBUG --- [nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Detected FixedThemeResolver
+2024-09-02 17:12:45.301 DEBUG --- [nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@53b10e9a
+2024-09-02 17:12:45.302 DEBUG --- [nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Detected org.springframework.web.servlet.support.SessionFlashMapManager@5c7a699b
+2024-09-02 17:12:45.302 DEBUG --- [nio-8080-exec-1] o.s.w.s.DispatcherServlet                : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2024-09-02 17:12:45.303  INFO --- [nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Completed initialization in 4 ms
+2024-09-02 17:12:45.319  WARN --- [nio-8080-exec-1] o.s.w.s.h.HandlerMappingIntrospector     : Cache miss for REQUEST dispatch to '/swagger-ui/index.html' (previous null). Performing CorsConfiguration lookup. This is logged once only at WARN level, and every time at TRACE.
+2024-09-02 17:12:45.335  WARN --- [nio-8080-exec-1] o.s.w.s.h.HandlerMappingIntrospector     : Cache miss for REQUEST dispatch to '/swagger-ui/index.html' (previous null). Performing MatchableHandlerMapping lookup. This is logged once only at WARN level, and every time at TRACE.
+2024-09-02 17:12:45.348 DEBUG --- [nio-8080-exec-1] o.s.w.s.DispatcherServlet                : GET "/swagger-ui/index.html", parameters={}
+2024-09-02 17:12:45.352 DEBUG --- [nio-8080-exec-1] o.s.w.s.h.SimpleUrlHandlerMapping        : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2024-09-02 17:12:45.388 DEBUG --- [nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Completed 200 OK
+2024-09-02 17:12:45.430 DEBUG --- [nio-8080-exec-2] o.s.w.s.DispatcherServlet                : GET "/swagger-ui/swagger-ui.css", parameters={}
+2024-09-02 17:12:45.431 DEBUG --- [nio-8080-exec-2] o.s.w.s.h.SimpleUrlHandlerMapping        : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2024-09-02 17:12:45.436 DEBUG --- [nio-8080-exec-2] o.s.w.s.DispatcherServlet                : Completed 200 OK
+2024-09-02 17:12:45.478 DEBUG --- [nio-8080-exec-6] o.s.w.s.DispatcherServlet                : GET "/swagger-ui/swagger-ui-bundle.js", parameters={}
+2024-09-02 17:12:45.476 DEBUG --- [nio-8080-exec-3] o.s.w.s.DispatcherServlet                : GET "/swagger-ui/index.css", parameters={}
+2024-09-02 17:12:45.479 DEBUG --- [nio-8080-exec-6] o.s.w.s.h.SimpleUrlHandlerMapping        : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2024-09-02 17:12:45.479 DEBUG --- [nio-8080-exec-3] o.s.w.s.h.SimpleUrlHandlerMapping        : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2024-09-02 17:12:45.481 DEBUG --- [nio-8080-exec-4] o.s.w.s.DispatcherServlet                : GET "/swagger-ui/swagger-initializer.js", parameters={}
+2024-09-02 17:12:45.483 DEBUG --- [nio-8080-exec-4] o.s.w.s.h.SimpleUrlHandlerMapping        : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2024-09-02 17:12:45.485 DEBUG --- [nio-8080-exec-3] o.s.w.s.DispatcherServlet                : Completed 200 OK
+2024-09-02 17:12:45.486 DEBUG --- [nio-8080-exec-5] o.s.w.s.DispatcherServlet                : GET "/swagger-ui/swagger-ui-standalone-preset.js", parameters={}
+2024-09-02 17:12:45.488 DEBUG --- [nio-8080-exec-5] o.s.w.s.h.SimpleUrlHandlerMapping        : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2024-09-02 17:12:45.495 DEBUG --- [nio-8080-exec-5] o.s.w.s.DispatcherServlet                : Completed 200 OK
+2024-09-02 17:12:45.517 DEBUG --- [nio-8080-exec-6] o.s.w.s.DispatcherServlet                : Completed 200 OK
+2024-09-02 17:12:45.549 DEBUG --- [nio-8080-exec-4] o.s.w.s.DispatcherServlet                : Completed 200 OK
+2024-09-02 17:12:46.232 DEBUG --- [nio-8080-exec-7] o.s.w.s.DispatcherServlet                : GET "/swagger-ui/favicon-32x32.png", parameters={}
+2024-09-02 17:12:46.233 DEBUG --- [nio-8080-exec-7] o.s.w.s.h.SimpleUrlHandlerMapping        : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2024-09-02 17:12:46.236 DEBUG --- [nio-8080-exec-7] o.s.w.s.DispatcherServlet                : Completed 200 OK
+2024-09-02 17:12:46.292 DEBUG --- [nio-8080-exec-8] o.s.w.s.DispatcherServlet                : GET "/v3/api-docs/swagger-config", parameters={}
+2024-09-02 17:12:46.292 DEBUG --- [nio-8080-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springdoc.webmvc.ui.SwaggerConfigResource#openapiJson(HttpServletRequest)
+2024-09-02 17:12:46.294 DEBUG --- [nio-8080-exec-9] o.s.w.s.DispatcherServlet                : GET "/swagger-ui/favicon-32x32.png", parameters={}
+2024-09-02 17:12:46.296 DEBUG --- [nio-8080-exec-9] o.s.w.s.h.SimpleUrlHandlerMapping        : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2024-09-02 17:12:46.315 DEBUG --- [nio-8080-exec-9] o.s.w.s.DispatcherServlet                : Completed 200 OK
+2024-09-02 17:12:46.324 DEBUG --- [nio-8080-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json]
+2024-09-02 17:12:46.328 DEBUG --- [nio-8080-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Writing [{configUrl=/v3/api-docs/swagger-config, oauth2RedirectUrl=http://localhost:8080/swagger-ui/oauth2-re (truncated)...]
+2024-09-02 17:12:46.344 DEBUG --- [nio-8080-exec-8] o.s.w.s.DispatcherServlet                : Completed 200 OK
+2024-09-02 17:12:46.398 DEBUG --- [io-8080-exec-10] o.s.w.s.DispatcherServlet                : GET "/v3/api-docs", parameters={}
+2024-09-02 17:12:46.399 DEBUG --- [io-8080-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springdoc.webmvc.api.OpenApiWebMvcResource#openapiJson(HttpServletRequest, String, Locale)
+2024-09-02 17:12:47.293  INFO --- [io-8080-exec-10] o.s.a.AbstractOpenApiResource            : Init duration for springdoc-openapi is: 871 ms
+2024-09-02 17:12:47.324 DEBUG --- [io-8080-exec-10] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json, */*] and supported [application/json]
+2024-09-02 17:12:47.327 DEBUG --- [io-8080-exec-10] m.m.a.RequestResponseBodyMethodProcessor : Writing [{123, 34, 111, 112, 101, 110, 97, 112, 105, 34, 58, 34, 51, 46, 48, 46, 49, 34, 44, 34, 115, 101, 11 (truncated)...]
+2024-09-02 17:12:47.329 DEBUG --- [io-8080-exec-10] o.s.w.s.DispatcherServlet                : Completed 200 OK
+2024-09-02 17:13:03.889 DEBUG --- [nio-8080-exec-1] o.s.w.s.DispatcherServlet                : POST "/api/auth/login", parameters={}
+2024-09-02 17:13:03.889 DEBUG --- [nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to de.telran.urlshortener.controller.AuthController#login(JwtRequest)
+2024-09-02 17:13:03.911 DEBUG --- [nio-8080-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [de.telran.urlshortener.dto.JwtDto.JwtRequest@5769066d]
+2024-09-02 17:13:03.924 DEBUG --- [nio-8080-exec-1] o.h.SQL                                  : 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.password,
+        u1_0.user_name 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+2024-09-02 17:13:03.936 DEBUG --- [nio-8080-exec-1] o.h.SQL                                  : 
+    select
+        s1_0.id,
+        s1_0.end_date,
+        s1_0.start_date,
+        s1_0.subscription_type,
+        u1_0.id,
+        u1_0.email,
+        u1_0.password,
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.expiry_date,
+        r1_1.name,
+        u1_0.user_name 
+    from
+        subscriptions s1_0 
+    left join
+        users u1_0 
+            on u1_0.id=s1_0.user_id 
+    left join
+        (user_roles r1_0 
+    join
+        roles r1_1 
+            on r1_1.id=r1_0.role_id) 
+        on u1_0.id=r1_0.user_id 
+    where
+        s1_0.user_id=?
+2024-09-02 17:13:03.942 DEBUG --- [nio-8080-exec-1] o.h.SQL                                  : 
+    select
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.expiry_date,
+        r1_1.name 
+    from
+        user_roles r1_0 
+    join
+        roles r1_1 
+            on r1_1.id=r1_0.role_id 
+    where
+        r1_0.user_id=?
+2024-09-02 17:13:04.108 DEBUG --- [nio-8080-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2024-09-02 17:13:04.109 DEBUG --- [nio-8080-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [de.telran.urlshortener.dto.JwtDto.JwtResponse@3460653d]
+2024-09-02 17:13:04.111 DEBUG --- [nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Completed 200 OK
+2024-09-02 17:13:49.525 DEBUG --- [nio-8080-exec-6] o.s.w.s.DispatcherServlet                : PATCH "/users/2/role?newRole=PAID", parameters={masked}
+2024-09-02 17:13:49.525 DEBUG --- [nio-8080-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to de.telran.urlshortener.controller.UserController#changeUserRole(Long, String)
+2024-09-02 17:13:49.544  INFO --- [nio-8080-exec-6] d.t.u.c.UserController                   : Received request to change role for user with ID: 2 to PAID
+2024-09-02 17:13:49.545  INFO --- [nio-8080-exec-6] d.t.u.s.UserService                      : Attempting to change role for user with ID: 2 to PAID
+2024-09-02 17:13:49.559 DEBUG --- [nio-8080-exec-6] o.h.SQL                                  : 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.password,
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.expiry_date,
+        r1_1.name,
+        u1_0.user_name 
+    from
+        users u1_0 
+    left join
+        (user_roles r1_0 
+    join
+        roles r1_1 
+            on r1_1.id=r1_0.role_id) 
+        on u1_0.id=r1_0.user_id 
+    where
+        u1_0.id=?
+2024-09-02 17:13:49.562 DEBUG --- [nio-8080-exec-6] o.h.SQL                                  : 
+    select
+        s1_0.id,
+        s1_0.end_date,
+        s1_0.start_date,
+        s1_0.subscription_type,
+        u1_0.id,
+        u1_0.email,
+        u1_0.password,
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.expiry_date,
+        r1_1.name,
+        u1_0.user_name 
+    from
+        subscriptions s1_0 
+    left join
+        users u1_0 
+            on u1_0.id=s1_0.user_id 
+    left join
+        (user_roles r1_0 
+    join
+        roles r1_1 
+            on r1_1.id=r1_0.role_id) 
+        on u1_0.id=r1_0.user_id 
+    where
+        s1_0.user_id=?
+2024-09-02 17:13:49.565 DEBUG --- [nio-8080-exec-6] o.h.SQL                                  : 
+    select
+        r1_0.id,
+        r1_0.expiry_date,
+        r1_0.name 
+    from
+        roles r1_0 
+    where
+        r1_0.name=?
+2024-09-02 17:13:49.571 DEBUG --- [nio-8080-exec-6] o.h.SQL                                  : 
+    select
+        s1_0.id,
+        s1_0.end_date,
+        s1_0.start_date,
+        s1_0.subscription_type,
+        s1_0.user_id 
+    from
+        subscriptions s1_0 
+    where
+        s1_0.user_id=?
+2024-09-02 17:13:49.577 DEBUG --- [nio-8080-exec-6] o.h.SQL                                  : 
+    insert 
+    into
+        subscriptions
+        (end_date, start_date, subscription_type, user_id, id) 
+    values
+        (?, ?, ?, ?, default)
+2024-09-02 17:13:49.582 DEBUG --- [nio-8080-exec-6] o.h.SQL                                  : 
+    delete 
+    from
+        user_roles 
+    where
+        user_id=? 
+        and role_id=?
+2024-09-02 17:13:49.584 DEBUG --- [nio-8080-exec-6] o.h.SQL                                  : 
+    insert 
+    into
+        user_roles
+        (user_id, role_id) 
+    values
+        (?, ?)
+2024-09-02 17:13:49.590  INFO --- [nio-8080-exec-6] d.t.u.s.UserService                      : User role updated successfully with ID: 2
+2024-09-02 17:13:49.590  INFO --- [nio-8080-exec-6] d.t.u.c.UserController                   : User role updated successfully with ID: 2
+2024-09-02 17:13:49.593 DEBUG --- [nio-8080-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2024-09-02 17:13:49.593 DEBUG --- [nio-8080-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [de.telran.urlshortener.dto.userDto.UserResponse@3257a026]
+2024-09-02 17:13:49.596 DEBUG --- [nio-8080-exec-6] o.s.w.s.DispatcherServlet                : Completed 200 OK
+2024-09-02 17:16:45.514 DEBUG --- [nio-8080-exec-7] o.s.w.s.DispatcherServlet                : POST "/api/auth/login", parameters={}
+2024-09-02 17:16:45.515 DEBUG --- [nio-8080-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to de.telran.urlshortener.controller.AuthController#login(JwtRequest)
+2024-09-02 17:16:45.515 DEBUG --- [nio-8080-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [de.telran.urlshortener.dto.JwtDto.JwtRequest@45bfe3e5]
+2024-09-02 17:16:45.517 DEBUG --- [nio-8080-exec-7] o.h.SQL                                  : 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.password,
+        u1_0.user_name 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+2024-09-02 17:16:45.528 DEBUG --- [nio-8080-exec-7] o.h.SQL                                  : 
+    select
+        s1_0.id,
+        s1_0.end_date,
+        s1_0.start_date,
+        s1_0.subscription_type,
+        u1_0.id,
+        u1_0.email,
+        u1_0.password,
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.expiry_date,
+        r1_1.name,
+        u1_0.user_name 
+    from
+        subscriptions s1_0 
+    left join
+        users u1_0 
+            on u1_0.id=s1_0.user_id 
+    left join
+        (user_roles r1_0 
+    join
+        roles r1_1 
+            on r1_1.id=r1_0.role_id) 
+        on u1_0.id=r1_0.user_id 
+    where
+        s1_0.user_id=?
+2024-09-02 17:16:45.619 DEBUG --- [nio-8080-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2024-09-02 17:16:45.619 DEBUG --- [nio-8080-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [de.telran.urlshortener.dto.JwtDto.JwtResponse@7a332bfe]
+2024-09-02 17:16:45.620 DEBUG --- [nio-8080-exec-7] o.s.w.s.DispatcherServlet                : Completed 200 OK
+2024-09-02 17:17:28.002 DEBUG --- [nio-8080-exec-9] o.s.w.s.DispatcherServlet                : GET "/users/2", parameters={}
+2024-09-02 17:17:28.003 DEBUG --- [nio-8080-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to de.telran.urlshortener.controller.UserController#getUserById(Long)
+2024-09-02 17:17:28.004  INFO --- [nio-8080-exec-9] d.t.u.c.UserController                   : Received request to get user with ID: 2
+2024-09-02 17:17:28.004  INFO --- [nio-8080-exec-9] d.t.u.s.UserService                      : Fetching user with ID: 2
+2024-09-02 17:17:28.006 DEBUG --- [nio-8080-exec-9] o.h.SQL                                  : 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.password,
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.expiry_date,
+        r1_1.name,
+        u1_0.user_name 
+    from
+        users u1_0 
+    left join
+        (user_roles r1_0 
+    join
+        roles r1_1 
+            on r1_1.id=r1_0.role_id) 
+        on u1_0.id=r1_0.user_id 
+    where
+        u1_0.id=?
+2024-09-02 17:17:28.009 DEBUG --- [nio-8080-exec-9] o.h.SQL                                  : 
+    select
+        s1_0.id,
+        s1_0.end_date,
+        s1_0.start_date,
+        s1_0.subscription_type,
+        u1_0.id,
+        u1_0.email,
+        u1_0.password,
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.expiry_date,
+        r1_1.name,
+        u1_0.user_name 
+    from
+        subscriptions s1_0 
+    left join
+        users u1_0 
+            on u1_0.id=s1_0.user_id 
+    left join
+        (user_roles r1_0 
+    join
+        roles r1_1 
+            on r1_1.id=r1_0.role_id) 
+        on u1_0.id=r1_0.user_id 
+    where
+        s1_0.user_id=?
+2024-09-02 17:17:28.012  INFO --- [nio-8080-exec-9] d.t.u.s.UserService                      : User with ID: 2 fetched successfully
+2024-09-02 17:17:28.013  INFO --- [nio-8080-exec-9] d.t.u.c.UserController                   : User fetched successfully with ID: 2
+2024-09-02 17:17:28.014 DEBUG --- [nio-8080-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2024-09-02 17:17:28.014 DEBUG --- [nio-8080-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [de.telran.urlshortener.dto.userDto.UserResponse@19090a05]
+2024-09-02 17:17:28.015 DEBUG --- [nio-8080-exec-9] o.s.w.s.DispatcherServlet                : Completed 200 OK
+2024-09-02 17:19:50.725 DEBUG --- [io-8080-exec-10] o.s.w.s.DispatcherServlet                : PUT "/users/2", parameters={}
+2024-09-02 17:19:50.725 DEBUG --- [io-8080-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to de.telran.urlshortener.controller.UserController#updateUser(Long, UserRequest)
+2024-09-02 17:19:50.727 DEBUG --- [io-8080-exec-10] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [de.telran.urlshortener.dto.userDto.UserRequest@79a724a2]
+2024-09-02 17:19:50.728  INFO --- [io-8080-exec-10] d.t.u.c.UserController                   : Received request to update user with ID: 2
+2024-09-02 17:19:50.729  INFO --- [io-8080-exec-10] d.t.u.s.UserService                      : Attempting to update user with ID: 2
+2024-09-02 17:19:50.730 DEBUG --- [io-8080-exec-10] o.h.SQL                                  : 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.password,
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.expiry_date,
+        r1_1.name,
+        u1_0.user_name 
+    from
+        users u1_0 
+    left join
+        (user_roles r1_0 
+    join
+        roles r1_1 
+            on r1_1.id=r1_0.role_id) 
+        on u1_0.id=r1_0.user_id 
+    where
+        u1_0.id=?
+2024-09-02 17:19:50.732 DEBUG --- [io-8080-exec-10] o.h.SQL                                  : 
+    select
+        s1_0.id,
+        s1_0.end_date,
+        s1_0.start_date,
+        s1_0.subscription_type,
+        u1_0.id,
+        u1_0.email,
+        u1_0.password,
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.expiry_date,
+        r1_1.name,
+        u1_0.user_name 
+    from
+        subscriptions s1_0 
+    left join
+        users u1_0 
+            on u1_0.id=s1_0.user_id 
+    left join
+        (user_roles r1_0 
+    join
+        roles r1_1 
+            on r1_1.id=r1_0.role_id) 
+        on u1_0.id=r1_0.user_id 
+    where
+        s1_0.user_id=?
+2024-09-02 17:19:50.841 DEBUG --- [io-8080-exec-10] o.h.SQL                                  : 
+    update
+        users 
+    set
+        email=?,
+        password=?,
+        user_name=? 
+    where
+        id=?
+2024-09-02 17:19:50.843  INFO --- [io-8080-exec-10] d.t.u.s.UserService                      : User with ID: 2 updated successfully
+2024-09-02 17:19:50.843  INFO --- [io-8080-exec-10] d.t.u.c.UserController                   : User updated successfully with ID: 2
+2024-09-02 17:19:50.844 DEBUG --- [io-8080-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2024-09-02 17:19:50.844 DEBUG --- [io-8080-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [de.telran.urlshortener.dto.userDto.UserResponse@331bf97e]
+2024-09-02 17:19:50.845 DEBUG --- [io-8080-exec-10] o.s.w.s.DispatcherServlet                : Completed 200 OK

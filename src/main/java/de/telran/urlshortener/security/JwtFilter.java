@@ -60,13 +60,23 @@ public class JwtFilter extends GenericFilterBean {
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain fc)
             throws IOException, ServletException {
+        // Получаем JWT токен из запроса
         final String token = getTokenFromRequest((HttpServletRequest) request);
+
+        // Проверяем, что токен не пустой и валидный
         if (token != null && jwtProvider.validateAccessToken(token)) {
+            // Получаем claims из токена
             final Claims claims = jwtProvider.getAccessClaims(token);
+
+            // Генерируем объект аутентификации на основе claims
             final JwtAuthentication jwtInfoToken = JwtUtils.generate(claims);
             jwtInfoToken.setAuthenticated(true);
+
+            // Устанавливаем аутентификацию в SecurityContext
             SecurityContextHolder.getContext().setAuthentication(jwtInfoToken);
         }
+
+        // Продолжаем выполнение цепочки фильтров
         fc.doFilter(request, response);
     }
 
@@ -77,11 +87,14 @@ public class JwtFilter extends GenericFilterBean {
      * @return the JWT token if present, null otherwise.
      */
     private String getTokenFromRequest(HttpServletRequest request) {
+        // Извлекаем заголовок Authorization из запроса
         final String bearer = request.getHeader(AUTHORIZATION);
+
+        // Проверяем, что заголовок не пустой и начинается с "Bearer "
         if (StringUtils.hasText(bearer) && bearer.startsWith("Bearer ")) {
+            // Возвращаем сам JWT токен без "Bearer "
             return bearer.substring(7);
         }
         return null;
     }
 }
-

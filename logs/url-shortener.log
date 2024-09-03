@@ -28510,3 +28510,1281 @@ This generated password is for development use only. Your security configuration
 2024-09-02 18:35:27.363 DEBUG --- [io-8080-exec-10] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json, */*] and supported [application/json]
 2024-09-02 18:35:27.367 DEBUG --- [io-8080-exec-10] m.m.a.RequestResponseBodyMethodProcessor : Writing [{123, 34, 111, 112, 101, 110, 97, 112, 105, 34, 58, 34, 51, 46, 48, 46, 49, 34, 44, 34, 115, 101, 11 (truncated)...]
 2024-09-02 18:35:27.369 DEBUG --- [io-8080-exec-10] o.s.w.s.DispatcherServlet                : Completed 200 OK
+2024-09-03 07:19:14.064  INFO --- [kground-preinit] o.h.v.i.u.Version                        : HV000001: Hibernate Validator 8.0.1.Final
+2024-09-03 07:19:14.113  INFO --- [           main] d.t.u.UrlShortenerApplication            : Starting UrlShortenerApplication using Java 21.0.2 with PID 17521 (/home/volodymyr/url-shortener/target/classes started by volodymyr in /home/volodymyr/url-shortener)
+2024-09-03 07:19:14.118  INFO --- [           main] d.t.u.UrlShortenerApplication            : The following 1 profile is active: "devdb"
+2024-09-03 07:19:15.344  INFO --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-03 07:19:15.429  INFO --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 75 ms. Found 4 JPA repository interfaces.
+2024-09-03 07:19:16.309  INFO --- [           main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port 8080 (http)
+2024-09-03 07:19:16.323  INFO --- [           main] o.a.c.h.Http11NioProtocol                : Initializing ProtocolHandler ["http-nio-8080"]
+2024-09-03 07:19:16.325  INFO --- [           main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2024-09-03 07:19:16.326  INFO --- [           main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/10.1.16]
+2024-09-03 07:19:16.394  INFO --- [           main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2024-09-03 07:19:16.395  INFO --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2226 ms
+2024-09-03 07:19:16.470  INFO --- [           main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2024-09-03 07:19:16.932  INFO --- [           main] c.z.h.p.HikariPool                       : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:fc4b016d-ae6e-4cdd-ba30-598db5947b6e user=SA
+2024-09-03 07:19:16.935  INFO --- [           main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2024-09-03 07:19:16.950  INFO --- [           main] o.s.b.a.h.H2ConsoleAutoConfiguration     : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:fc4b016d-ae6e-4cdd-ba30-598db5947b6e'
+2024-09-03 07:19:17.255  INFO --- [           main] l.database                               : Set default schema name to PUBLIC
+2024-09-03 07:19:17.845  INFO --- [           main] l.changelog                              : Creating database history table with name: PUBLIC.DATABASECHANGELOG
+2024-09-03 07:19:18.183  INFO --- [           main] l.changelog                              : Reading from PUBLIC.DATABASECHANGELOG
+2024-09-03 07:19:18.330  INFO --- [           main] l.lockservice                            : Successfully acquired change log lock
+2024-09-03 07:19:18.332  INFO --- [           main] l.command                                : Using deploymentId: 5340758331
+2024-09-03 07:19:18.334  INFO --- [           main] l.changelog                              : Reading from PUBLIC.DATABASECHANGELOG
+2024-09-03 07:19:18.378  INFO --- [           main] l.ui                                     : Running Changeset: db/migrations/db.changelog-1.0.xml::1::shemchuk
+2024-09-03 07:19:18.393  INFO --- [           main] l.changelog                              : Table roles created
+2024-09-03 07:19:18.394  INFO --- [           main] l.changelog                              : ChangeSet db/migrations/db.changelog-1.0.xml::1::shemchuk ran successfully in 15ms
+2024-09-03 07:19:18.410  INFO --- [           main] l.ui                                     : Running Changeset: db/migrations/db.changelog-1.0.xml::2::shemchuk
+2024-09-03 07:19:18.419  INFO --- [           main] l.changelog                              : Table users created
+2024-09-03 07:19:18.420  INFO --- [           main] l.changelog                              : ChangeSet db/migrations/db.changelog-1.0.xml::2::shemchuk ran successfully in 9ms
+2024-09-03 07:19:18.430  INFO --- [           main] l.ui                                     : Running Changeset: db/migrations/db.changelog-1.0.xml::3::shemchuk
+2024-09-03 07:19:18.437  INFO --- [           main] l.changelog                              : Table subscriptions created
+2024-09-03 07:19:18.449  INFO --- [           main] l.changelog                              : Foreign key constraint added to subscriptions (user_id)
+2024-09-03 07:19:18.450  INFO --- [           main] l.changelog                              : ChangeSet db/migrations/db.changelog-1.0.xml::3::shemchuk ran successfully in 19ms
+2024-09-03 07:19:18.458  INFO --- [           main] l.ui                                     : Running Changeset: db/migrations/db.changelog-1.0.xml::4::shemchuk
+2024-09-03 07:19:18.464  INFO --- [           main] l.changelog                              : Table short_urls created
+2024-09-03 07:19:18.467  INFO --- [           main] l.changelog                              : Foreign key constraint added to short_urls (user_id)
+2024-09-03 07:19:18.467  INFO --- [           main] l.changelog                              : ChangeSet db/migrations/db.changelog-1.0.xml::4::shemchuk ran successfully in 9ms
+2024-09-03 07:19:18.472  INFO --- [           main] l.ui                                     : Running Changeset: db/migrations/db.changelog-1.0.xml::5::shemchuk
+2024-09-03 07:19:18.475  INFO --- [           main] l.changelog                              : Table user_roles created
+2024-09-03 07:19:18.478  INFO --- [           main] l.changelog                              : Primary key added to user_roles (user_id, role_id)
+2024-09-03 07:19:18.482  INFO --- [           main] l.changelog                              : Foreign key constraint added to user_roles (user_id)
+2024-09-03 07:19:18.487  INFO --- [           main] l.changelog                              : Foreign key constraint added to user_roles (role_id)
+2024-09-03 07:19:18.488  INFO --- [           main] l.changelog                              : ChangeSet db/migrations/db.changelog-1.0.xml::5::shemchuk ran successfully in 16ms
+2024-09-03 07:19:18.497  INFO --- [           main] l.util                                   : UPDATE SUMMARY
+2024-09-03 07:19:18.498  INFO --- [           main] l.util                                   : Run:                          5
+2024-09-03 07:19:18.498  INFO --- [           main] l.util                                   : Previously run:               0
+2024-09-03 07:19:18.498  INFO --- [           main] l.util                                   : Filtered out:                 0
+2024-09-03 07:19:18.499  INFO --- [           main] l.util                                   : -------------------------------
+2024-09-03 07:19:18.499  INFO --- [           main] l.util                                   : Total change sets:            5
+2024-09-03 07:19:18.500  INFO --- [           main] l.util                                   : Update summary generated
+2024-09-03 07:19:18.504  INFO --- [           main] l.command                                : Update command completed successfully.
+2024-09-03 07:19:18.504  INFO --- [           main] l.ui                                     : Liquibase: Update has been successful. Rows affected: 5
+2024-09-03 07:19:18.507  INFO --- [           main] l.lockservice                            : Successfully released change log lock
+2024-09-03 07:19:18.508  INFO --- [           main] l.command                                : Command execution complete
+2024-09-03 07:19:18.652  INFO --- [           main] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-03 07:19:18.802  INFO --- [           main] o.h.Version                              : HHH000412: Hibernate ORM core version 6.3.1.Final
+2024-09-03 07:19:18.850  INFO --- [           main] o.h.c.i.RegionFactoryInitiator           : HHH000026: Second-level cache disabled
+2024-09-03 07:19:19.193  INFO --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-03 07:19:20.578  INFO --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-03 07:19:20.643  INFO --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-03 07:19:21.573  WARN --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-03 07:19:21.610  WARN --- [           main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 0479dcaa-5714-4900-b5d9-6f9478ac2445
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2024-09-03 07:19:21.919 DEBUG --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : 19 mappings in 'requestMappingHandlerMapping'
+2024-09-03 07:19:22.072 DEBUG --- [           main] o.s.w.s.h.SimpleUrlHandlerMapping        : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2024-09-03 07:19:22.149  INFO --- [           main] o.s.s.w.DefaultSecurityFilterChain       : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@42c7781a, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7d2d7a85, org.springframework.security.web.context.SecurityContextHolderFilter@6222a343, org.springframework.security.web.header.HeaderWriterFilter@5eb054, org.springframework.web.filter.CorsFilter@5cb3c9e6, org.springframework.security.web.authentication.logout.LogoutFilter@16c9ec5b, de.telran.urlshortener.security.JwtFilter@76828577, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@47c019d7, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7861a433, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@55fbebba, org.springframework.security.web.session.SessionManagementFilter@314e240c, org.springframework.security.web.access.ExceptionTranslationFilter@77f2807f, org.springframework.security.web.access.intercept.AuthorizationFilter@572d1f18]
+2024-09-03 07:19:22.315 DEBUG --- [           main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-09-03 07:19:22.371 DEBUG --- [           main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-09-03 07:19:22.754  INFO --- [           main] o.a.c.h.Http11NioProtocol                : Starting ProtocolHandler ["http-nio-8080"]
+2024-09-03 07:19:22.773  INFO --- [           main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port 8080 (http) with context path ''
+2024-09-03 07:19:22.786  INFO --- [           main] d.t.u.UrlShortenerApplication            : Started UrlShortenerApplication in 9.205 seconds (process running for 11.463)
+2024-09-03 07:19:22.961 DEBUG --- [           main] o.h.SQL                                  : 
+    select
+        r1_0.id,
+        r1_0.expiry_date,
+        r1_0.name 
+    from
+        roles r1_0 
+    where
+        r1_0.name=?
+2024-09-03 07:19:23.058 DEBUG --- [           main] o.h.SQL                                  : 
+    insert 
+    into
+        roles
+        (expiry_date, name, id) 
+    values
+        (?, ?, default)
+2024-09-03 07:19:23.081 DEBUG --- [           main] o.h.SQL                                  : 
+    select
+        r1_0.id,
+        r1_0.expiry_date,
+        r1_0.name 
+    from
+        roles r1_0 
+    where
+        r1_0.name=?
+2024-09-03 07:19:23.090 DEBUG --- [           main] o.h.SQL                                  : 
+    select
+        r1_0.id,
+        r1_0.expiry_date,
+        r1_0.name 
+    from
+        roles r1_0 
+    where
+        r1_0.name=?
+2024-09-03 07:19:23.092 DEBUG --- [           main] o.h.SQL                                  : 
+    insert 
+    into
+        roles
+        (expiry_date, name, id) 
+    values
+        (?, ?, default)
+2024-09-03 07:19:23.095 DEBUG --- [           main] o.h.SQL                                  : 
+    select
+        r1_0.id,
+        r1_0.expiry_date,
+        r1_0.name 
+    from
+        roles r1_0 
+    where
+        r1_0.name=?
+2024-09-03 07:19:23.096 DEBUG --- [           main] o.h.SQL                                  : 
+    insert 
+    into
+        roles
+        (expiry_date, name, id) 
+    values
+        (?, ?, default)
+2024-09-03 07:19:23.099 DEBUG --- [           main] o.h.SQL                                  : 
+    select
+        r1_0.id,
+        r1_0.expiry_date,
+        r1_0.name 
+    from
+        roles r1_0 
+    where
+        r1_0.name=?
+2024-09-03 07:19:23.102 DEBUG --- [           main] o.h.SQL                                  : 
+    select
+        r1_0.id,
+        r1_0.expiry_date,
+        r1_0.name 
+    from
+        roles r1_0 
+    where
+        r1_0.name=?
+2024-09-03 07:19:23.109 DEBUG --- [           main] o.h.SQL                                  : 
+    select
+        u1_0.id 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+    fetch
+        first ? rows only
+2024-09-03 07:19:23.283 DEBUG --- [           main] o.h.SQL                                  : 
+    insert 
+    into
+        users
+        (email, password, user_name, id) 
+    values
+        (?, ?, ?, default)
+2024-09-03 07:19:23.300 DEBUG --- [           main] o.h.SQL                                  : 
+    insert 
+    into
+        user_roles
+        (user_id, role_id) 
+    values
+        (?, ?)
+2024-09-03 07:19:23.306 DEBUG --- [           main] o.h.SQL                                  : 
+    select
+        u1_0.id 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+    fetch
+        first ? rows only
+2024-09-03 07:19:23.435 DEBUG --- [           main] o.h.SQL                                  : 
+    insert 
+    into
+        users
+        (email, password, user_name, id) 
+    values
+        (?, ?, ?, default)
+2024-09-03 07:19:23.437 DEBUG --- [           main] o.h.SQL                                  : 
+    insert 
+    into
+        user_roles
+        (user_id, role_id) 
+    values
+        (?, ?)
+2024-09-03 07:19:29.712  WARN --- [nio-8080-exec-2] o.s.w.s.h.HandlerMappingIntrospector     : Cache miss for REQUEST dispatch to '/h2-console/login.do' (previous null). Performing CorsConfiguration lookup. This is logged once only at WARN level, and every time at TRACE.
+2024-09-03 07:19:30.756  INFO --- [nio-8080-exec-5] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-03 07:19:30.756  INFO --- [nio-8080-exec-5] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2024-09-03 07:19:30.758 DEBUG --- [nio-8080-exec-5] o.s.w.s.DispatcherServlet                : Detected StandardServletMultipartResolver
+2024-09-03 07:19:30.758 DEBUG --- [nio-8080-exec-5] o.s.w.s.DispatcherServlet                : Detected AcceptHeaderLocaleResolver
+2024-09-03 07:19:30.758 DEBUG --- [nio-8080-exec-5] o.s.w.s.DispatcherServlet                : Detected FixedThemeResolver
+2024-09-03 07:19:30.761 DEBUG --- [nio-8080-exec-5] o.s.w.s.DispatcherServlet                : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@4ad0465c
+2024-09-03 07:19:30.769 DEBUG --- [nio-8080-exec-5] o.s.w.s.DispatcherServlet                : Detected org.springframework.web.servlet.support.SessionFlashMapManager@55aabc72
+2024-09-03 07:19:30.769 DEBUG --- [nio-8080-exec-5] o.s.w.s.DispatcherServlet                : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2024-09-03 07:19:30.770  INFO --- [nio-8080-exec-5] o.s.w.s.DispatcherServlet                : Completed initialization in 12 ms
+2024-09-03 07:19:30.772  WARN --- [nio-8080-exec-5] o.s.w.s.h.HandlerMappingIntrospector     : Cache miss for REQUEST dispatch to '/favicon.ico' (previous null). Performing MatchableHandlerMapping lookup. This is logged once only at WARN level, and every time at TRACE.
+2024-09-03 07:21:48.756  INFO --- [ionShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-03 07:21:48.767  INFO --- [ionShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2024-09-03 07:21:48.770  INFO --- [ionShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2024-09-03 07:21:52.615  INFO --- [kground-preinit] o.h.v.i.u.Version                        : HV000001: Hibernate Validator 8.0.1.Final
+2024-09-03 07:21:52.661  INFO --- [           main] d.t.u.UrlShortenerApplication            : Starting UrlShortenerApplication using Java 21.0.2 with PID 19035 (/home/volodymyr/url-shortener/target/classes started by volodymyr in /home/volodymyr/url-shortener)
+2024-09-03 07:21:52.667  INFO --- [           main] d.t.u.UrlShortenerApplication            : The following 1 profile is active: "dev"
+2024-09-03 07:21:53.909  INFO --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-03 07:21:53.990  INFO --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 72 ms. Found 4 JPA repository interfaces.
+2024-09-03 07:21:54.766  INFO --- [           main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port 8080 (http)
+2024-09-03 07:21:54.780  INFO --- [           main] o.a.c.h.Http11NioProtocol                : Initializing ProtocolHandler ["http-nio-8080"]
+2024-09-03 07:21:54.782  INFO --- [           main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2024-09-03 07:21:54.783  INFO --- [           main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/10.1.16]
+2024-09-03 07:21:54.841  INFO --- [           main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2024-09-03 07:21:54.842  INFO --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2119 ms
+2024-09-03 07:21:55.095  INFO --- [           main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2024-09-03 07:21:56.200 ERROR --- [           main] c.z.h.p.HikariPool                       : HikariPool-1 - Exception during pool initialization.
+org.h2.jdbc.JdbcSQLFeatureNotSupportedException: Данная функция не поддерживается: "AUTO_SERVER=TRUE && DB_CLOSE_ON_EXIT=FALSE"
+Feature not supported: "AUTO_SERVER=TRUE && DB_CLOSE_ON_EXIT=FALSE" [50100-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:568)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.message.DbException.getUnsupportedException(DbException.java:287)
+	at org.h2.engine.Database.<init>(Database.java:280)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.Driver.connect(Driver.java:59)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:100)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+	at liquibase.integration.spring.SpringLiquibase.lambda$afterPropertiesSet$0(SpringLiquibase.java:246)
+	at liquibase.Scope.lambda$child$0(Scope.java:190)
+	at liquibase.Scope.child(Scope.java:199)
+	at liquibase.Scope.child(Scope.java:189)
+	at liquibase.Scope.child(Scope.java:168)
+	at liquibase.Scope.child(Scope.java:256)
+	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:242)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1822)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1771)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:601)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:312)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1173)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:936)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:616)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:753)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:455)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:323)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1342)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1331)
+	at de.telran.urlshortener.UrlShortenerApplication.main(UrlShortenerApplication.java:10)
+2024-09-03 07:21:56.205  WARN --- [           main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.DatabaseException: org.h2.jdbc.JdbcSQLFeatureNotSupportedException: Данная функция не поддерживается: "AUTO_SERVER=TRUE && DB_CLOSE_ON_EXIT=FALSE"
+Feature not supported: "AUTO_SERVER=TRUE && DB_CLOSE_ON_EXIT=FALSE" [50100-224]
+2024-09-03 07:21:56.208  INFO --- [           main] o.a.c.c.StandardService                  : Stopping service [Tomcat]
+2024-09-03 07:21:56.224  INFO --- [           main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-09-03 07:21:56.242 ERROR --- [           main] o.s.b.SpringApplication                  : Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.DatabaseException: org.h2.jdbc.JdbcSQLFeatureNotSupportedException: Данная функция не поддерживается: "AUTO_SERVER=TRUE && DB_CLOSE_ON_EXIT=FALSE"
+Feature not supported: "AUTO_SERVER=TRUE && DB_CLOSE_ON_EXIT=FALSE" [50100-224]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1775)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:601)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:312)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1173)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:936)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:616)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:753)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:455)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:323)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1342)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1331)
+	at de.telran.urlshortener.UrlShortenerApplication.main(UrlShortenerApplication.java:10)
+Caused by: liquibase.exception.UnexpectedLiquibaseException: liquibase.exception.DatabaseException: org.h2.jdbc.JdbcSQLFeatureNotSupportedException: Данная функция не поддерживается: "AUTO_SERVER=TRUE && DB_CLOSE_ON_EXIT=FALSE"
+Feature not supported: "AUTO_SERVER=TRUE && DB_CLOSE_ON_EXIT=FALSE" [50100-224]
+	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:259)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1822)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1771)
+	... 18 more
+Caused by: liquibase.exception.DatabaseException: org.h2.jdbc.JdbcSQLFeatureNotSupportedException: Данная функция не поддерживается: "AUTO_SERVER=TRUE && DB_CLOSE_ON_EXIT=FALSE"
+Feature not supported: "AUTO_SERVER=TRUE && DB_CLOSE_ON_EXIT=FALSE" [50100-224]
+	at liquibase.integration.spring.SpringLiquibase.lambda$afterPropertiesSet$0(SpringLiquibase.java:251)
+	at liquibase.Scope.lambda$child$0(Scope.java:190)
+	at liquibase.Scope.child(Scope.java:199)
+	at liquibase.Scope.child(Scope.java:189)
+	at liquibase.Scope.child(Scope.java:168)
+	at liquibase.Scope.child(Scope.java:256)
+	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:242)
+	... 20 more
+Caused by: org.h2.jdbc.JdbcSQLFeatureNotSupportedException: Данная функция не поддерживается: "AUTO_SERVER=TRUE && DB_CLOSE_ON_EXIT=FALSE"
+Feature not supported: "AUTO_SERVER=TRUE && DB_CLOSE_ON_EXIT=FALSE" [50100-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:568)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.message.DbException.getUnsupportedException(DbException.java:287)
+	at org.h2.engine.Database.<init>(Database.java:280)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.Driver.connect(Driver.java:59)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:100)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+	at liquibase.integration.spring.SpringLiquibase.lambda$afterPropertiesSet$0(SpringLiquibase.java:246)
+	... 26 more
+2024-09-03 07:22:34.007  INFO --- [kground-preinit] o.h.v.i.u.Version                        : HV000001: Hibernate Validator 8.0.1.Final
+2024-09-03 07:22:34.029  INFO --- [           main] d.t.u.UrlShortenerApplication            : Starting UrlShortenerApplication using Java 21.0.2 with PID 19521 (/home/volodymyr/url-shortener/target/classes started by volodymyr in /home/volodymyr/url-shortener)
+2024-09-03 07:22:34.034  INFO --- [           main] d.t.u.UrlShortenerApplication            : The following 1 profile is active: "dev"
+2024-09-03 07:22:35.258  INFO --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-03 07:22:35.339  INFO --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 72 ms. Found 4 JPA repository interfaces.
+2024-09-03 07:22:36.151  INFO --- [           main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port 8080 (http)
+2024-09-03 07:22:36.164  INFO --- [           main] o.a.c.h.Http11NioProtocol                : Initializing ProtocolHandler ["http-nio-8080"]
+2024-09-03 07:22:36.166  INFO --- [           main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2024-09-03 07:22:36.166  INFO --- [           main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/10.1.16]
+2024-09-03 07:22:36.226  INFO --- [           main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2024-09-03 07:22:36.227  INFO --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2143 ms
+2024-09-03 07:22:36.483  INFO --- [           main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2024-09-03 07:22:37.586 ERROR --- [           main] c.z.h.p.HikariPool                       : HikariPool-1 - Exception during pool initialization.
+org.h2.jdbc.JdbcSQLFeatureNotSupportedException: Данная функция не поддерживается: "AUTO_SERVER=TRUE && DB_CLOSE_ON_EXIT=FALSE"
+Feature not supported: "AUTO_SERVER=TRUE && DB_CLOSE_ON_EXIT=FALSE" [50100-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:568)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.message.DbException.getUnsupportedException(DbException.java:287)
+	at org.h2.engine.Database.<init>(Database.java:280)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.Driver.connect(Driver.java:59)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:100)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+	at liquibase.integration.spring.SpringLiquibase.lambda$afterPropertiesSet$0(SpringLiquibase.java:246)
+	at liquibase.Scope.lambda$child$0(Scope.java:190)
+	at liquibase.Scope.child(Scope.java:199)
+	at liquibase.Scope.child(Scope.java:189)
+	at liquibase.Scope.child(Scope.java:168)
+	at liquibase.Scope.child(Scope.java:256)
+	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:242)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1822)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1771)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:601)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:312)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1173)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:936)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:616)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:753)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:455)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:323)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1342)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1331)
+	at de.telran.urlshortener.UrlShortenerApplication.main(UrlShortenerApplication.java:10)
+2024-09-03 07:22:37.590  WARN --- [           main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.DatabaseException: org.h2.jdbc.JdbcSQLFeatureNotSupportedException: Данная функция не поддерживается: "AUTO_SERVER=TRUE && DB_CLOSE_ON_EXIT=FALSE"
+Feature not supported: "AUTO_SERVER=TRUE && DB_CLOSE_ON_EXIT=FALSE" [50100-224]
+2024-09-03 07:22:37.594  INFO --- [           main] o.a.c.c.StandardService                  : Stopping service [Tomcat]
+2024-09-03 07:22:37.612  INFO --- [           main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-09-03 07:22:37.633 ERROR --- [           main] o.s.b.SpringApplication                  : Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.DatabaseException: org.h2.jdbc.JdbcSQLFeatureNotSupportedException: Данная функция не поддерживается: "AUTO_SERVER=TRUE && DB_CLOSE_ON_EXIT=FALSE"
+Feature not supported: "AUTO_SERVER=TRUE && DB_CLOSE_ON_EXIT=FALSE" [50100-224]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1775)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:601)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:312)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1173)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:936)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:616)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:753)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:455)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:323)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1342)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1331)
+	at de.telran.urlshortener.UrlShortenerApplication.main(UrlShortenerApplication.java:10)
+Caused by: liquibase.exception.UnexpectedLiquibaseException: liquibase.exception.DatabaseException: org.h2.jdbc.JdbcSQLFeatureNotSupportedException: Данная функция не поддерживается: "AUTO_SERVER=TRUE && DB_CLOSE_ON_EXIT=FALSE"
+Feature not supported: "AUTO_SERVER=TRUE && DB_CLOSE_ON_EXIT=FALSE" [50100-224]
+	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:259)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1822)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1771)
+	... 18 more
+Caused by: liquibase.exception.DatabaseException: org.h2.jdbc.JdbcSQLFeatureNotSupportedException: Данная функция не поддерживается: "AUTO_SERVER=TRUE && DB_CLOSE_ON_EXIT=FALSE"
+Feature not supported: "AUTO_SERVER=TRUE && DB_CLOSE_ON_EXIT=FALSE" [50100-224]
+	at liquibase.integration.spring.SpringLiquibase.lambda$afterPropertiesSet$0(SpringLiquibase.java:251)
+	at liquibase.Scope.lambda$child$0(Scope.java:190)
+	at liquibase.Scope.child(Scope.java:199)
+	at liquibase.Scope.child(Scope.java:189)
+	at liquibase.Scope.child(Scope.java:168)
+	at liquibase.Scope.child(Scope.java:256)
+	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:242)
+	... 20 more
+Caused by: org.h2.jdbc.JdbcSQLFeatureNotSupportedException: Данная функция не поддерживается: "AUTO_SERVER=TRUE && DB_CLOSE_ON_EXIT=FALSE"
+Feature not supported: "AUTO_SERVER=TRUE && DB_CLOSE_ON_EXIT=FALSE" [50100-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:568)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.message.DbException.getUnsupportedException(DbException.java:287)
+	at org.h2.engine.Database.<init>(Database.java:280)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.Driver.connect(Driver.java:59)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:100)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+	at liquibase.integration.spring.SpringLiquibase.lambda$afterPropertiesSet$0(SpringLiquibase.java:246)
+	... 26 more
+2024-09-03 07:28:04.540  INFO --- [kground-preinit] o.h.v.i.u.Version                        : HV000001: Hibernate Validator 8.0.1.Final
+2024-09-03 07:28:04.591  INFO --- [           main] d.t.u.UrlShortenerApplication            : Starting UrlShortenerApplication using Java 21.0.2 with PID 22556 (/home/volodymyr/url-shortener/target/classes started by volodymyr in /home/volodymyr/url-shortener)
+2024-09-03 07:28:04.596  INFO --- [           main] d.t.u.UrlShortenerApplication            : The following 1 profile is active: "dev"
+2024-09-03 07:28:05.791  INFO --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-03 07:28:05.873  INFO --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 72 ms. Found 4 JPA repository interfaces.
+2024-09-03 07:28:06.691  INFO --- [           main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port 8080 (http)
+2024-09-03 07:28:06.704  INFO --- [           main] o.a.c.h.Http11NioProtocol                : Initializing ProtocolHandler ["http-nio-8080"]
+2024-09-03 07:28:06.706  INFO --- [           main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2024-09-03 07:28:06.707  INFO --- [           main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/10.1.16]
+2024-09-03 07:28:06.767  INFO --- [           main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2024-09-03 07:28:06.768  INFO --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2119 ms
+2024-09-03 07:28:06.838  INFO --- [           main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2024-09-03 07:28:07.956 ERROR --- [           main] c.z.h.p.HikariPool                       : HikariPool-1 - Exception during pool initialization.
+org.h2.jdbc.JdbcSQLFeatureNotSupportedException: Данная функция не поддерживается: "AUTO_SERVER=TRUE && DB_CLOSE_ON_EXIT=FALSE"
+Feature not supported: "AUTO_SERVER=TRUE && DB_CLOSE_ON_EXIT=FALSE" [50100-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:568)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.message.DbException.getUnsupportedException(DbException.java:287)
+	at org.h2.engine.Database.<init>(Database.java:280)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.Driver.connect(Driver.java:59)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:100)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+	at org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration.getConnectionUrl(H2ConsoleAutoConfiguration.java:94)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.stream.SortedOps$RefSortingSink.end(SortedOps.java:395)
+	at java.base/java.util.stream.Sink$ChainedReference.end(Sink.java:261)
+	at java.base/java.util.stream.Sink$ChainedReference.end(Sink.java:261)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:510)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:575)
+	at java.base/java.util.stream.AbstractPipeline.evaluateToArrayNode(AbstractPipeline.java:260)
+	at java.base/java.util.stream.ReferencePipeline.toArray(ReferencePipeline.java:616)
+	at java.base/java.util.stream.ReferencePipeline.toArray(ReferencePipeline.java:622)
+	at java.base/java.util.stream.ReferencePipeline.toList(ReferencePipeline.java:627)
+	at org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration.logDataSources(H2ConsoleAutoConfiguration.java:86)
+	at org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration.lambda$h2Console$0(H2ConsoleAutoConfiguration.java:69)
+	at org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration.withThreadContextClassLoader(H2ConsoleAutoConfiguration.java:78)
+	at org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration.h2Console(H2ConsoleAutoConfiguration.java:69)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:140)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:651)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:643)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1336)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1166)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:563)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:204)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.getOrderedBeansOfType(ServletContextInitializerBeans.java:210)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.getOrderedBeansOfType(ServletContextInitializerBeans.java:201)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addServletContextInitializerBeans(ServletContextInitializerBeans.java:96)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.<init>(ServletContextInitializerBeans.java:85)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.getServletContextInitializerBeans(ServletWebServerApplicationContext.java:266)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.selfInitialize(ServletWebServerApplicationContext.java:240)
+	at org.springframework.boot.web.embedded.tomcat.TomcatStarter.onStartup(TomcatStarter.java:52)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:4850)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1332)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1322)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:145)
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:866)
+	at org.apache.catalina.core.StandardHost.startInternal(StandardHost.java:845)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1332)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1322)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:145)
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:866)
+	at org.apache.catalina.core.StandardEngine.startInternal(StandardEngine.java:240)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+	at org.apache.catalina.core.StandardService.startInternal(StandardService.java:433)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+	at org.apache.catalina.core.StandardServer.startInternal(StandardServer.java:917)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+	at org.apache.catalina.startup.Tomcat.start(Tomcat.java:488)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:123)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.<init>(TomcatWebServer.java:104)
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getTomcatWebServer(TomcatServletWebServerFactory.java:501)
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getWebServer(TomcatServletWebServerFactory.java:218)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:188)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:162)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:610)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:753)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:455)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:323)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1342)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1331)
+	at de.telran.urlshortener.UrlShortenerApplication.main(UrlShortenerApplication.java:10)
+2024-09-03 07:28:08.137  INFO --- [           main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2024-09-03 07:28:09.139 ERROR --- [           main] c.z.h.p.HikariPool                       : HikariPool-1 - Exception during pool initialization.
+org.h2.jdbc.JdbcSQLFeatureNotSupportedException: Данная функция не поддерживается: "AUTO_SERVER=TRUE && DB_CLOSE_ON_EXIT=FALSE"
+Feature not supported: "AUTO_SERVER=TRUE && DB_CLOSE_ON_EXIT=FALSE" [50100-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:568)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.message.DbException.getUnsupportedException(DbException.java:287)
+	at org.h2.engine.Database.<init>(Database.java:280)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.Driver.connect(Driver.java:59)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:100)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+	at liquibase.integration.spring.SpringLiquibase.lambda$afterPropertiesSet$0(SpringLiquibase.java:246)
+	at liquibase.Scope.lambda$child$0(Scope.java:190)
+	at liquibase.Scope.child(Scope.java:199)
+	at liquibase.Scope.child(Scope.java:189)
+	at liquibase.Scope.child(Scope.java:168)
+	at liquibase.Scope.child(Scope.java:256)
+	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:242)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1822)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1771)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:601)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:312)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1173)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:936)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:616)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:753)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:455)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:323)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1342)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1331)
+	at de.telran.urlshortener.UrlShortenerApplication.main(UrlShortenerApplication.java:10)
+2024-09-03 07:28:09.142  WARN --- [           main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.DatabaseException: org.h2.jdbc.JdbcSQLFeatureNotSupportedException: Данная функция не поддерживается: "AUTO_SERVER=TRUE && DB_CLOSE_ON_EXIT=FALSE"
+Feature not supported: "AUTO_SERVER=TRUE && DB_CLOSE_ON_EXIT=FALSE" [50100-224]
+2024-09-03 07:28:09.146  INFO --- [           main] o.a.c.c.StandardService                  : Stopping service [Tomcat]
+2024-09-03 07:28:09.162  INFO --- [           main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-09-03 07:28:09.181 ERROR --- [           main] o.s.b.SpringApplication                  : Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.DatabaseException: org.h2.jdbc.JdbcSQLFeatureNotSupportedException: Данная функция не поддерживается: "AUTO_SERVER=TRUE && DB_CLOSE_ON_EXIT=FALSE"
+Feature not supported: "AUTO_SERVER=TRUE && DB_CLOSE_ON_EXIT=FALSE" [50100-224]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1775)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:601)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:312)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1173)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:936)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:616)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:753)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:455)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:323)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1342)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1331)
+	at de.telran.urlshortener.UrlShortenerApplication.main(UrlShortenerApplication.java:10)
+Caused by: liquibase.exception.UnexpectedLiquibaseException: liquibase.exception.DatabaseException: org.h2.jdbc.JdbcSQLFeatureNotSupportedException: Данная функция не поддерживается: "AUTO_SERVER=TRUE && DB_CLOSE_ON_EXIT=FALSE"
+Feature not supported: "AUTO_SERVER=TRUE && DB_CLOSE_ON_EXIT=FALSE" [50100-224]
+	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:259)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1822)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1771)
+	... 18 more
+Caused by: liquibase.exception.DatabaseException: org.h2.jdbc.JdbcSQLFeatureNotSupportedException: Данная функция не поддерживается: "AUTO_SERVER=TRUE && DB_CLOSE_ON_EXIT=FALSE"
+Feature not supported: "AUTO_SERVER=TRUE && DB_CLOSE_ON_EXIT=FALSE" [50100-224]
+	at liquibase.integration.spring.SpringLiquibase.lambda$afterPropertiesSet$0(SpringLiquibase.java:251)
+	at liquibase.Scope.lambda$child$0(Scope.java:190)
+	at liquibase.Scope.child(Scope.java:199)
+	at liquibase.Scope.child(Scope.java:189)
+	at liquibase.Scope.child(Scope.java:168)
+	at liquibase.Scope.child(Scope.java:256)
+	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:242)
+	... 20 more
+Caused by: org.h2.jdbc.JdbcSQLFeatureNotSupportedException: Данная функция не поддерживается: "AUTO_SERVER=TRUE && DB_CLOSE_ON_EXIT=FALSE"
+Feature not supported: "AUTO_SERVER=TRUE && DB_CLOSE_ON_EXIT=FALSE" [50100-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:568)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.message.DbException.getUnsupportedException(DbException.java:287)
+	at org.h2.engine.Database.<init>(Database.java:280)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.Driver.connect(Driver.java:59)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:100)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+	at liquibase.integration.spring.SpringLiquibase.lambda$afterPropertiesSet$0(SpringLiquibase.java:246)
+	... 26 more
+2024-09-03 07:58:22.556  INFO --- [kground-preinit] o.h.v.i.u.Version                        : HV000001: Hibernate Validator 8.0.1.Final
+2024-09-03 07:58:22.609  INFO --- [           main] d.t.u.UrlShortenerApplication            : Starting UrlShortenerApplication using Java 21.0.2 with PID 38144 (/home/volodymyr/url-shortener/target/classes started by volodymyr in /home/volodymyr/url-shortener)
+2024-09-03 07:58:22.615  INFO --- [           main] d.t.u.UrlShortenerApplication            : The following 1 profile is active: "dev"
+2024-09-03 07:58:23.844  INFO --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-03 07:58:23.953  INFO --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 99 ms. Found 4 JPA repository interfaces.
+2024-09-03 07:58:24.731  INFO --- [           main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port 8080 (http)
+2024-09-03 07:58:24.744  INFO --- [           main] o.a.c.h.Http11NioProtocol                : Initializing ProtocolHandler ["http-nio-8080"]
+2024-09-03 07:58:24.746  INFO --- [           main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2024-09-03 07:58:24.747  INFO --- [           main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/10.1.16]
+2024-09-03 07:58:24.811  INFO --- [           main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2024-09-03 07:58:24.811  INFO --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2143 ms
+2024-09-03 07:58:24.881  INFO --- [           main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2024-09-03 07:58:26.011 ERROR --- [           main] c.z.h.p.HikariPool                       : HikariPool-1 - Exception during pool initialization.
+org.h2.jdbc.JdbcSQLFeatureNotSupportedException: Данная функция не поддерживается: "AUTO_SERVER=TRUE && DB_CLOSE_ON_EXIT=FALSE"
+Feature not supported: "AUTO_SERVER=TRUE && DB_CLOSE_ON_EXIT=FALSE" [50100-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:568)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.message.DbException.getUnsupportedException(DbException.java:287)
+	at org.h2.engine.Database.<init>(Database.java:280)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.Driver.connect(Driver.java:59)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:100)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+	at org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration.getConnectionUrl(H2ConsoleAutoConfiguration.java:94)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.stream.SortedOps$RefSortingSink.end(SortedOps.java:395)
+	at java.base/java.util.stream.Sink$ChainedReference.end(Sink.java:261)
+	at java.base/java.util.stream.Sink$ChainedReference.end(Sink.java:261)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:510)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:575)
+	at java.base/java.util.stream.AbstractPipeline.evaluateToArrayNode(AbstractPipeline.java:260)
+	at java.base/java.util.stream.ReferencePipeline.toArray(ReferencePipeline.java:616)
+	at java.base/java.util.stream.ReferencePipeline.toArray(ReferencePipeline.java:622)
+	at java.base/java.util.stream.ReferencePipeline.toList(ReferencePipeline.java:627)
+	at org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration.logDataSources(H2ConsoleAutoConfiguration.java:86)
+	at org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration.lambda$h2Console$0(H2ConsoleAutoConfiguration.java:69)
+	at org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration.withThreadContextClassLoader(H2ConsoleAutoConfiguration.java:78)
+	at org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration.h2Console(H2ConsoleAutoConfiguration.java:69)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:140)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:651)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:643)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1336)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1166)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:563)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:204)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.getOrderedBeansOfType(ServletContextInitializerBeans.java:210)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.getOrderedBeansOfType(ServletContextInitializerBeans.java:201)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addServletContextInitializerBeans(ServletContextInitializerBeans.java:96)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.<init>(ServletContextInitializerBeans.java:85)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.getServletContextInitializerBeans(ServletWebServerApplicationContext.java:266)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.selfInitialize(ServletWebServerApplicationContext.java:240)
+	at org.springframework.boot.web.embedded.tomcat.TomcatStarter.onStartup(TomcatStarter.java:52)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:4850)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1332)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1322)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:145)
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:866)
+	at org.apache.catalina.core.StandardHost.startInternal(StandardHost.java:845)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1332)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1322)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:145)
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:866)
+	at org.apache.catalina.core.StandardEngine.startInternal(StandardEngine.java:240)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+	at org.apache.catalina.core.StandardService.startInternal(StandardService.java:433)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+	at org.apache.catalina.core.StandardServer.startInternal(StandardServer.java:917)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+	at org.apache.catalina.startup.Tomcat.start(Tomcat.java:488)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:123)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.<init>(TomcatWebServer.java:104)
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getTomcatWebServer(TomcatServletWebServerFactory.java:501)
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getWebServer(TomcatServletWebServerFactory.java:218)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:188)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:162)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:610)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:753)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:455)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:323)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1342)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1331)
+	at de.telran.urlshortener.UrlShortenerApplication.main(UrlShortenerApplication.java:10)
+2024-09-03 07:58:26.186  INFO --- [           main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2024-09-03 07:58:27.187 ERROR --- [           main] c.z.h.p.HikariPool                       : HikariPool-1 - Exception during pool initialization.
+org.h2.jdbc.JdbcSQLFeatureNotSupportedException: Данная функция не поддерживается: "AUTO_SERVER=TRUE && DB_CLOSE_ON_EXIT=FALSE"
+Feature not supported: "AUTO_SERVER=TRUE && DB_CLOSE_ON_EXIT=FALSE" [50100-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:568)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.message.DbException.getUnsupportedException(DbException.java:287)
+	at org.h2.engine.Database.<init>(Database.java:280)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.Driver.connect(Driver.java:59)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:100)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+	at liquibase.integration.spring.SpringLiquibase.lambda$afterPropertiesSet$0(SpringLiquibase.java:246)
+	at liquibase.Scope.lambda$child$0(Scope.java:190)
+	at liquibase.Scope.child(Scope.java:199)
+	at liquibase.Scope.child(Scope.java:189)
+	at liquibase.Scope.child(Scope.java:168)
+	at liquibase.Scope.child(Scope.java:256)
+	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:242)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1822)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1771)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:601)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:312)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1173)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:936)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:616)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:753)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:455)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:323)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1342)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1331)
+	at de.telran.urlshortener.UrlShortenerApplication.main(UrlShortenerApplication.java:10)
+2024-09-03 07:58:27.191  WARN --- [           main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.DatabaseException: org.h2.jdbc.JdbcSQLFeatureNotSupportedException: Данная функция не поддерживается: "AUTO_SERVER=TRUE && DB_CLOSE_ON_EXIT=FALSE"
+Feature not supported: "AUTO_SERVER=TRUE && DB_CLOSE_ON_EXIT=FALSE" [50100-224]
+2024-09-03 07:58:27.195  INFO --- [           main] o.a.c.c.StandardService                  : Stopping service [Tomcat]
+2024-09-03 07:58:27.224  INFO --- [           main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-09-03 07:58:27.255 ERROR --- [           main] o.s.b.SpringApplication                  : Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.DatabaseException: org.h2.jdbc.JdbcSQLFeatureNotSupportedException: Данная функция не поддерживается: "AUTO_SERVER=TRUE && DB_CLOSE_ON_EXIT=FALSE"
+Feature not supported: "AUTO_SERVER=TRUE && DB_CLOSE_ON_EXIT=FALSE" [50100-224]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1775)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:601)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:312)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1173)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:936)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:616)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:753)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:455)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:323)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1342)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1331)
+	at de.telran.urlshortener.UrlShortenerApplication.main(UrlShortenerApplication.java:10)
+Caused by: liquibase.exception.UnexpectedLiquibaseException: liquibase.exception.DatabaseException: org.h2.jdbc.JdbcSQLFeatureNotSupportedException: Данная функция не поддерживается: "AUTO_SERVER=TRUE && DB_CLOSE_ON_EXIT=FALSE"
+Feature not supported: "AUTO_SERVER=TRUE && DB_CLOSE_ON_EXIT=FALSE" [50100-224]
+	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:259)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1822)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1771)
+	... 18 more
+Caused by: liquibase.exception.DatabaseException: org.h2.jdbc.JdbcSQLFeatureNotSupportedException: Данная функция не поддерживается: "AUTO_SERVER=TRUE && DB_CLOSE_ON_EXIT=FALSE"
+Feature not supported: "AUTO_SERVER=TRUE && DB_CLOSE_ON_EXIT=FALSE" [50100-224]
+	at liquibase.integration.spring.SpringLiquibase.lambda$afterPropertiesSet$0(SpringLiquibase.java:251)
+	at liquibase.Scope.lambda$child$0(Scope.java:190)
+	at liquibase.Scope.child(Scope.java:199)
+	at liquibase.Scope.child(Scope.java:189)
+	at liquibase.Scope.child(Scope.java:168)
+	at liquibase.Scope.child(Scope.java:256)
+	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:242)
+	... 20 more
+Caused by: org.h2.jdbc.JdbcSQLFeatureNotSupportedException: Данная функция не поддерживается: "AUTO_SERVER=TRUE && DB_CLOSE_ON_EXIT=FALSE"
+Feature not supported: "AUTO_SERVER=TRUE && DB_CLOSE_ON_EXIT=FALSE" [50100-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:568)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.message.DbException.getUnsupportedException(DbException.java:287)
+	at org.h2.engine.Database.<init>(Database.java:280)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.Driver.connect(Driver.java:59)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:100)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+	at liquibase.integration.spring.SpringLiquibase.lambda$afterPropertiesSet$0(SpringLiquibase.java:246)
+	... 26 more
+2024-09-03 08:03:54.543  INFO --- [kground-preinit] o.h.v.i.u.Version                        : HV000001: Hibernate Validator 8.0.1.Final
+2024-09-03 08:03:54.553  INFO --- [           main] d.t.u.UrlShortenerApplication            : Starting UrlShortenerApplication using Java 21.0.2 with PID 41620 (/home/volodymyr/url-shortener/target/classes started by volodymyr in /home/volodymyr/url-shortener)
+2024-09-03 08:03:54.556  INFO --- [           main] d.t.u.UrlShortenerApplication            : The following 1 profile is active: "dev"
+2024-09-03 08:03:55.482  INFO --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-03 08:03:55.542  INFO --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 53 ms. Found 4 JPA repository interfaces.
+2024-09-03 08:03:56.150  INFO --- [           main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port 8080 (http)
+2024-09-03 08:03:56.159  INFO --- [           main] o.a.c.h.Http11NioProtocol                : Initializing ProtocolHandler ["http-nio-8080"]
+2024-09-03 08:03:56.161  INFO --- [           main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2024-09-03 08:03:56.162  INFO --- [           main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/10.1.16]
+2024-09-03 08:03:56.201  INFO --- [           main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2024-09-03 08:03:56.201  INFO --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1606 ms
+2024-09-03 08:03:56.246  INFO --- [           main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2024-09-03 08:03:56.537  INFO --- [           main] c.z.h.p.HikariPool                       : HikariPool-1 - Added connection conn1: url=jdbc:h2:file:./dev user=SA
+2024-09-03 08:03:56.539  INFO --- [           main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2024-09-03 08:03:56.550  INFO --- [           main] o.s.b.a.h.H2ConsoleAutoConfiguration     : H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:./dev'
+2024-09-03 08:03:56.732  INFO --- [           main] l.database                               : Set default schema name to PUBLIC
+2024-09-03 08:03:56.972  INFO --- [           main] l.command                                : Logging exception.
+2024-09-03 08:03:56.973  INFO --- [           main] l.ui                                     : ERROR: Exception Details
+2024-09-03 08:03:56.973  INFO --- [           main] l.ui                                     : ERROR: Exception Primary Class:  ChangeLogParseException
+2024-09-03 08:03:56.973  INFO --- [           main] l.ui                                     : ERROR: Exception Primary Reason:  ERROR: The file 'classpath:/db/changelog/db.changelog-master.xml' was not found.
+The file property cannot be configured with a fully qualified path, but must be a relative path on the property,
+and any local or remote base of the path set on the search path.
+2024-09-03 08:03:56.973  INFO --- [           main] l.ui                                     : ERROR: Exception Primary Source:  4.27.0
+2024-09-03 08:03:56.974  INFO --- [           main] l.command                                : Command execution complete
+2024-09-03 08:03:56.975  WARN --- [           main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.CommandExecutionException: liquibase.exception.ChangeLogParseException: ERROR: The file 'classpath:/db/changelog/db.changelog-master.xml' was not found.
+The file property cannot be configured with a fully qualified path, but must be a relative path on the property,
+and any local or remote base of the path set on the search path.
+2024-09-03 08:03:56.976  INFO --- [           main] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2024-09-03 08:03:56.993  INFO --- [           main] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2024-09-03 08:03:56.996  INFO --- [           main] o.a.c.c.StandardService                  : Stopping service [Tomcat]
+2024-09-03 08:03:57.008  INFO --- [           main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-09-03 08:03:57.021 ERROR --- [           main] o.s.b.SpringApplication                  : Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.CommandExecutionException: liquibase.exception.ChangeLogParseException: ERROR: The file 'classpath:/db/changelog/db.changelog-master.xml' was not found.
+The file property cannot be configured with a fully qualified path, but must be a relative path on the property,
+and any local or remote base of the path set on the search path.
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1775)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:601)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:312)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1173)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:936)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:616)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:753)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:455)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:323)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1342)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1331)
+	at de.telran.urlshortener.UrlShortenerApplication.main(UrlShortenerApplication.java:10)
+Caused by: liquibase.exception.UnexpectedLiquibaseException: liquibase.exception.CommandExecutionException: liquibase.exception.ChangeLogParseException: ERROR: The file 'classpath:/db/changelog/db.changelog-master.xml' was not found.
+The file property cannot be configured with a fully qualified path, but must be a relative path on the property,
+and any local or remote base of the path set on the search path.
+	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:259)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1822)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1771)
+	... 18 more
+Caused by: liquibase.exception.CommandExecutionException: liquibase.exception.ChangeLogParseException: ERROR: The file 'classpath:/db/changelog/db.changelog-master.xml' was not found.
+The file property cannot be configured with a fully qualified path, but must be a relative path on the property,
+and any local or remote base of the path set on the search path.
+	at liquibase.command.CommandScope.execute(CommandScope.java:257)
+	at liquibase.Liquibase.lambda$update$0(Liquibase.java:245)
+	at liquibase.Scope.lambda$child$0(Scope.java:190)
+	at liquibase.Scope.child(Scope.java:199)
+	at liquibase.Scope.child(Scope.java:189)
+	at liquibase.Scope.child(Scope.java:168)
+	at liquibase.Liquibase.runInScope(Liquibase.java:1436)
+	at liquibase.Liquibase.update(Liquibase.java:234)
+	at liquibase.Liquibase.update(Liquibase.java:212)
+	at liquibase.integration.spring.SpringLiquibase.performUpdate(SpringLiquibase.java:297)
+	at liquibase.integration.spring.SpringLiquibase.lambda$afterPropertiesSet$0(SpringLiquibase.java:249)
+	at liquibase.Scope.lambda$child$0(Scope.java:190)
+	at liquibase.Scope.child(Scope.java:199)
+	at liquibase.Scope.child(Scope.java:189)
+	at liquibase.Scope.child(Scope.java:168)
+	at liquibase.Scope.child(Scope.java:256)
+	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:242)
+	... 20 more
+Caused by: liquibase.exception.ChangeLogParseException: ERROR: The file 'classpath:/db/changelog/db.changelog-master.xml' was not found.
+The file property cannot be configured with a fully qualified path, but must be a relative path on the property,
+and any local or remote base of the path set on the search path.
+	at liquibase.parser.core.xml.XMLChangeLogSAXParser.parseToNode(XMLChangeLogSAXParser.java:114)
+	at liquibase.parser.core.xml.AbstractChangeLogParser.parse(AbstractChangeLogParser.java:15)
+	at liquibase.command.core.helpers.DatabaseChangelogCommandStep.lambda$getDatabaseChangeLog$0(DatabaseChangelogCommandStep.java:129)
+	at liquibase.Scope.child(Scope.java:199)
+	at liquibase.Scope.child(Scope.java:175)
+	at liquibase.command.core.helpers.DatabaseChangelogCommandStep.getDatabaseChangeLog(DatabaseChangelogCommandStep.java:128)
+	at liquibase.command.core.helpers.DatabaseChangelogCommandStep.run(DatabaseChangelogCommandStep.java:87)
+	at liquibase.command.CommandScope.execute(CommandScope.java:219)
+	... 36 more
+2024-09-03 08:07:14.172  INFO --- [kground-preinit] o.h.v.i.u.Version                        : HV000001: Hibernate Validator 8.0.1.Final
+2024-09-03 08:07:14.224  INFO --- [           main] d.t.u.UrlShortenerApplication            : Starting UrlShortenerApplication using Java 21.0.2 with PID 43372 (/home/volodymyr/url-shortener/target/classes started by volodymyr in /home/volodymyr/url-shortener)
+2024-09-03 08:07:14.230  INFO --- [           main] d.t.u.UrlShortenerApplication            : The following 1 profile is active: "dev"
+2024-09-03 08:07:15.408  INFO --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-03 08:07:15.489  INFO --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 72 ms. Found 4 JPA repository interfaces.
+2024-09-03 08:07:16.294  INFO --- [           main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port 8080 (http)
+2024-09-03 08:07:16.306  INFO --- [           main] o.a.c.h.Http11NioProtocol                : Initializing ProtocolHandler ["http-nio-8080"]
+2024-09-03 08:07:16.309  INFO --- [           main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2024-09-03 08:07:16.309  INFO --- [           main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/10.1.16]
+2024-09-03 08:07:16.371  INFO --- [           main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2024-09-03 08:07:16.372  INFO --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2088 ms
+2024-09-03 08:07:16.439  INFO --- [           main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2024-09-03 08:07:16.806  INFO --- [           main] c.z.h.p.HikariPool                       : HikariPool-1 - Added connection conn1: url=jdbc:h2:file:./dev user=SA
+2024-09-03 08:07:16.809  INFO --- [           main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2024-09-03 08:07:16.824  INFO --- [           main] o.s.b.a.h.H2ConsoleAutoConfiguration     : H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:./dev'
+2024-09-03 08:07:17.089  INFO --- [           main] l.database                               : Set default schema name to PUBLIC
+2024-09-03 08:07:17.412  INFO --- [           main] l.command                                : Logging exception.
+2024-09-03 08:07:17.413  INFO --- [           main] l.ui                                     : ERROR: Exception Details
+2024-09-03 08:07:17.413  INFO --- [           main] l.ui                                     : ERROR: Exception Primary Class:  ChangeLogParseException
+2024-09-03 08:07:17.413  INFO --- [           main] l.ui                                     : ERROR: Exception Primary Reason:  ERROR: The file 'classpath:/db/changelog/db.changelog-master.xml' was not found.
+The file property cannot be configured with a fully qualified path, but must be a relative path on the property,
+and any local or remote base of the path set on the search path.
+2024-09-03 08:07:17.414  INFO --- [           main] l.ui                                     : ERROR: Exception Primary Source:  4.27.0
+2024-09-03 08:07:17.414  INFO --- [           main] l.command                                : Command execution complete
+2024-09-03 08:07:17.417  WARN --- [           main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.CommandExecutionException: liquibase.exception.ChangeLogParseException: ERROR: The file 'classpath:/db/changelog/db.changelog-master.xml' was not found.
+The file property cannot be configured with a fully qualified path, but must be a relative path on the property,
+and any local or remote base of the path set on the search path.
+2024-09-03 08:07:17.417  INFO --- [           main] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2024-09-03 08:07:17.513  INFO --- [           main] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2024-09-03 08:07:17.517  INFO --- [           main] o.a.c.c.StandardService                  : Stopping service [Tomcat]
+2024-09-03 08:07:17.533  INFO --- [           main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-09-03 08:07:17.552 ERROR --- [           main] o.s.b.SpringApplication                  : Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.CommandExecutionException: liquibase.exception.ChangeLogParseException: ERROR: The file 'classpath:/db/changelog/db.changelog-master.xml' was not found.
+The file property cannot be configured with a fully qualified path, but must be a relative path on the property,
+and any local or remote base of the path set on the search path.
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1775)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:601)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:312)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1173)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:936)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:616)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:753)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:455)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:323)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1342)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1331)
+	at de.telran.urlshortener.UrlShortenerApplication.main(UrlShortenerApplication.java:10)
+Caused by: liquibase.exception.UnexpectedLiquibaseException: liquibase.exception.CommandExecutionException: liquibase.exception.ChangeLogParseException: ERROR: The file 'classpath:/db/changelog/db.changelog-master.xml' was not found.
+The file property cannot be configured with a fully qualified path, but must be a relative path on the property,
+and any local or remote base of the path set on the search path.
+	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:259)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1822)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1771)
+	... 18 more
+Caused by: liquibase.exception.CommandExecutionException: liquibase.exception.ChangeLogParseException: ERROR: The file 'classpath:/db/changelog/db.changelog-master.xml' was not found.
+The file property cannot be configured with a fully qualified path, but must be a relative path on the property,
+and any local or remote base of the path set on the search path.
+	at liquibase.command.CommandScope.execute(CommandScope.java:257)
+	at liquibase.Liquibase.lambda$update$0(Liquibase.java:245)
+	at liquibase.Scope.lambda$child$0(Scope.java:190)
+	at liquibase.Scope.child(Scope.java:199)
+	at liquibase.Scope.child(Scope.java:189)
+	at liquibase.Scope.child(Scope.java:168)
+	at liquibase.Liquibase.runInScope(Liquibase.java:1436)
+	at liquibase.Liquibase.update(Liquibase.java:234)
+	at liquibase.Liquibase.update(Liquibase.java:212)
+	at liquibase.integration.spring.SpringLiquibase.performUpdate(SpringLiquibase.java:297)
+	at liquibase.integration.spring.SpringLiquibase.lambda$afterPropertiesSet$0(SpringLiquibase.java:249)
+	at liquibase.Scope.lambda$child$0(Scope.java:190)
+	at liquibase.Scope.child(Scope.java:199)
+	at liquibase.Scope.child(Scope.java:189)
+	at liquibase.Scope.child(Scope.java:168)
+	at liquibase.Scope.child(Scope.java:256)
+	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:242)
+	... 20 more
+Caused by: liquibase.exception.ChangeLogParseException: ERROR: The file 'classpath:/db/changelog/db.changelog-master.xml' was not found.
+The file property cannot be configured with a fully qualified path, but must be a relative path on the property,
+and any local or remote base of the path set on the search path.
+	at liquibase.parser.core.xml.XMLChangeLogSAXParser.parseToNode(XMLChangeLogSAXParser.java:114)
+	at liquibase.parser.core.xml.AbstractChangeLogParser.parse(AbstractChangeLogParser.java:15)
+	at liquibase.command.core.helpers.DatabaseChangelogCommandStep.lambda$getDatabaseChangeLog$0(DatabaseChangelogCommandStep.java:129)
+	at liquibase.Scope.child(Scope.java:199)
+	at liquibase.Scope.child(Scope.java:175)
+	at liquibase.command.core.helpers.DatabaseChangelogCommandStep.getDatabaseChangeLog(DatabaseChangelogCommandStep.java:128)
+	at liquibase.command.core.helpers.DatabaseChangelogCommandStep.run(DatabaseChangelogCommandStep.java:87)
+	at liquibase.command.CommandScope.execute(CommandScope.java:219)
+	... 36 more
+2024-09-03 08:18:44.150  INFO --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [de.telran.urlshortener.UrlShortenerApplicationTests]: UrlShortenerApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-09-03 08:18:44.301  INFO --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration de.telran.urlshortener.UrlShortenerApplication for test class de.telran.urlshortener.UrlShortenerApplicationTests
+2024-09-03 08:18:44.867  INFO --- [kground-preinit] o.h.v.i.u.Version                        : HV000001: Hibernate Validator 8.0.1.Final
+2024-09-03 08:18:44.918  INFO --- [           main] d.t.u.UrlShortenerApplicationTests       : Starting UrlShortenerApplicationTests using Java 21.0.2 with PID 49388 (started by volodymyr in /home/volodymyr/url-shortener)
+2024-09-03 08:18:44.925  INFO --- [           main] d.t.u.UrlShortenerApplicationTests       : The following 1 profile is active: "dev"
+2024-09-03 08:18:46.444  INFO --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-03 08:18:46.550  INFO --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 90 ms. Found 4 JPA repository interfaces.
+2024-09-03 08:18:47.417  INFO --- [           main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2024-09-03 08:18:47.899  INFO --- [           main] c.z.h.p.HikariPool                       : HikariPool-1 - Added connection conn1: url=jdbc:h2:file:./dev user=SA
+2024-09-03 08:18:47.902  INFO --- [           main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2024-09-03 08:18:48.013  INFO --- [           main] l.database                               : Set default schema name to PUBLIC
+2024-09-03 08:18:48.761  INFO --- [           main] l.changelog                              : Creating database history table with name: PUBLIC.DATABASECHANGELOG
+2024-09-03 08:18:48.963  INFO --- [           main] l.changelog                              : Reading from PUBLIC.DATABASECHANGELOG
+2024-09-03 08:18:49.146  INFO --- [           main] l.lockservice                            : Successfully acquired change log lock
+2024-09-03 08:18:49.149  INFO --- [           main] l.command                                : Using deploymentId: 5344329148
+2024-09-03 08:18:49.153  INFO --- [           main] l.changelog                              : Reading from PUBLIC.DATABASECHANGELOG
+2024-09-03 08:18:49.224  INFO --- [           main] l.ui                                     : Running Changeset: db/changelog/db.changelog-1.0.xml::1::shemchuk
+2024-09-03 08:18:49.244  INFO --- [           main] l.changelog                              : Table roles created
+2024-09-03 08:18:49.247  INFO --- [           main] l.changelog                              : ChangeSet db/changelog/db.changelog-1.0.xml::1::shemchuk ran successfully in 19ms
+2024-09-03 08:18:49.262  INFO --- [           main] l.ui                                     : Running Changeset: db/changelog/db.changelog-1.0.xml::2::shemchuk
+2024-09-03 08:18:49.272  INFO --- [           main] l.changelog                              : Table users created
+2024-09-03 08:18:49.273  INFO --- [           main] l.changelog                              : ChangeSet db/changelog/db.changelog-1.0.xml::2::shemchuk ran successfully in 10ms
+2024-09-03 08:18:49.282  INFO --- [           main] l.ui                                     : Running Changeset: db/changelog/db.changelog-1.0.xml::3::shemchuk
+2024-09-03 08:18:49.291  INFO --- [           main] l.changelog                              : Table subscriptions created
+2024-09-03 08:18:49.303  INFO --- [           main] l.changelog                              : Foreign key constraint added to subscriptions (user_id)
+2024-09-03 08:18:49.304  INFO --- [           main] l.changelog                              : ChangeSet db/changelog/db.changelog-1.0.xml::3::shemchuk ran successfully in 21ms
+2024-09-03 08:18:49.314  INFO --- [           main] l.ui                                     : Running Changeset: db/changelog/db.changelog-1.0.xml::4::shemchuk
+2024-09-03 08:18:49.324  INFO --- [           main] l.changelog                              : Table short_urls created
+2024-09-03 08:18:49.328  INFO --- [           main] l.changelog                              : Foreign key constraint added to short_urls (user_id)
+2024-09-03 08:18:49.329  INFO --- [           main] l.changelog                              : ChangeSet db/changelog/db.changelog-1.0.xml::4::shemchuk ran successfully in 14ms
+2024-09-03 08:18:49.336  INFO --- [           main] l.ui                                     : Running Changeset: db/changelog/db.changelog-1.0.xml::5::shemchuk
+2024-09-03 08:18:49.340  INFO --- [           main] l.changelog                              : Table user_roles created
+2024-09-03 08:18:49.345  INFO --- [           main] l.changelog                              : Primary key added to user_roles (user_id, role_id)
+2024-09-03 08:18:49.350  INFO --- [           main] l.changelog                              : Foreign key constraint added to user_roles (user_id)
+2024-09-03 08:18:49.356  INFO --- [           main] l.changelog                              : Foreign key constraint added to user_roles (role_id)
+2024-09-03 08:18:49.357  INFO --- [           main] l.changelog                              : ChangeSet db/changelog/db.changelog-1.0.xml::5::shemchuk ran successfully in 20ms
+2024-09-03 08:18:49.372  INFO --- [           main] l.util                                   : UPDATE SUMMARY
+2024-09-03 08:18:49.372  INFO --- [           main] l.util                                   : Run:                          5
+2024-09-03 08:18:49.372  INFO --- [           main] l.util                                   : Previously run:               0
+2024-09-03 08:18:49.373  INFO --- [           main] l.util                                   : Filtered out:                 0
+2024-09-03 08:18:49.373  INFO --- [           main] l.util                                   : -------------------------------
+2024-09-03 08:18:49.373  INFO --- [           main] l.util                                   : Total change sets:            5
+2024-09-03 08:18:49.375  INFO --- [           main] l.util                                   : Update summary generated
+2024-09-03 08:18:49.378  INFO --- [           main] l.command                                : Update command completed successfully.
+2024-09-03 08:18:49.379  INFO --- [           main] l.ui                                     : Liquibase: Update has been successful. Rows affected: 5
+2024-09-03 08:18:49.382  INFO --- [           main] l.lockservice                            : Successfully released change log lock
+2024-09-03 08:18:49.384  INFO --- [           main] l.command                                : Command execution complete
+2024-09-03 08:18:49.581  INFO --- [           main] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-03 08:18:49.693  INFO --- [           main] o.h.Version                              : HHH000412: Hibernate ORM core version 6.3.1.Final
+2024-09-03 08:18:49.764  INFO --- [           main] o.h.c.i.RegionFactoryInitiator           : HHH000026: Second-level cache disabled
+2024-09-03 08:18:50.160  INFO --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-03 08:18:50.259  WARN --- [           main] o.h.o.deprecation                        : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-09-03 08:18:51.552  INFO --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-03 08:18:51.613  INFO --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-03 08:18:52.556  WARN --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-03 08:18:52.588  WARN --- [           main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 1a2cf122-997d-4c27-ac9a-38bdb026c42e
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2024-09-03 08:18:53.061  INFO --- [           main] o.s.s.w.DefaultSecurityFilterChain       : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7d25d10e, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3979ff82, org.springframework.security.web.context.SecurityContextHolderFilter@5146ae5e, org.springframework.security.web.header.HeaderWriterFilter@6a4bd9e4, org.springframework.web.filter.CorsFilter@77524169, org.springframework.security.web.authentication.logout.LogoutFilter@14c8dfb9, de.telran.urlshortener.security.JwtFilter@2ca3a203, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@439c706, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@17e427b6, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@74161ed7, org.springframework.security.web.session.SessionManagementFilter@4eff65ce, org.springframework.security.web.access.ExceptionTranslationFilter@1dfadb7, org.springframework.security.web.access.intercept.AuthorizationFilter@4190b111]
+2024-09-03 08:18:53.627  INFO --- [           main] o.s.b.a.h.H2ConsoleAutoConfiguration     : H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:./dev'
+2024-09-03 08:18:53.731  INFO --- [           main] d.t.u.UrlShortenerApplicationTests       : Started UrlShortenerApplicationTests in 9.218 seconds (process running for 11.249)
+2024-09-03 08:18:55.286  INFO --- [ionShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-03 08:18:55.290  INFO --- [ionShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2024-09-03 08:18:55.294  INFO --- [ionShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2024-09-03 08:19:08.272  INFO --- [kground-preinit] o.h.v.i.u.Version                        : HV000001: Hibernate Validator 8.0.1.Final
+2024-09-03 08:19:08.321  INFO --- [           main] d.t.u.UrlShortenerApplication            : Starting UrlShortenerApplication using Java 21.0.2 with PID 49669 (/home/volodymyr/url-shortener/target/classes started by volodymyr in /home/volodymyr/url-shortener)
+2024-09-03 08:19:08.326  INFO --- [           main] d.t.u.UrlShortenerApplication            : The following 1 profile is active: "dev"
+2024-09-03 08:19:09.509  INFO --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-03 08:19:09.599  INFO --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 80 ms. Found 4 JPA repository interfaces.
+2024-09-03 08:19:10.398  INFO --- [           main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port 8080 (http)
+2024-09-03 08:19:10.411  INFO --- [           main] o.a.c.h.Http11NioProtocol                : Initializing ProtocolHandler ["http-nio-8080"]
+2024-09-03 08:19:10.413  INFO --- [           main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2024-09-03 08:19:10.414  INFO --- [           main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/10.1.16]
+2024-09-03 08:19:10.477  INFO --- [           main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2024-09-03 08:19:10.478  INFO --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2099 ms
+2024-09-03 08:19:10.546  INFO --- [           main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2024-09-03 08:19:10.914  INFO --- [           main] c.z.h.p.HikariPool                       : HikariPool-1 - Added connection conn1: url=jdbc:h2:file:./dev user=SA
+2024-09-03 08:19:10.916  INFO --- [           main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2024-09-03 08:19:10.932  INFO --- [           main] o.s.b.a.h.H2ConsoleAutoConfiguration     : H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:./dev'
+2024-09-03 08:19:11.188  INFO --- [           main] l.database                               : Set default schema name to PUBLIC
+2024-09-03 08:19:12.285  INFO --- [           main] l.changelog                              : Reading from PUBLIC.DATABASECHANGELOG
+2024-09-03 08:19:12.356  INFO --- [           main] l.ui                                     : Database is up to date, no changesets to execute
+2024-09-03 08:19:12.359  INFO --- [           main] l.changelog                              : Reading from PUBLIC.DATABASECHANGELOG
+2024-09-03 08:19:12.371  INFO --- [           main] l.util                                   : UPDATE SUMMARY
+2024-09-03 08:19:12.371  INFO --- [           main] l.util                                   : Run:                          0
+2024-09-03 08:19:12.371  INFO --- [           main] l.util                                   : Previously run:               5
+2024-09-03 08:19:12.372  INFO --- [           main] l.util                                   : Filtered out:                 0
+2024-09-03 08:19:12.372  INFO --- [           main] l.util                                   : -------------------------------
+2024-09-03 08:19:12.372  INFO --- [           main] l.util                                   : Total change sets:            5
+2024-09-03 08:19:12.373  INFO --- [           main] l.util                                   : Update summary generated
+2024-09-03 08:19:12.400  INFO --- [           main] l.lockservice                            : Successfully released change log lock
+2024-09-03 08:19:12.402  INFO --- [           main] l.command                                : Command execution complete
+2024-09-03 08:19:12.514  INFO --- [           main] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-03 08:19:12.592  INFO --- [           main] o.h.Version                              : HHH000412: Hibernate ORM core version 6.3.1.Final
+2024-09-03 08:19:12.644  INFO --- [           main] o.h.c.i.RegionFactoryInitiator           : HHH000026: Second-level cache disabled
+2024-09-03 08:19:12.969  INFO --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-03 08:19:13.026  WARN --- [           main] o.h.o.deprecation                        : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-09-03 08:19:14.231  INFO --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-03 08:19:14.295  INFO --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-03 08:19:15.161  WARN --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-03 08:19:15.198  WARN --- [           main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 37a34f1e-5753-42ac-a662-988b4258444f
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2024-09-03 08:19:15.682  INFO --- [           main] o.s.s.w.DefaultSecurityFilterChain       : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6f1b0ead, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4487dce, org.springframework.security.web.context.SecurityContextHolderFilter@2a0a178f, org.springframework.security.web.header.HeaderWriterFilter@3846ba32, org.springframework.web.filter.CorsFilter@3aafa1c1, org.springframework.security.web.authentication.logout.LogoutFilter@708f4d81, de.telran.urlshortener.security.JwtFilter@4efb13f1, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@12db2921, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@f6e9c18, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@192f807, org.springframework.security.web.session.SessionManagementFilter@5a14a8c1, org.springframework.security.web.access.ExceptionTranslationFilter@2771e501, org.springframework.security.web.access.intercept.AuthorizationFilter@388a6656]
+2024-09-03 08:19:16.237  INFO --- [           main] o.a.c.h.Http11NioProtocol                : Starting ProtocolHandler ["http-nio-8080"]
+2024-09-03 08:19:16.255  INFO --- [           main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port 8080 (http) with context path ''
+2024-09-03 08:19:16.268  INFO --- [           main] d.t.u.UrlShortenerApplication            : Started UrlShortenerApplication in 8.426 seconds (process running for 9.947)
+2024-09-03 08:19:32.047  WARN --- [nio-8080-exec-1] o.s.w.s.h.HandlerMappingIntrospector     : Cache miss for REQUEST dispatch to '/h2-console/login.jsp' (previous null). Performing CorsConfiguration lookup. This is logged once only at WARN level, and every time at TRACE.
+2024-09-03 08:19:32.470  INFO --- [nio-8080-exec-5] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-03 08:19:32.471  INFO --- [nio-8080-exec-5] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2024-09-03 08:19:32.476  INFO --- [nio-8080-exec-5] o.s.w.s.DispatcherServlet                : Completed initialization in 3 ms
+2024-09-03 08:19:32.485  WARN --- [nio-8080-exec-5] o.s.w.s.h.HandlerMappingIntrospector     : Cache miss for REQUEST dispatch to '/favicon.ico' (previous null). Performing MatchableHandlerMapping lookup. This is logged once only at WARN level, and every time at TRACE.
+2024-09-03 08:28:26.770  INFO --- [ionShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-03 08:28:26.776  INFO --- [ionShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2024-09-03 08:28:26.783  INFO --- [ionShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2024-09-03 08:28:30.271  INFO --- [kground-preinit] o.h.v.i.u.Version                        : HV000001: Hibernate Validator 8.0.1.Final
+2024-09-03 08:28:30.321  INFO --- [           main] d.t.u.UrlShortenerApplication            : Starting UrlShortenerApplication using Java 21.0.2 with PID 54494 (/home/volodymyr/url-shortener/target/classes started by volodymyr in /home/volodymyr/url-shortener)
+2024-09-03 08:28:30.327  INFO --- [           main] d.t.u.UrlShortenerApplication            : The following 1 profile is active: "dev"
+2024-09-03 08:28:31.594  INFO --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-03 08:28:31.680  INFO --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 76 ms. Found 4 JPA repository interfaces.
+2024-09-03 08:28:32.492  INFO --- [           main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port 8080 (http)
+2024-09-03 08:28:32.504  INFO --- [           main] o.a.c.h.Http11NioProtocol                : Initializing ProtocolHandler ["http-nio-8080"]
+2024-09-03 08:28:32.507  INFO --- [           main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2024-09-03 08:28:32.507  INFO --- [           main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/10.1.16]
+2024-09-03 08:28:32.570  INFO --- [           main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2024-09-03 08:28:32.570  INFO --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2187 ms
+2024-09-03 08:28:32.647  INFO --- [           main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2024-09-03 08:28:33.045  INFO --- [           main] c.z.h.p.HikariPool                       : HikariPool-1 - Added connection conn1: url=jdbc:h2:file:./dev user=SA
+2024-09-03 08:28:33.047  INFO --- [           main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2024-09-03 08:28:33.062  INFO --- [           main] o.s.b.a.h.H2ConsoleAutoConfiguration     : H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:./dev'
+2024-09-03 08:28:33.323  INFO --- [           main] l.database                               : Set default schema name to PUBLIC
+2024-09-03 08:28:34.031  INFO --- [           main] l.changelog                              : Reading from PUBLIC.DATABASECHANGELOG
+2024-09-03 08:28:34.096  INFO --- [           main] l.ui                                     : Database is up to date, no changesets to execute
+2024-09-03 08:28:34.099  INFO --- [           main] l.changelog                              : Reading from PUBLIC.DATABASECHANGELOG
+2024-09-03 08:28:34.110  INFO --- [           main] l.util                                   : UPDATE SUMMARY
+2024-09-03 08:28:34.110  INFO --- [           main] l.util                                   : Run:                          0
+2024-09-03 08:28:34.110  INFO --- [           main] l.util                                   : Previously run:               5
+2024-09-03 08:28:34.110  INFO --- [           main] l.util                                   : Filtered out:                 0
+2024-09-03 08:28:34.111  INFO --- [           main] l.util                                   : -------------------------------
+2024-09-03 08:28:34.111  INFO --- [           main] l.util                                   : Total change sets:            5
+2024-09-03 08:28:34.112  INFO --- [           main] l.util                                   : Update summary generated
+2024-09-03 08:28:34.136  INFO --- [           main] l.lockservice                            : Successfully released change log lock
+2024-09-03 08:28:34.138  INFO --- [           main] l.command                                : Command execution complete
+2024-09-03 08:28:34.243  INFO --- [           main] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-03 08:28:34.347  INFO --- [           main] o.h.Version                              : HHH000412: Hibernate ORM core version 6.3.1.Final
+2024-09-03 08:28:34.391  INFO --- [           main] o.h.c.i.RegionFactoryInitiator           : HHH000026: Second-level cache disabled
+2024-09-03 08:28:34.667  INFO --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-03 08:28:34.719  WARN --- [           main] o.h.o.deprecation                        : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-09-03 08:28:35.914  INFO --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-03 08:28:35.977  INFO --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-03 08:28:36.844  WARN --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-03 08:28:36.880  WARN --- [           main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 47a271d3-b260-4a20-b59c-21c74821f418
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2024-09-03 08:28:37.386  INFO --- [           main] o.s.s.w.DefaultSecurityFilterChain       : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@712a5de4, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@364c4ba9, org.springframework.security.web.context.SecurityContextHolderFilter@1f6af096, org.springframework.security.web.header.HeaderWriterFilter@2140582, org.springframework.web.filter.CorsFilter@2008dfa7, org.springframework.security.web.authentication.logout.LogoutFilter@2e856aa4, de.telran.urlshortener.security.JwtFilter@56835f2f, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2fc698a9, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4823f3b8, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@492d0748, org.springframework.security.web.session.SessionManagementFilter@12db2921, org.springframework.security.web.access.ExceptionTranslationFilter@56957f08, org.springframework.security.web.access.intercept.AuthorizationFilter@3aafa1c1]
+2024-09-03 08:28:37.976  INFO --- [           main] o.a.c.h.Http11NioProtocol                : Starting ProtocolHandler ["http-nio-8080"]
+2024-09-03 08:28:37.992  INFO --- [           main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port 8080 (http) with context path ''
+2024-09-03 08:28:38.005  INFO --- [           main] d.t.u.UrlShortenerApplication            : Started UrlShortenerApplication in 8.158 seconds (process running for 9.651)
+2024-09-03 08:28:50.175  WARN --- [nio-8080-exec-1] o.s.w.s.h.HandlerMappingIntrospector     : Cache miss for REQUEST dispatch to '/h2-console/login.do' (previous null). Performing CorsConfiguration lookup. This is logged once only at WARN level, and every time at TRACE.
+2024-09-03 08:28:50.558  INFO --- [nio-8080-exec-5] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-03 08:28:50.559  INFO --- [nio-8080-exec-5] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2024-09-03 08:28:50.563  INFO --- [nio-8080-exec-5] o.s.w.s.DispatcherServlet                : Completed initialization in 3 ms
+2024-09-03 08:28:50.566  WARN --- [nio-8080-exec-5] o.s.w.s.h.HandlerMappingIntrospector     : Cache miss for REQUEST dispatch to '/favicon.ico' (previous null). Performing MatchableHandlerMapping lookup. This is logged once only at WARN level, and every time at TRACE.

@@ -1,10 +1,12 @@
 # Ignore database files
 *.mv.db
 *.trace.db
+*.lock.db
 
 # Ignore specific files like dev.mv.db, dev.trace.db
 dev.mv.db
 dev.trace.db
+dev.lock.db
 
 # Ignore help documentation files
 HELP.md

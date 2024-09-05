@@ -16,10 +16,11 @@ class UserRepositoryTest {
 
     @Test
     void testExistsByEmail_WhenEmailExists() {
-        // Arrange: create a user
+        // Arrange: create a user with a non-null password
         User user = new User();
         user.setUserName("testUser");
         user.setEmail("test@example.com");
+        user.setPassword("password"); // Можно использовать простой текст, если не нужен хеш
         userRepository.save(user);
 
         // Act: check if a user with the given email exists

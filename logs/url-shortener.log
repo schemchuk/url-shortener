@@ -34100,3 +34100,759 @@ This generated password is for development use only. Your security configuration
         su1_0.short_key=?
 2024-09-05 08:10:08.969 DEBUG --- [nio-8080-exec-8] o.s.w.s.v.RedirectView                   : View [RedirectView], model {}
 2024-09-05 08:10:08.970 DEBUG --- [nio-8080-exec-8] o.s.w.s.DispatcherServlet                : Completed 302 FOUND
+2024-09-05 09:23:21.578  INFO --- [ionShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-05 09:23:21.589  INFO --- [ionShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2024-09-05 09:23:21.600  INFO --- [ionShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2024-09-05 09:43:17.875  INFO --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [de.telran.urlshortener.UrlShortenerApplicationTests]: UrlShortenerApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-09-05 09:43:18.024  INFO --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration de.telran.urlshortener.UrlShortenerApplication for test class de.telran.urlshortener.UrlShortenerApplicationTests
+2024-09-05 09:43:18.537  INFO --- [kground-preinit] o.h.v.i.u.Version                        : HV000001: Hibernate Validator 8.0.1.Final
+2024-09-05 09:43:18.586  INFO --- [           main] d.t.u.UrlShortenerApplicationTests       : Starting UrlShortenerApplicationTests using Java 21.0.2 with PID 96009 (started by volodymyr in /home/volodymyr/url-shortener)
+2024-09-05 09:43:18.592  INFO --- [           main] d.t.u.UrlShortenerApplicationTests       : The following 1 profile is active: "dev"
+2024-09-05 09:43:18.642 DEBUG --- [           main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@70242f38
+2024-09-05 09:43:19.892  INFO --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-05 09:43:19.993  INFO --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 89 ms. Found 4 JPA repository interfaces.
+2024-09-05 09:43:21.024  INFO --- [           main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2024-09-05 09:43:21.472  INFO --- [           main] c.z.h.p.HikariPool                       : HikariPool-1 - Added connection conn1: url=jdbc:h2:file:./dev user=SA
+2024-09-05 09:43:21.475  INFO --- [           main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2024-09-05 09:43:21.568  INFO --- [           main] l.database                               : Set default schema name to PUBLIC
+2024-09-05 09:43:22.623  INFO --- [           main] l.changelog                              : Reading from PUBLIC.DATABASECHANGELOG
+2024-09-05 09:43:22.701  INFO --- [           main] l.ui                                     : Database is up to date, no changesets to execute
+2024-09-05 09:43:22.704  INFO --- [           main] l.changelog                              : Reading from PUBLIC.DATABASECHANGELOG
+2024-09-05 09:43:22.718  INFO --- [           main] l.util                                   : UPDATE SUMMARY
+2024-09-05 09:43:22.718  INFO --- [           main] l.util                                   : Run:                          0
+2024-09-05 09:43:22.718  INFO --- [           main] l.util                                   : Previously run:               7
+2024-09-05 09:43:22.719  INFO --- [           main] l.util                                   : Filtered out:                 0
+2024-09-05 09:43:22.719  INFO --- [           main] l.util                                   : -------------------------------
+2024-09-05 09:43:22.719  INFO --- [           main] l.util                                   : Total change sets:            7
+2024-09-05 09:43:22.721  INFO --- [           main] l.util                                   : Update summary generated
+2024-09-05 09:43:22.751  INFO --- [           main] l.lockservice                            : Successfully released change log lock
+2024-09-05 09:43:22.753  INFO --- [           main] l.command                                : Command execution complete
+2024-09-05 09:43:22.896  INFO --- [           main] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-05 09:43:22.993  INFO --- [           main] o.h.Version                              : HHH000412: Hibernate ORM core version 6.3.1.Final
+2024-09-05 09:43:23.045  INFO --- [           main] o.h.c.i.RegionFactoryInitiator           : HHH000026: Second-level cache disabled
+2024-09-05 09:43:23.387  INFO --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-05 09:43:23.472  WARN --- [           main] o.h.o.deprecation                        : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-09-05 09:43:24.873  INFO --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-05 09:43:24.939  INFO --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-05 09:43:25.904  WARN --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-05 09:43:25.944  WARN --- [           main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 78bbc138-2636-4969-b507-488e24aad481
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2024-09-05 09:43:26.230 DEBUG --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : 19 mappings in 'requestMappingHandlerMapping'
+2024-09-05 09:43:26.448 DEBUG --- [           main] o.s.w.s.h.SimpleUrlHandlerMapping        : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2024-09-05 09:43:26.499  INFO --- [           main] o.s.s.w.DefaultSecurityFilterChain       : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5bc150e9, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@28fa0ff8, org.springframework.security.web.context.SecurityContextHolderFilter@2291fb1, org.springframework.security.web.header.HeaderWriterFilter@6affbed1, org.springframework.web.filter.CorsFilter@726e780a, org.springframework.security.web.authentication.logout.LogoutFilter@323fa578, de.telran.urlshortener.security.JwtFilter@6b78cbee, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2aaf7354, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1606ecbb, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4698ae6, org.springframework.security.web.session.SessionManagementFilter@57ce8f63, org.springframework.security.web.access.ExceptionTranslationFilter@54a2ff94, org.springframework.security.web.access.intercept.AuthorizationFilter@a6f34f5]
+2024-09-05 09:43:26.764 DEBUG --- [           main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-09-05 09:43:26.820 DEBUG --- [           main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-09-05 09:43:27.021  INFO --- [           main] o.s.b.a.h.H2ConsoleAutoConfiguration     : H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:./dev'
+2024-09-05 09:43:27.174  INFO --- [           main] d.t.u.UrlShortenerApplicationTests       : Started UrlShortenerApplicationTests in 8.972 seconds (process running for 10.943)
+2024-09-05 09:43:27.351 DEBUG --- [           main] o.h.SQL                                  : 
+    select
+        r1_0.id,
+        r1_0.expiry_date,
+        r1_0.name 
+    from
+        roles r1_0 
+    where
+        r1_0.name=?
+2024-09-05 09:43:27.376 DEBUG --- [           main] o.h.SQL                                  : 
+    select
+        r1_0.id,
+        r1_0.expiry_date,
+        r1_0.name 
+    from
+        roles r1_0 
+    where
+        r1_0.name=?
+2024-09-05 09:43:27.380 DEBUG --- [           main] o.h.SQL                                  : 
+    select
+        r1_0.id,
+        r1_0.expiry_date,
+        r1_0.name 
+    from
+        roles r1_0 
+    where
+        r1_0.name=?
+2024-09-05 09:43:27.384 DEBUG --- [           main] o.h.SQL                                  : 
+    select
+        r1_0.id,
+        r1_0.expiry_date,
+        r1_0.name 
+    from
+        roles r1_0 
+    where
+        r1_0.name=?
+2024-09-05 09:43:27.389 DEBUG --- [           main] o.h.SQL                                  : 
+    select
+        r1_0.id,
+        r1_0.expiry_date,
+        r1_0.name 
+    from
+        roles r1_0 
+    where
+        r1_0.name=?
+2024-09-05 09:43:27.393 DEBUG --- [           main] o.h.SQL                                  : 
+    select
+        r1_0.id,
+        r1_0.expiry_date,
+        r1_0.name 
+    from
+        roles r1_0 
+    where
+        r1_0.name=?
+2024-09-05 09:43:27.402 DEBUG --- [           main] o.h.SQL                                  : 
+    select
+        u1_0.id 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+    fetch
+        first ? rows only
+2024-09-05 09:43:27.407 DEBUG --- [           main] o.h.SQL                                  : 
+    select
+        u1_0.id 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+    fetch
+        first ? rows only
+2024-09-05 09:43:28.196 DEBUG --- [ionShutdownHook] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@70242f38, started on Thu Sep 05 09:43:18 CEST 2024
+2024-09-05 09:43:28.215  INFO --- [ionShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-05 09:43:28.219  INFO --- [ionShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2024-09-05 09:43:28.222  INFO --- [ionShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2024-09-05 09:49:02.711  INFO --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [de.telran.urlshortener.UrlShortenerApplicationTests]: UrlShortenerApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-09-05 09:49:02.866  INFO --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration de.telran.urlshortener.UrlShortenerApplication for test class de.telran.urlshortener.UrlShortenerApplicationTests
+2024-09-05 09:49:03.461  INFO --- [kground-preinit] o.h.v.i.u.Version                        : HV000001: Hibernate Validator 8.0.1.Final
+2024-09-05 09:49:03.507  INFO --- [           main] d.t.u.UrlShortenerApplicationTests       : Starting UrlShortenerApplicationTests using Java 21.0.2 with PID 98829 (started by volodymyr in /home/volodymyr/url-shortener)
+2024-09-05 09:49:03.513  INFO --- [           main] d.t.u.UrlShortenerApplicationTests       : The following 1 profile is active: "dev"
+2024-09-05 09:49:03.564 DEBUG --- [           main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@70242f38
+2024-09-05 09:49:04.947  INFO --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-05 09:49:05.065  INFO --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 105 ms. Found 4 JPA repository interfaces.
+2024-09-05 09:49:05.945  INFO --- [           main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2024-09-05 09:49:06.383  INFO --- [           main] c.z.h.p.HikariPool                       : HikariPool-1 - Added connection conn1: url=jdbc:h2:file:./dev user=SA
+2024-09-05 09:49:06.385  INFO --- [           main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2024-09-05 09:49:06.478  INFO --- [           main] l.database                               : Set default schema name to PUBLIC
+2024-09-05 09:49:07.380  INFO --- [           main] l.changelog                              : Reading from PUBLIC.DATABASECHANGELOG
+2024-09-05 09:49:07.459  INFO --- [           main] l.ui                                     : Database is up to date, no changesets to execute
+2024-09-05 09:49:07.462  INFO --- [           main] l.changelog                              : Reading from PUBLIC.DATABASECHANGELOG
+2024-09-05 09:49:07.476  INFO --- [           main] l.util                                   : UPDATE SUMMARY
+2024-09-05 09:49:07.477  INFO --- [           main] l.util                                   : Run:                          0
+2024-09-05 09:49:07.477  INFO --- [           main] l.util                                   : Previously run:               7
+2024-09-05 09:49:07.477  INFO --- [           main] l.util                                   : Filtered out:                 0
+2024-09-05 09:49:07.478  INFO --- [           main] l.util                                   : -------------------------------
+2024-09-05 09:49:07.478  INFO --- [           main] l.util                                   : Total change sets:            7
+2024-09-05 09:49:07.480  INFO --- [           main] l.util                                   : Update summary generated
+2024-09-05 09:49:07.514  INFO --- [           main] l.lockservice                            : Successfully released change log lock
+2024-09-05 09:49:07.516  INFO --- [           main] l.command                                : Command execution complete
+2024-09-05 09:49:07.654  INFO --- [           main] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-05 09:49:07.779  INFO --- [           main] o.h.Version                              : HHH000412: Hibernate ORM core version 6.3.1.Final
+2024-09-05 09:49:07.835  INFO --- [           main] o.h.c.i.RegionFactoryInitiator           : HHH000026: Second-level cache disabled
+2024-09-05 09:49:08.204  INFO --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-05 09:49:08.308  WARN --- [           main] o.h.o.deprecation                        : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-09-05 09:49:09.692  INFO --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-05 09:49:09.767  INFO --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-05 09:49:10.746  WARN --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-05 09:49:10.782  WARN --- [           main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 1a92b4d2-cde3-4fb4-af54-3584f1f37438
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2024-09-05 09:49:11.039 DEBUG --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : 19 mappings in 'requestMappingHandlerMapping'
+2024-09-05 09:49:11.263 DEBUG --- [           main] o.s.w.s.h.SimpleUrlHandlerMapping        : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2024-09-05 09:49:11.321  INFO --- [           main] o.s.s.w.DefaultSecurityFilterChain       : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@28fa0ff8, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@726e780a, org.springframework.security.web.context.SecurityContextHolderFilter@213f2d00, org.springframework.security.web.header.HeaderWriterFilter@2cf93603, org.springframework.web.filter.CorsFilter@4698ae6, org.springframework.security.web.authentication.logout.LogoutFilter@6d543ec2, de.telran.urlshortener.security.JwtFilter@e870ac9, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1606ecbb, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5c18ad5d, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@557ed49a, org.springframework.security.web.session.SessionManagementFilter@1d92d132, org.springframework.security.web.access.ExceptionTranslationFilter@3d2be0df, org.springframework.security.web.access.intercept.AuthorizationFilter@1b6824c1]
+2024-09-05 09:49:11.611 DEBUG --- [           main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-09-05 09:49:11.664 DEBUG --- [           main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-09-05 09:49:11.849  INFO --- [           main] o.s.b.a.h.H2ConsoleAutoConfiguration     : H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:./dev'
+2024-09-05 09:49:11.962  INFO --- [           main] d.t.u.UrlShortenerApplicationTests       : Started UrlShortenerApplicationTests in 8.865 seconds (process running for 11.228)
+2024-09-05 09:49:12.152 DEBUG --- [           main] o.h.SQL                                  : 
+    select
+        r1_0.id,
+        r1_0.expiry_date,
+        r1_0.name 
+    from
+        roles r1_0 
+    where
+        r1_0.name=?
+2024-09-05 09:49:12.176 DEBUG --- [           main] o.h.SQL                                  : 
+    select
+        r1_0.id,
+        r1_0.expiry_date,
+        r1_0.name 
+    from
+        roles r1_0 
+    where
+        r1_0.name=?
+2024-09-05 09:49:12.180 DEBUG --- [           main] o.h.SQL                                  : 
+    select
+        r1_0.id,
+        r1_0.expiry_date,
+        r1_0.name 
+    from
+        roles r1_0 
+    where
+        r1_0.name=?
+2024-09-05 09:49:12.184 DEBUG --- [           main] o.h.SQL                                  : 
+    select
+        r1_0.id,
+        r1_0.expiry_date,
+        r1_0.name 
+    from
+        roles r1_0 
+    where
+        r1_0.name=?
+2024-09-05 09:49:12.187 DEBUG --- [           main] o.h.SQL                                  : 
+    select
+        r1_0.id,
+        r1_0.expiry_date,
+        r1_0.name 
+    from
+        roles r1_0 
+    where
+        r1_0.name=?
+2024-09-05 09:49:12.191 DEBUG --- [           main] o.h.SQL                                  : 
+    select
+        r1_0.id,
+        r1_0.expiry_date,
+        r1_0.name 
+    from
+        roles r1_0 
+    where
+        r1_0.name=?
+2024-09-05 09:49:12.199 DEBUG --- [           main] o.h.SQL                                  : 
+    select
+        u1_0.id 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+    fetch
+        first ? rows only
+2024-09-05 09:49:12.204 DEBUG --- [           main] o.h.SQL                                  : 
+    select
+        u1_0.id 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+    fetch
+        first ? rows only
+2024-09-05 09:49:12.998 DEBUG --- [ionShutdownHook] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@70242f38, started on Thu Sep 05 09:49:03 CEST 2024
+2024-09-05 09:49:13.009  INFO --- [ionShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-05 09:49:13.014  INFO --- [ionShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2024-09-05 09:49:13.017  INFO --- [ionShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2024-09-05 09:49:26.742  INFO --- [kground-preinit] o.h.v.i.u.Version                        : HV000001: Hibernate Validator 8.0.1.Final
+2024-09-05 09:49:26.791  INFO --- [           main] d.t.u.UrlShortenerApplication            : Starting UrlShortenerApplication using Java 21.0.2 with PID 99090 (/home/volodymyr/url-shortener/target/classes started by volodymyr in /home/volodymyr/url-shortener)
+2024-09-05 09:49:26.797  INFO --- [           main] d.t.u.UrlShortenerApplication            : The following 1 profile is active: "dev"
+2024-09-05 09:49:28.004  INFO --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-05 09:49:28.090  INFO --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 76 ms. Found 4 JPA repository interfaces.
+2024-09-05 09:49:28.900  INFO --- [           main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port 8080 (http)
+2024-09-05 09:49:28.912  INFO --- [           main] o.a.c.h.Http11NioProtocol                : Initializing ProtocolHandler ["http-nio-8080"]
+2024-09-05 09:49:28.915  INFO --- [           main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2024-09-05 09:49:28.915  INFO --- [           main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/10.1.16]
+2024-09-05 09:49:28.972  INFO --- [           main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2024-09-05 09:49:28.973  INFO --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2123 ms
+2024-09-05 09:49:29.044  INFO --- [           main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2024-09-05 09:49:29.423  INFO --- [           main] c.z.h.p.HikariPool                       : HikariPool-1 - Added connection conn1: url=jdbc:h2:file:./dev user=SA
+2024-09-05 09:49:29.425  INFO --- [           main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2024-09-05 09:49:29.439  INFO --- [           main] o.s.b.a.h.H2ConsoleAutoConfiguration     : H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:./dev'
+2024-09-05 09:49:29.686  INFO --- [           main] l.database                               : Set default schema name to PUBLIC
+2024-09-05 09:49:30.440  INFO --- [           main] l.changelog                              : Reading from PUBLIC.DATABASECHANGELOG
+2024-09-05 09:49:30.512  INFO --- [           main] l.ui                                     : Database is up to date, no changesets to execute
+2024-09-05 09:49:30.515  INFO --- [           main] l.changelog                              : Reading from PUBLIC.DATABASECHANGELOG
+2024-09-05 09:49:30.527  INFO --- [           main] l.util                                   : UPDATE SUMMARY
+2024-09-05 09:49:30.528  INFO --- [           main] l.util                                   : Run:                          0
+2024-09-05 09:49:30.528  INFO --- [           main] l.util                                   : Previously run:               7
+2024-09-05 09:49:30.528  INFO --- [           main] l.util                                   : Filtered out:                 0
+2024-09-05 09:49:30.528  INFO --- [           main] l.util                                   : -------------------------------
+2024-09-05 09:49:30.529  INFO --- [           main] l.util                                   : Total change sets:            7
+2024-09-05 09:49:30.530  INFO --- [           main] l.util                                   : Update summary generated
+2024-09-05 09:49:30.555  INFO --- [           main] l.lockservice                            : Successfully released change log lock
+2024-09-05 09:49:30.557  INFO --- [           main] l.command                                : Command execution complete
+2024-09-05 09:49:30.672  INFO --- [           main] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-05 09:49:30.745  INFO --- [           main] o.h.Version                              : HHH000412: Hibernate ORM core version 6.3.1.Final
+2024-09-05 09:49:30.786  INFO --- [           main] o.h.c.i.RegionFactoryInitiator           : HHH000026: Second-level cache disabled
+2024-09-05 09:49:31.051  INFO --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-05 09:49:31.101  WARN --- [           main] o.h.o.deprecation                        : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-09-05 09:49:32.290  INFO --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-05 09:49:32.356  INFO --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-05 09:49:33.228  WARN --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-05 09:49:33.265  WARN --- [           main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 10e7fb11-9984-4440-bf16-1cb462f3f865
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2024-09-05 09:49:33.517 DEBUG --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : 19 mappings in 'requestMappingHandlerMapping'
+2024-09-05 09:49:33.672 DEBUG --- [           main] o.s.w.s.h.SimpleUrlHandlerMapping        : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2024-09-05 09:49:33.746  INFO --- [           main] o.s.s.w.DefaultSecurityFilterChain       : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3787eac3, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@27a57c66, org.springframework.security.web.context.SecurityContextHolderFilter@45cd5c56, org.springframework.security.web.header.HeaderWriterFilter@4823f3b8, org.springframework.web.filter.CorsFilter@5453020f, org.springframework.security.web.authentication.logout.LogoutFilter@492d0748, de.telran.urlshortener.security.JwtFilter@39ace1a7, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@629fc74d, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@12dab9a8, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@744d0cfb, org.springframework.security.web.session.SessionManagementFilter@3e1f6318, org.springframework.security.web.access.ExceptionTranslationFilter@54b3407b, org.springframework.security.web.access.intercept.AuthorizationFilter@1c619a77]
+2024-09-05 09:49:33.903 DEBUG --- [           main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-09-05 09:49:33.957 DEBUG --- [           main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-09-05 09:49:34.301  INFO --- [           main] o.a.c.h.Http11NioProtocol                : Starting ProtocolHandler ["http-nio-8080"]
+2024-09-05 09:49:34.319  INFO --- [           main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port 8080 (http) with context path ''
+2024-09-05 09:49:34.333  INFO --- [           main] d.t.u.UrlShortenerApplication            : Started UrlShortenerApplication in 8.018 seconds (process running for 9.515)
+2024-09-05 09:49:34.545 DEBUG --- [           main] o.h.SQL                                  : 
+    select
+        r1_0.id,
+        r1_0.expiry_date,
+        r1_0.name 
+    from
+        roles r1_0 
+    where
+        r1_0.name=?
+2024-09-05 09:49:34.571 DEBUG --- [           main] o.h.SQL                                  : 
+    select
+        r1_0.id,
+        r1_0.expiry_date,
+        r1_0.name 
+    from
+        roles r1_0 
+    where
+        r1_0.name=?
+2024-09-05 09:49:34.574 DEBUG --- [           main] o.h.SQL                                  : 
+    select
+        r1_0.id,
+        r1_0.expiry_date,
+        r1_0.name 
+    from
+        roles r1_0 
+    where
+        r1_0.name=?
+2024-09-05 09:49:34.577 DEBUG --- [           main] o.h.SQL                                  : 
+    select
+        r1_0.id,
+        r1_0.expiry_date,
+        r1_0.name 
+    from
+        roles r1_0 
+    where
+        r1_0.name=?
+2024-09-05 09:49:34.580 DEBUG --- [           main] o.h.SQL                                  : 
+    select
+        r1_0.id,
+        r1_0.expiry_date,
+        r1_0.name 
+    from
+        roles r1_0 
+    where
+        r1_0.name=?
+2024-09-05 09:49:34.583 DEBUG --- [           main] o.h.SQL                                  : 
+    select
+        r1_0.id,
+        r1_0.expiry_date,
+        r1_0.name 
+    from
+        roles r1_0 
+    where
+        r1_0.name=?
+2024-09-05 09:49:34.589 DEBUG --- [           main] o.h.SQL                                  : 
+    select
+        u1_0.id 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+    fetch
+        first ? rows only
+2024-09-05 09:49:34.593 DEBUG --- [           main] o.h.SQL                                  : 
+    select
+        u1_0.id 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+    fetch
+        first ? rows only
+2024-09-05 09:50:05.498  INFO --- [nio-8080-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-05 09:50:05.499  INFO --- [nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2024-09-05 09:50:05.499 DEBUG --- [nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Detected StandardServletMultipartResolver
+2024-09-05 09:50:05.499 DEBUG --- [nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Detected AcceptHeaderLocaleResolver
+2024-09-05 09:50:05.499 DEBUG --- [nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Detected FixedThemeResolver
+2024-09-05 09:50:05.501 DEBUG --- [nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@5b71ccf2
+2024-09-05 09:50:05.501 DEBUG --- [nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Detected org.springframework.web.servlet.support.SessionFlashMapManager@62bcfa01
+2024-09-05 09:50:05.502 DEBUG --- [nio-8080-exec-1] o.s.w.s.DispatcherServlet                : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2024-09-05 09:50:05.502  INFO --- [nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Completed initialization in 3 ms
+2024-09-05 09:50:05.521  WARN --- [nio-8080-exec-1] o.s.w.s.h.HandlerMappingIntrospector     : Cache miss for REQUEST dispatch to '/swagger-ui/index.html' (previous null). Performing CorsConfiguration lookup. This is logged once only at WARN level, and every time at TRACE.
+2024-09-05 09:50:05.541  WARN --- [nio-8080-exec-1] o.s.w.s.h.HandlerMappingIntrospector     : Cache miss for REQUEST dispatch to '/swagger-ui/index.html' (previous null). Performing MatchableHandlerMapping lookup. This is logged once only at WARN level, and every time at TRACE.
+2024-09-05 09:50:05.557 DEBUG --- [nio-8080-exec-1] o.s.w.s.DispatcherServlet                : GET "/swagger-ui/index.html", parameters={}
+2024-09-05 09:50:05.561 DEBUG --- [nio-8080-exec-1] o.s.w.s.h.SimpleUrlHandlerMapping        : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2024-09-05 09:50:05.612 DEBUG --- [nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Completed 200 OK
+2024-09-05 09:50:05.654 DEBUG --- [nio-8080-exec-2] o.s.w.s.DispatcherServlet                : GET "/swagger-ui/swagger-ui.css", parameters={}
+2024-09-05 09:50:05.656 DEBUG --- [nio-8080-exec-2] o.s.w.s.h.SimpleUrlHandlerMapping        : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2024-09-05 09:50:05.661 DEBUG --- [nio-8080-exec-2] o.s.w.s.DispatcherServlet                : Completed 200 OK
+2024-09-05 09:50:05.682 DEBUG --- [nio-8080-exec-3] o.s.w.s.DispatcherServlet                : GET "/swagger-ui/index.css", parameters={}
+2024-09-05 09:50:05.684 DEBUG --- [nio-8080-exec-3] o.s.w.s.h.SimpleUrlHandlerMapping        : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2024-09-05 09:50:05.689 DEBUG --- [nio-8080-exec-3] o.s.w.s.DispatcherServlet                : Completed 200 OK
+2024-09-05 09:50:05.705 DEBUG --- [nio-8080-exec-6] o.s.w.s.DispatcherServlet                : GET "/swagger-ui/swagger-initializer.js", parameters={}
+2024-09-05 09:50:05.709 DEBUG --- [nio-8080-exec-4] o.s.w.s.DispatcherServlet                : GET "/swagger-ui/swagger-ui-bundle.js", parameters={}
+2024-09-05 09:50:05.712 DEBUG --- [nio-8080-exec-4] o.s.w.s.h.SimpleUrlHandlerMapping        : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2024-09-05 09:50:05.713 DEBUG --- [nio-8080-exec-5] o.s.w.s.DispatcherServlet                : GET "/swagger-ui/swagger-ui-standalone-preset.js", parameters={}
+2024-09-05 09:50:05.714 DEBUG --- [nio-8080-exec-5] o.s.w.s.h.SimpleUrlHandlerMapping        : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2024-09-05 09:50:05.710 DEBUG --- [nio-8080-exec-6] o.s.w.s.h.SimpleUrlHandlerMapping        : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2024-09-05 09:50:05.722 DEBUG --- [nio-8080-exec-5] o.s.w.s.DispatcherServlet                : Completed 200 OK
+2024-09-05 09:50:05.755 DEBUG --- [nio-8080-exec-4] o.s.w.s.DispatcherServlet                : Completed 200 OK
+2024-09-05 09:50:05.816 DEBUG --- [nio-8080-exec-6] o.s.w.s.DispatcherServlet                : Completed 200 OK
+2024-09-05 09:50:06.483 DEBUG --- [nio-8080-exec-7] o.s.w.s.DispatcherServlet                : GET "/swagger-ui/favicon-32x32.png", parameters={}
+2024-09-05 09:50:06.484 DEBUG --- [nio-8080-exec-7] o.s.w.s.h.SimpleUrlHandlerMapping        : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2024-09-05 09:50:06.487 DEBUG --- [nio-8080-exec-7] o.s.w.s.DispatcherServlet                : Completed 200 OK
+2024-09-05 09:50:06.519 DEBUG --- [nio-8080-exec-8] o.s.w.s.DispatcherServlet                : GET "/v3/api-docs/swagger-config", parameters={}
+2024-09-05 09:50:06.520 DEBUG --- [nio-8080-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springdoc.webmvc.ui.SwaggerConfigResource#openapiJson(HttpServletRequest)
+2024-09-05 09:50:06.523 DEBUG --- [nio-8080-exec-9] o.s.w.s.DispatcherServlet                : GET "/swagger-ui/favicon-32x32.png", parameters={}
+2024-09-05 09:50:06.524 DEBUG --- [nio-8080-exec-9] o.s.w.s.h.SimpleUrlHandlerMapping        : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2024-09-05 09:50:06.528 DEBUG --- [nio-8080-exec-9] o.s.w.s.DispatcherServlet                : Completed 200 OK
+2024-09-05 09:50:06.544 DEBUG --- [nio-8080-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json]
+2024-09-05 09:50:06.550 DEBUG --- [nio-8080-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Writing [{configUrl=/v3/api-docs/swagger-config, oauth2RedirectUrl=http://localhost:8080/swagger-ui/oauth2-re (truncated)...]
+2024-09-05 09:50:06.559 DEBUG --- [nio-8080-exec-8] o.s.w.s.DispatcherServlet                : Completed 200 OK
+2024-09-05 09:50:06.589 DEBUG --- [io-8080-exec-10] o.s.w.s.DispatcherServlet                : GET "/v3/api-docs", parameters={}
+2024-09-05 09:50:06.590 DEBUG --- [io-8080-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springdoc.webmvc.api.OpenApiWebMvcResource#openapiJson(HttpServletRequest, String, Locale)
+2024-09-05 09:50:07.561  INFO --- [io-8080-exec-10] o.s.a.AbstractOpenApiResource            : Init duration for springdoc-openapi is: 944 ms
+2024-09-05 09:50:07.593 DEBUG --- [io-8080-exec-10] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json, */*] and supported [application/json]
+2024-09-05 09:50:07.597 DEBUG --- [io-8080-exec-10] m.m.a.RequestResponseBodyMethodProcessor : Writing [{123, 34, 111, 112, 101, 110, 97, 112, 105, 34, 58, 34, 51, 46, 48, 46, 49, 34, 44, 34, 115, 101, 11 (truncated)...]
+2024-09-05 09:50:07.598 DEBUG --- [io-8080-exec-10] o.s.w.s.DispatcherServlet                : Completed 200 OK
+2024-09-05 09:51:50.018 DEBUG --- [nio-8080-exec-4] o.s.w.s.DispatcherServlet                : POST "/api/auth/login", parameters={}
+2024-09-05 09:51:50.019 DEBUG --- [nio-8080-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to de.telran.urlshortener.controller.AuthController#login(JwtRequest)
+2024-09-05 09:51:50.068 DEBUG --- [nio-8080-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [de.telran.urlshortener.dto.JwtDto.JwtRequest@7bca01f]
+2024-09-05 09:51:50.098 DEBUG --- [nio-8080-exec-4] o.h.SQL                                  : 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.password,
+        u1_0.refresh_token,
+        u1_0.user_name 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+2024-09-05 09:51:50.129 DEBUG --- [nio-8080-exec-4] o.h.SQL                                  : 
+    select
+        s1_0.id,
+        s1_0.end_date,
+        s1_0.start_date,
+        s1_0.subscription_type,
+        u1_0.id,
+        u1_0.email,
+        u1_0.password,
+        u1_0.refresh_token,
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.expiry_date,
+        r1_1.name,
+        u1_0.user_name 
+    from
+        subscriptions s1_0 
+    left join
+        users u1_0 
+            on u1_0.id=s1_0.user_id 
+    left join
+        (user_roles r1_0 
+    join
+        roles r1_1 
+            on r1_1.id=r1_0.role_id) 
+        on u1_0.id=r1_0.user_id 
+    where
+        s1_0.user_id=?
+2024-09-05 09:51:50.144 DEBUG --- [nio-8080-exec-4] o.h.SQL                                  : 
+    select
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.expiry_date,
+        r1_1.name 
+    from
+        user_roles r1_0 
+    join
+        roles r1_1 
+            on r1_1.id=r1_0.role_id 
+    where
+        r1_0.user_id=?
+2024-09-05 09:51:50.500 DEBUG --- [nio-8080-exec-4] o.h.SQL                                  : 
+    update
+        users 
+    set
+        email=?,
+        password=?,
+        refresh_token=?,
+        user_name=? 
+    where
+        id=?
+2024-09-05 09:51:50.514 DEBUG --- [nio-8080-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2024-09-05 09:51:50.514 DEBUG --- [nio-8080-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [de.telran.urlshortener.dto.JwtDto.JwtResponse@12eaa030]
+2024-09-05 09:51:50.517 DEBUG --- [nio-8080-exec-4] o.s.w.s.DispatcherServlet                : Completed 200 OK
+2024-09-05 09:52:37.728 DEBUG --- [nio-8080-exec-6] o.s.w.s.DispatcherServlet                : PATCH "/users/3/role?newRole=PAID", parameters={masked}
+2024-09-05 09:52:37.729 DEBUG --- [nio-8080-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to de.telran.urlshortener.controller.UserController#changeUserRole(Long, String)
+2024-09-05 09:52:37.751  INFO --- [nio-8080-exec-6] d.t.u.c.UserController                   : Received request to change role for user with ID: 3 to PAID
+2024-09-05 09:52:37.751  INFO --- [nio-8080-exec-6] d.t.u.s.UserService                      : Attempting to change role for user with ID: 3 to PAID
+2024-09-05 09:52:37.758 DEBUG --- [nio-8080-exec-6] o.h.SQL                                  : 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.password,
+        u1_0.refresh_token,
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.expiry_date,
+        r1_1.name,
+        u1_0.user_name 
+    from
+        users u1_0 
+    left join
+        (user_roles r1_0 
+    join
+        roles r1_1 
+            on r1_1.id=r1_0.role_id) 
+        on u1_0.id=r1_0.user_id 
+    where
+        u1_0.id=?
+2024-09-05 09:52:37.761 DEBUG --- [nio-8080-exec-6] o.h.SQL                                  : 
+    select
+        s1_0.id,
+        s1_0.end_date,
+        s1_0.start_date,
+        s1_0.subscription_type,
+        u1_0.id,
+        u1_0.email,
+        u1_0.password,
+        u1_0.refresh_token,
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.expiry_date,
+        r1_1.name,
+        u1_0.user_name 
+    from
+        subscriptions s1_0 
+    left join
+        users u1_0 
+            on u1_0.id=s1_0.user_id 
+    left join
+        (user_roles r1_0 
+    join
+        roles r1_1 
+            on r1_1.id=r1_0.role_id) 
+        on u1_0.id=r1_0.user_id 
+    where
+        s1_0.user_id=?
+2024-09-05 09:52:37.765 DEBUG --- [nio-8080-exec-6] o.h.SQL                                  : 
+    select
+        r1_0.id,
+        r1_0.expiry_date,
+        r1_0.name 
+    from
+        roles r1_0 
+    where
+        r1_0.name=?
+2024-09-05 09:52:37.771 DEBUG --- [nio-8080-exec-6] o.h.SQL                                  : 
+    select
+        s1_0.id,
+        s1_0.end_date,
+        s1_0.start_date,
+        s1_0.subscription_type,
+        s1_0.user_id 
+    from
+        subscriptions s1_0 
+    where
+        s1_0.user_id=?
+2024-09-05 09:52:37.778 DEBUG --- [nio-8080-exec-6] o.h.SQL                                  : 
+    update
+        subscriptions 
+    set
+        end_date=?,
+        start_date=?,
+        subscription_type=?,
+        user_id=? 
+    where
+        id=?
+2024-09-05 09:52:37.781 DEBUG --- [nio-8080-exec-6] o.h.SQL                                  : 
+    delete 
+    from
+        user_roles 
+    where
+        user_id=? 
+        and role_id=?
+2024-09-05 09:52:37.783 DEBUG --- [nio-8080-exec-6] o.h.SQL                                  : 
+    insert 
+    into
+        user_roles
+        (user_id, role_id) 
+    values
+        (?, ?)
+2024-09-05 09:52:37.788  INFO --- [nio-8080-exec-6] d.t.u.s.UserService                      : User role updated successfully with ID: 3
+2024-09-05 09:52:37.788  INFO --- [nio-8080-exec-6] d.t.u.c.UserController                   : User role updated successfully with ID: 3
+2024-09-05 09:52:37.790 DEBUG --- [nio-8080-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2024-09-05 09:52:37.790 DEBUG --- [nio-8080-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [de.telran.urlshortener.dto.userDto.UserResponse@5a5d6245]
+2024-09-05 09:52:37.793 DEBUG --- [nio-8080-exec-6] o.s.w.s.DispatcherServlet                : Completed 200 OK
+2024-09-05 09:53:52.899 DEBUG --- [nio-8080-exec-9] o.s.w.s.DispatcherServlet                : POST "/short-urls", parameters={}
+2024-09-05 09:53:52.900 DEBUG --- [nio-8080-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to de.telran.urlshortener.controller.ShortUrlController#createShortUrl(ShortUrlRequest)
+2024-09-05 09:53:52.903 DEBUG --- [nio-8080-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [de.telran.urlshortener.dto.urlDto.ShortUrlRequest@1228b7d6]
+2024-09-05 09:53:52.903  INFO --- [nio-8080-exec-9] d.t.u.c.ShortUrlController               : Creating short URL for: https://skilldesk.starta.university/progress
+2024-09-05 09:53:52.904  INFO --- [nio-8080-exec-9] d.t.u.s.ShortUrlService                  : Creating short URL for user email: admin@example.com
+2024-09-05 09:53:52.910 DEBUG --- [nio-8080-exec-9] o.h.SQL                                  : 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.password,
+        u1_0.refresh_token,
+        u1_0.user_name 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+2024-09-05 09:53:52.918 DEBUG --- [nio-8080-exec-9] o.h.SQL                                  : 
+    select
+        s1_0.id,
+        s1_0.end_date,
+        s1_0.start_date,
+        s1_0.subscription_type,
+        u1_0.id,
+        u1_0.email,
+        u1_0.password,
+        u1_0.refresh_token,
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.expiry_date,
+        r1_1.name,
+        u1_0.user_name 
+    from
+        subscriptions s1_0 
+    left join
+        users u1_0 
+            on u1_0.id=s1_0.user_id 
+    left join
+        (user_roles r1_0 
+    join
+        roles r1_1 
+            on r1_1.id=r1_0.role_id) 
+        on u1_0.id=r1_0.user_id 
+    where
+        s1_0.user_id=?
+2024-09-05 09:53:52.921 DEBUG --- [nio-8080-exec-9] o.h.SQL                                  : 
+    select
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.expiry_date,
+        r1_1.name 
+    from
+        user_roles r1_0 
+    join
+        roles r1_1 
+            on r1_1.id=r1_0.role_id 
+    where
+        r1_0.user_id=?
+2024-09-05 09:53:52.925  INFO --- [nio-8080-exec-9] d.t.u.s.ShortUrlService                  : Generating short key with length: 6
+2024-09-05 09:53:52.927  INFO --- [nio-8080-exec-9] d.t.u.s.ShortUrlService                  : Generated short key: xEZuaW
+2024-09-05 09:53:52.928  INFO --- [nio-8080-exec-9] d.t.u.s.ShortUrlService                  : Generated short key: xEZuaW
+2024-09-05 09:53:52.944 DEBUG --- [nio-8080-exec-9] o.h.SQL                                  : 
+    insert 
+    into
+        short_urls
+        (click_count, full_url, short_key, user_id, id) 
+    values
+        (?, ?, ?, ?, default)
+2024-09-05 09:53:52.953  INFO --- [nio-8080-exec-9] d.t.u.s.ShortUrlService                  : Short URL created with ID: 2
+2024-09-05 09:53:52.953  INFO --- [nio-8080-exec-9] d.t.u.c.ShortUrlController               : Short URL created successfully with key: xEZuaW
+2024-09-05 09:53:52.955 DEBUG --- [nio-8080-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2024-09-05 09:53:52.955 DEBUG --- [nio-8080-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [de.telran.urlshortener.dto.urlDto.ShortUrlResponse@13e97c3b]
+2024-09-05 09:53:52.957 DEBUG --- [nio-8080-exec-9] o.s.w.s.DispatcherServlet                : Completed 201 CREATED
+2024-09-05 09:54:24.790 DEBUG --- [nio-8080-exec-8] o.s.w.s.DispatcherServlet                : GET "/short-urls/xEZuaW", parameters={}
+2024-09-05 09:54:24.792 DEBUG --- [nio-8080-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to de.telran.urlshortener.controller.ShortUrlController#getShortUrlByKey(String)
+2024-09-05 09:54:24.793  INFO --- [nio-8080-exec-8] d.t.u.c.ShortUrlController               : Fetching short URL with key: xEZuaW
+2024-09-05 09:54:24.794  INFO --- [nio-8080-exec-8] d.t.u.s.ShortUrlService                  : Fetching short URL with key: xEZuaW
+2024-09-05 09:54:24.803 DEBUG --- [nio-8080-exec-8] o.h.SQL                                  : 
+    select
+        su1_0.id,
+        su1_0.click_count,
+        su1_0.full_url,
+        su1_0.short_key,
+        su1_0.user_id 
+    from
+        short_urls su1_0 
+    where
+        su1_0.short_key=?
+2024-09-05 09:54:24.820  INFO --- [nio-8080-exec-8] d.t.u.s.ShortUrlService                  : Incrementing click count for short URL with key: xEZuaW
+2024-09-05 09:54:24.822 DEBUG --- [nio-8080-exec-8] o.h.SQL                                  : 
+    select
+        su1_0.id,
+        su1_0.click_count,
+        su1_0.full_url,
+        su1_0.short_key,
+        su1_0.user_id 
+    from
+        short_urls su1_0 
+    where
+        su1_0.short_key=?
+2024-09-05 09:54:24.824 DEBUG --- [nio-8080-exec-8] o.h.SQL                                  : 
+    update
+        short_urls 
+    set
+        click_count=?,
+        full_url=?,
+        short_key=?,
+        user_id=? 
+    where
+        id=?
+2024-09-05 09:54:24.826  INFO --- [nio-8080-exec-8] d.t.u.s.ShortUrlService                  : Click count incremented successfully for short URL with key: xEZuaW
+2024-09-05 09:54:24.826  INFO --- [nio-8080-exec-8] d.t.u.s.ShortUrlService                  : Short URL fetched successfully with key: xEZuaW
+2024-09-05 09:54:24.826  INFO --- [nio-8080-exec-8] d.t.u.c.ShortUrlController               : Short URL fetched successfully: de.telran.urlshortener.dto.urlDto.ShortUrlResponse@eb09e76
+2024-09-05 09:54:24.827 DEBUG --- [nio-8080-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2024-09-05 09:54:24.827 DEBUG --- [nio-8080-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [de.telran.urlshortener.dto.urlDto.ShortUrlResponse@eb09e76]
+2024-09-05 09:54:24.829 DEBUG --- [nio-8080-exec-8] o.s.w.s.DispatcherServlet                : Completed 200 OK
+2024-09-05 09:54:27.068 DEBUG --- [io-8080-exec-10] o.s.w.s.DispatcherServlet                : GET "/short-urls/xEZuaW", parameters={}
+2024-09-05 09:54:27.068 DEBUG --- [io-8080-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to de.telran.urlshortener.controller.ShortUrlController#getShortUrlByKey(String)
+2024-09-05 09:54:27.069  INFO --- [io-8080-exec-10] d.t.u.c.ShortUrlController               : Fetching short URL with key: xEZuaW
+2024-09-05 09:54:27.070  INFO --- [io-8080-exec-10] d.t.u.s.ShortUrlService                  : Fetching short URL with key: xEZuaW
+2024-09-05 09:54:27.072 DEBUG --- [io-8080-exec-10] o.h.SQL                                  : 
+    select
+        su1_0.id,
+        su1_0.click_count,
+        su1_0.full_url,
+        su1_0.short_key,
+        su1_0.user_id 
+    from
+        short_urls su1_0 
+    where
+        su1_0.short_key=?
+2024-09-05 09:54:27.074  INFO --- [io-8080-exec-10] d.t.u.s.ShortUrlService                  : Incrementing click count for short URL with key: xEZuaW
+2024-09-05 09:54:27.076 DEBUG --- [io-8080-exec-10] o.h.SQL                                  : 
+    select
+        su1_0.id,
+        su1_0.click_count,
+        su1_0.full_url,
+        su1_0.short_key,
+        su1_0.user_id 
+    from
+        short_urls su1_0 
+    where
+        su1_0.short_key=?
+2024-09-05 09:54:27.080 DEBUG --- [io-8080-exec-10] o.h.SQL                                  : 
+    update
+        short_urls 
+    set
+        click_count=?,
+        full_url=?,
+        short_key=?,
+        user_id=? 
+    where
+        id=?
+2024-09-05 09:54:27.083  INFO --- [io-8080-exec-10] d.t.u.s.ShortUrlService                  : Click count incremented successfully for short URL with key: xEZuaW
+2024-09-05 09:54:27.083  INFO --- [io-8080-exec-10] d.t.u.s.ShortUrlService                  : Short URL fetched successfully with key: xEZuaW
+2024-09-05 09:54:27.084  INFO --- [io-8080-exec-10] d.t.u.c.ShortUrlController               : Short URL fetched successfully: de.telran.urlshortener.dto.urlDto.ShortUrlResponse@49c24a3a
+2024-09-05 09:54:27.085 DEBUG --- [io-8080-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2024-09-05 09:54:27.085 DEBUG --- [io-8080-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [de.telran.urlshortener.dto.urlDto.ShortUrlResponse@49c24a3a]
+2024-09-05 09:54:27.087 DEBUG --- [io-8080-exec-10] o.s.w.s.DispatcherServlet                : Completed 200 OK
+2024-09-05 09:55:26.568 DEBUG --- [nio-8080-exec-1] o.s.w.s.DispatcherServlet                : GET "/r/xEZuaW", parameters={}
+2024-09-05 09:55:26.569 DEBUG --- [nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to de.telran.urlshortener.controller.RedirectController#redirectToFullUrl(String)
+2024-09-05 09:55:26.573 DEBUG --- [nio-8080-exec-1] o.h.SQL                                  : 
+    select
+        su1_0.id,
+        su1_0.click_count,
+        su1_0.full_url,
+        su1_0.short_key,
+        su1_0.user_id 
+    from
+        short_urls su1_0 
+    where
+        su1_0.short_key=?
+2024-09-05 09:55:26.577 DEBUG --- [nio-8080-exec-1] o.s.w.s.v.RedirectView                   : View [RedirectView], model {}
+2024-09-05 09:55:26.578 DEBUG --- [nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Completed 302 FOUND

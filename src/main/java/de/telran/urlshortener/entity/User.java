@@ -45,17 +45,4 @@ public class User {
 
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Subscription subscription;
-
-    public void addRole(Role role) {
-        if (this.roles == null) {
-            this.roles = new HashSet<>();
-        }
-        this.roles.add(role);
-    }
-
-    public void removeRole(Role role) {
-        if (this.roles != null) {
-            this.roles.remove(role);
-        }
-    }
 }

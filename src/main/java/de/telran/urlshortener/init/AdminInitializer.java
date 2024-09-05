@@ -4,6 +4,7 @@ import de.telran.urlshortener.entity.Role;
 import de.telran.urlshortener.entity.User;
 import de.telran.urlshortener.repository.RoleRepository;
 import de.telran.urlshortener.repository.UserRepository;
+import de.telran.urlshortener.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.annotation.Bean;
@@ -19,6 +20,7 @@ public class AdminInitializer {
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
     private final PasswordEncoder passwordEncoder;
+    private final UserService userService;
 
     @Bean
     public ApplicationRunner initializer() {
@@ -41,7 +43,7 @@ public class AdminInitializer {
                         .email("admin@example.com")
                         .password(passwordEncoder.encode("adminpassword"))
                         .build();
-                adminUser.addRole(adminRole);
+                userService.addRoleToUser(adminUser, adminRole);
                 userRepository.save(adminUser);
             }
 
@@ -51,7 +53,7 @@ public class AdminInitializer {
                         .email("user@example.com")
                         .password(passwordEncoder.encode("userpassword"))
                         .build();
-                regularUser.addRole(userRole);
+                userService.addRoleToUser(regularUser, userRole); // Использование UserService
                 userRepository.save(regularUser);
             }
         };

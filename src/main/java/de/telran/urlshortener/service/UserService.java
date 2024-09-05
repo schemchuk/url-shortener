@@ -2,14 +2,16 @@ package de.telran.urlshortener.service;
 
 import de.telran.urlshortener.dto.RoleDto.RoleResponse;
 import de.telran.urlshortener.entity.Role;
-import de.telran.urlshortener.entity.Subscription;
 import de.telran.urlshortener.entity.User;
 import de.telran.urlshortener.entity.enums.SubscriptionType;
-import de.telran.urlshortener.exception.EmailValidationException;
-import de.telran.urlshortener.exception.PasswordValidationException;
-import de.telran.urlshortener.exception.UserNameAlreadyTakenException;
-import de.telran.urlshortener.mapper.RoleMapper;
 import de.telran.urlshortener.repository.UserRepository;
+import de.telran.urlshortener.exception.UserNameAlreadyTakenException;
+
+import de.telran.urlshortener.mapper.RoleMapper;
+
+import de.telran.urlshortener.entity.Subscription;
+
+import de.telran.urlshortener.service.SubscriptionService;
 import de.telran.urlshortener.validator.EmailValidator;
 import de.telran.urlshortener.validator.PasswordValidator;
 import lombok.RequiredArgsConstructor;
@@ -18,6 +20,7 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.HashSet;
 import java.util.Optional;
 
 @Service
@@ -53,7 +56,7 @@ public class UserService {
         RoleResponse trialRoleResponse = roleService.getRoleByName("TRIAL");
         Role trialRole = roleMapper.toRole(trialRoleResponse);
 
-        savedUser.addRole(trialRole);
+        addRoleToUser(savedUser, trialRole);
 
         Subscription subscription = Subscription.builder()
                 .user(savedUser)
@@ -106,8 +109,8 @@ public class UserService {
         RoleResponse newRoleResponse = roleService.getRoleByName(newRoleName);
         Role newRole = roleMapper.toRole(newRoleResponse);
 
-        user.getRoles().clear();
-        user.addRole(newRole);
+        removeAllRolesFromUser(user);
+        addRoleToUser(user, newRole);
 
         SubscriptionType newSubscriptionType = SubscriptionType.valueOf(newRoleName);
         Subscription existingSubscription = subscriptionService.getSubscriptionByUser(user);
@@ -141,5 +144,16 @@ public class UserService {
         userRepository.save(user);
     }
 
-}
+    public void addRoleToUser(User user, Role role) {
+        if (user.getRoles() == null) {
+            user.setRoles(new HashSet<>());
+        }
+        user.getRoles().add(role);
+    }
 
+    public void removeAllRolesFromUser(User user) {
+        if (user.getRoles() != null) {
+            user.getRoles().clear();
+        }
+    }
+}

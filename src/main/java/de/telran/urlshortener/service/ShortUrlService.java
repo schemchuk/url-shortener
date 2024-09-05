@@ -17,7 +17,6 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Service;
 
 import java.security.SecureRandom;
-import java.time.LocalDateTime;
 
 @Service
 @RequiredArgsConstructor
@@ -79,7 +78,7 @@ public class ShortUrlService {
                     log.error("Short URL not found with key: {}", shortKey);
                     return new ShortUrlNotFoundException("Short URL not found with key: " + shortKey);
                 });
-        shortUrl.incrementClickCount();
+        shortUrl.setClickCount(shortUrl.getClickCount() + 1);
         shortUrlRepository.save(shortUrl);
         log.info("Click count incremented successfully for short URL with key: {}", shortKey);
     }
@@ -116,4 +115,3 @@ public class ShortUrlService {
         return key.toString();
     }
 }
-

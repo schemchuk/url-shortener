@@ -106,5 +106,10 @@
                                  referencedTableName="roles"
                                  referencedColumnNames="id"/>
     </changeSet>
+    <!-- ChangeSet for removing columns -->
+    <changeSet id="6" author="shemchuk">
+        <dropColumn tableName="short_urls" columnName="creation_date"/>
+        <dropColumn tableName="short_urls" columnName="expiry_date"/>
+    </changeSet>
 
 </databaseChangeLog>

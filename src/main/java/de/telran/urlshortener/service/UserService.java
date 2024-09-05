@@ -136,5 +136,10 @@ public class UserService {
     public Optional<User> getByLogin(String login) {
         return userRepository.findByEmail(login);
     }
+
+    public void save(User user) {
+        userRepository.save(user);
+    }
+
 }
 

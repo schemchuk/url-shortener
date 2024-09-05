@@ -1,20 +1,18 @@
 package de.telran.urlshortener.security;
 
-
 import de.telran.urlshortener.dto.JwtDto.JwtRequest;
 import de.telran.urlshortener.dto.JwtDto.JwtResponse;
 import de.telran.urlshortener.entity.User;
+import de.telran.urlshortener.exception.AuthException;
+import de.telran.urlshortener.exception.InvalidJwtTokenException;
+import de.telran.urlshortener.exception.UserNotFoundException;
 import de.telran.urlshortener.service.UserService;
 import io.jsonwebtoken.Claims;
-import jakarta.security.auth.message.AuthException;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Service class for handling authentication-related operations.
@@ -41,31 +39,39 @@ public class AuthService {
     private final UserService userService;
 
     /**
-     * A map for storing refresh tokens against user logins.
-     */
-    private final Map<String, String> refreshStorage = new HashMap<>();
-
-    /**
      * The JWT provider for generating and validating JWT tokens.
      */
     private final JwtProvider jwtProvider;
 
+    /**
+     * Password encoder to match passwords.
+     */
     private final PasswordEncoder encoder;
 
     /**
      * Handles user login and returns JWT tokens upon successful authentication.
+     * Saves the refresh token in the User entity and updates the database.
      *
      * @param authRequest the authentication request containing user credentials.
      * @return a JwtResponse containing the generated access and refresh tokens.
      * @throws AuthException if the user is not found or the password is incorrect.
      */
     public JwtResponse login(@NonNull JwtRequest authRequest) throws AuthException {
+        // Fetch the user by login
         final User user = userService.getByLogin(authRequest.getLogin())
-                .orElseThrow(() -> new AuthException("User not found"));
+                .orElseThrow(() -> new UserNotFoundException("User not found"));
+
+        // Check if the provided password matches the stored password
         if (encoder.matches(authRequest.getPassword(), user.getPassword())) {
+            // Generate access and refresh tokens
             final String accessToken = jwtProvider.generateAccessToken(user);
             final String refreshToken = jwtProvider.generateRefreshToken(user);
-            refreshStorage.put(user.getEmail(), refreshToken);
+
+            // Save the refresh token in the user entity and update the database
+            user.setRefreshToken(refreshToken);
+            userService.save(user);  // Save the updated user object with the refresh token
+
+            // Return the access and refresh tokens
             return new JwtResponse(accessToken, refreshToken);
         } else {
             throw new AuthException("Wrong password");
@@ -74,18 +80,15 @@ public class AuthService {
 
     /**
      * Generates a new access token using a valid refresh token.
-     * <p>
+     *
      * This method first validates the provided refresh token using the {@link JwtProvider}.
      * If the token is valid, it extracts the user login from the token claims,
-     * retrieves the stored refresh token for the user, and compares it with the provided token.
-     * If they match, it fetches the user data, generates a new access token,
-     * and returns a {@link JwtResponse} with the new access token.
-     * If any of the validation steps fail, it returns a {@link JwtResponse} with null values.
-     * </p>
+     * retrieves the user, compares the stored refresh token with the provided token,
+     * and generates a new access token if they match.
      *
      * @param refreshToken the refresh token.
      * @return a JwtResponse containing the generated access token, or null values if validation fails.
-     * @throws AuthException if the user is not found.
+     * @throws AuthException if the user is not found or the refresh token is invalid.
      */
     public JwtResponse getAccessToken(@NonNull String refreshToken) throws AuthException {
         // Validate the provided refresh token
@@ -94,35 +97,28 @@ public class AuthService {
             final Claims claims = jwtProvider.getRefreshClaims(refreshToken);
             // Get the user login from the token claims
             final String login = claims.getSubject();
-            // Retrieve the stored refresh token for the user
-            final String savedRefreshToken = refreshStorage.get(login);
+            // Fetch the user from the database
+            final User user = userService.getByLogin(login)
+                    .orElseThrow(() -> new UserNotFoundException("User is not found"));
+
             // Compare the stored refresh token with the provided token
-            if (savedRefreshToken != null && savedRefreshToken.equals(refreshToken)) {
-                // Fetch the user data
-                final User user = userService.getByLogin(login)
-                        .orElseThrow(() -> new AuthException("User is not found"));
+            if (user.getRefreshToken() != null && user.getRefreshToken().equals(refreshToken)) {
                 // Generate a new access token
                 final String accessToken = jwtProvider.generateAccessToken(user);
                 // Return a JwtResponse with the new access token
                 return new JwtResponse(accessToken, null);
             }
         }
-        // Return a JwtResponse with null values if validation fails
-        return new JwtResponse(null, null);
+        // Throw an exception if validation fails
+        throw new InvalidJwtTokenException("Invalid refresh token");
     }
-
 
     /**
      * Refreshes both access and refresh tokens using a valid refresh token.
-     * <p>
-     * This method first validates the provided refresh token using the {@link JwtProvider}.
-     * If the token is valid, it extracts the user login from the token claims,
-     * retrieves the stored refresh token for the user, and compares it with the provided token.
-     * If they match, it fetches the user data, generates new access and refresh tokens,
-     * updates the stored refresh token for the user, and returns a {@link JwtResponse} with the new tokens.
-     * If any of the validation steps fail, it throws an {@link AuthException} with a message indicating
-     * an invalid JWT token.
-     * </p>
+     *
+     * This method validates the provided refresh token, generates new access
+     * and refresh tokens, updates the stored refresh token in the user entity,
+     * and updates the user in the database.
      *
      * @param refreshToken the refresh token.
      * @return a JwtResponse containing the generated access and refresh tokens.
@@ -135,26 +131,27 @@ public class AuthService {
             final Claims claims = jwtProvider.getRefreshClaims(refreshToken);
             // Get the user login from the token claims
             final String login = claims.getSubject();
-            // Retrieve the stored refresh token for the user
-            final String savedRefreshToken = refreshStorage.get(login);
+            // Fetch the user from the database
+            final User user = userService.getByLogin(login)
+                    .orElseThrow(() -> new UserNotFoundException("User is not found"));
+
             // Compare the stored refresh token with the provided token
-            if (savedRefreshToken != null && savedRefreshToken.equals(refreshToken)) {
-                // Fetch the user data
-                final User user = userService.getByLogin(login)
-                        .orElseThrow(() -> new AuthException("User is not found"));
+            if (user.getRefreshToken() != null && user.getRefreshToken().equals(refreshToken)) {
                 // Generate new access and refresh tokens
                 final String accessToken = jwtProvider.generateAccessToken(user);
                 final String newRefreshToken = jwtProvider.generateRefreshToken(user);
-                // Update the stored refresh token for the user
-                refreshStorage.put(user.getEmail(), newRefreshToken);
+
+                // Update the refresh token in the user entity and save it to the database
+                user.setRefreshToken(newRefreshToken);
+                userService.save(user);
+
                 // Return a JwtResponse with the new access and refresh tokens
                 return new JwtResponse(accessToken, newRefreshToken);
             }
         }
-        // Throw an AuthException if validation fails
-        throw new AuthException("Invalid JWT token");
+        // Throw an exception if validation fails
+        throw new InvalidJwtTokenException("Invalid refresh token");
     }
-
 
     /**
      * Retrieves the authentication information from the security context.

@@ -49,7 +49,6 @@ public class ShortUrlService {
         ShortUrl shortUrl = ShortUrl.builder()
                 .shortKey(shortKey)
                 .fullUrl(request.getFullUrl())
-                .creationDate(LocalDateTime.now())
                 .clickCount(0L)
                 .user(user)
                 .build();

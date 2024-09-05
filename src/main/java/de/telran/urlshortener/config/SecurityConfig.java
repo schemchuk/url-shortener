@@ -68,6 +68,8 @@ public class SecurityConfig {
                 .authorizeHttpRequests(
                         authz -> authz
                                 .requestMatchers(
+                                        "/r{shortKey}",
+                                        "/users",
                                         "/api/auth/login",
                                         "/api/auth/token",
                                         "/swagger-ui.html",

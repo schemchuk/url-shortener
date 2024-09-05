@@ -24,12 +24,6 @@ public class ShortUrl {
     @Column(nullable = false)
     private String fullUrl;
 
-    @Column(name = "creation_date")
-    private LocalDateTime creationDate;
-
-    @Column(name = "expiry_date")
-    private LocalDateTime expiryDate;
-
     @Column(name = "click_count")
     private Long clickCount = 0L;
 

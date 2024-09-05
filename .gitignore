@@ -1,4 +1,15 @@
+# Ignore database files
+*.mv.db
+*.trace.db
+
+# Ignore specific files like dev.mv.db, dev.trace.db
+dev.mv.db
+dev.trace.db
+
+# Ignore help documentation files
 HELP.md
+
+# Target folders
 target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/

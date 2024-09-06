@@ -1,8 +1,6 @@
 package de.telran.urlshortener.service;
 
 import de.telran.urlshortener.entity.ShortUrl;
-import de.telran.urlshortener.exception.ShortUrlNotFoundException;
-import de.telran.urlshortener.repository.ShortUrlRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -10,19 +8,13 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class RedirectService {
 
-    private final ShortUrlRepository shortUrlRepository;
+    private final ShortUrlTrackingService shortUrlTrackingService;
 
     public String getAndTrackFullUrl(String shortKey) {
-        ShortUrl shortUrl = shortUrlRepository.findByShortKey(shortKey)
-                .orElseThrow(() -> new ShortUrlNotFoundException("Short URL not found with key: " + shortKey));
+        ShortUrl shortUrl = shortUrlTrackingService.getShortUrlByKey(shortKey);
 
-        incrementClickCount(shortUrl);
+        shortUrlTrackingService.incrementClickCount(shortUrl);
 
         return shortUrl.getFullUrl();
-    }
-
-    private void incrementClickCount(ShortUrl shortUrl) {
-        shortUrl.setClickCount(shortUrl.getClickCount() + 1);
-        shortUrlRepository.save(shortUrl);
     }
 }

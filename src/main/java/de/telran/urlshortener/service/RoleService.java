@@ -4,8 +4,7 @@ import de.telran.urlshortener.dto.RoleDto.RoleResponse;
 import de.telran.urlshortener.entity.Role;
 import de.telran.urlshortener.mapper.RoleMapper;
 import de.telran.urlshortener.repository.RoleRepository;
-import de.telran.urlshortener.util.roleservice.ExpiryDateCalculator; // Импортируем ExpiryDateCalculator
-import de.telran.urlshortener.util.roleservice.RoleUtils; // Импортируем RoleUtils
+import de.telran.urlshortener.util.roleserviceUtil.RoleUtils; // Импортируем RoleUtils
 import lombok.RequiredArgsConstructor;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

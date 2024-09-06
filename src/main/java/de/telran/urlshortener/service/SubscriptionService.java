@@ -12,15 +12,15 @@ public class SubscriptionService {
 
     private final SubscriptionRepository subscriptionRepository;
 
-    public Subscription createSubscription(Subscription subscription) {
+    public void createSubscription(Subscription subscription) {
         if (subscription.getUser() == null || subscription.getUser().getId() == null) {
             throw new IllegalArgumentException("User must be saved before creating a subscription.");
         }
-        return subscriptionRepository.save(subscription);
+        subscriptionRepository.save(subscription);
     }
 
-    public Subscription updateSubscription(Subscription subscription) {
-        return subscriptionRepository.save(subscription);
+    public void updateSubscription(Subscription subscription) {
+        subscriptionRepository.save(subscription);
     }
 
     public Subscription getSubscriptionByUser(User user) {

@@ -13,7 +13,11 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+import static org.springframework.security.config.Customizer.withDefaults;
 import static org.springframework.security.config.http.SessionCreationPolicy.STATELESS;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 @Configuration
 @EnableWebSecurity
@@ -64,6 +68,7 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         return http.csrf(AbstractHttpConfigurer::disable)
+                .cors(withDefaults())
                 .sessionManagement(manager -> manager.sessionCreationPolicy(STATELESS))
                 .authorizeHttpRequests(
                         authz -> authz
@@ -80,5 +85,16 @@ public class SecurityConfig {
                                 ).permitAll()
                                 .anyRequest().authenticated()
                 ).addFilterAfter(jwtFilter, UsernamePasswordAuthenticationFilter.class).build();
+    }
+    @Bean
+    CorsConfigurationSource corsConfigurationSource() {
+        CorsConfiguration configuration = new CorsConfiguration();
+        configuration.addAllowedOrigin("*"); // Разрешаем запросы со всех источников (настроить для продакшена)
+        configuration.addAllowedMethod("*"); // Разрешаем все методы
+        configuration.addAllowedHeader("*"); // Разрешаем любые заголовки
+        configuration.setAllowCredentials(true); // Если используются куки
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", configuration);
+        return source;
     }
 }

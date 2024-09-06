@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class ShortUrlMapper {
 
-    public static ShortUrlResponse toShortUrlResponse(ShortUrl shortUrl) {
+    public ShortUrlResponse toShortUrlResponse(ShortUrl shortUrl) {
         return ShortUrlResponse.builder()
                 .id(shortUrl.getId())
                 .shortKey(shortUrl.getShortKey())
@@ -16,6 +16,3 @@ public class ShortUrlMapper {
                 .build();
     }
 }
-
-
-

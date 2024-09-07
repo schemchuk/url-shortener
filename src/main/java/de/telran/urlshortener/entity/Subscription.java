@@ -44,7 +44,7 @@ public class Subscription {
                     this.endDate = this.startDate.plusYears(1);
                     break;
                 case ADMIN:
-                    this.endDate = null; // Бессрочная подписка
+                    this.endDate = null;
                     break;
             }
         }

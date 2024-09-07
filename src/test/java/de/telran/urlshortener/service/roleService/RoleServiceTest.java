@@ -4,11 +4,10 @@ import de.telran.urlshortener.dto.RoleDto.RoleResponse;
 import de.telran.urlshortener.entity.Role;
 import de.telran.urlshortener.mapper.RoleMapper;
 import de.telran.urlshortener.repository.RoleRepository;
+import de.telran.urlshortener.util.roleserviceUtil.RoleUtils;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.junit.jupiter.MockitoExtension;
+import org.mockito.Mockito;
 
 import java.sql.Date;
 import java.time.LocalDate;
@@ -17,20 +16,22 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
-@ExtendWith(MockitoExtension.class)
 class RoleServiceTest {
 
-    @Mock
     private RoleRepository roleRepository;
-
-    @Mock
     private RoleMapper roleMapper;
-
-    @InjectMocks
     private RoleService roleService;
+
+    @BeforeEach
+    void setUp() {
+        roleRepository = Mockito.mock(RoleRepository.class);
+        roleMapper = Mockito.mock(RoleMapper.class);
+        roleService = new RoleService(roleRepository, roleMapper);
+    }
 
     @Test
     void testGetRoleByName_Success() {
+        // Arrange
         Role.RoleName roleNameEnum = Role.RoleName.ADMIN;
         Role role = new Role();
         role.setName(roleNameEnum);
@@ -60,11 +61,18 @@ class RoleServiceTest {
         String invalidRoleName = "INVALID_ROLE";
 
         // Act & Assert
-        RuntimeException exception = assertThrows(RuntimeException.class, () -> {
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
+            RoleUtils.parseRoleName(invalidRoleName);
+        });
+
+        assertEquals("Invalid role name: " + invalidRoleName, exception.getMessage());
+
+        // Act & Assert
+        RuntimeException runtimeException = assertThrows(RuntimeException.class, () -> {
             roleService.getRoleByName(invalidRoleName);
         });
 
-        assertEquals("Role not found with name: " + invalidRoleName, exception.getMessage());
+        assertEquals("Role not found with name: " + invalidRoleName, runtimeException.getMessage());
         verify(roleRepository, times(0)).findByName(any());
         verify(roleMapper, times(0)).toRoleResponse(any());
     }
@@ -73,7 +81,6 @@ class RoleServiceTest {
     void testGetRoleByName_RoleNotFound() {
         // Arrange
         Role.RoleName roleNameEnum = Role.RoleName.ADMIN;
-
         when(roleRepository.findByName(roleNameEnum)).thenReturn(java.util.Optional.empty());
 
         // Act & Assert

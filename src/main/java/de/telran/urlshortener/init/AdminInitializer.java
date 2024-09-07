@@ -4,7 +4,7 @@ import de.telran.urlshortener.entity.Role;
 import de.telran.urlshortener.entity.User;
 import de.telran.urlshortener.repository.RoleRepository;
 import de.telran.urlshortener.repository.UserRepository;
-import de.telran.urlshortener.service.UserService;
+import de.telran.urlshortener.service.userService.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.annotation.Bean;

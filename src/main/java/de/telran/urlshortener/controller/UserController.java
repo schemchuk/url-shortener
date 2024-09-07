@@ -4,7 +4,7 @@ import de.telran.urlshortener.dto.userDto.UserRequest;
 import de.telran.urlshortener.dto.userDto.UserResponse;
 import de.telran.urlshortener.entity.User;
 import de.telran.urlshortener.mapper.UserMapper;
-import de.telran.urlshortener.service.UserService;
+import de.telran.urlshortener.service.userService.UserService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;

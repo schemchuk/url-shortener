@@ -4,6 +4,7 @@ import de.telran.urlshortener.dto.RoleDto.RoleResponse;
 import de.telran.urlshortener.entity.Role;
 import de.telran.urlshortener.mapper.RoleMapper;
 import de.telran.urlshortener.repository.RoleRepository;
+import de.telran.urlshortener.service.roleService.RoleService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;

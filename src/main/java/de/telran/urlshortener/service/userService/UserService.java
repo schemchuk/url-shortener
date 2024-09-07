@@ -1,4 +1,4 @@
-package de.telran.urlshortener.service;
+package de.telran.urlshortener.service.userService;
 
 import de.telran.urlshortener.dto.RoleDto.RoleResponse;
 import de.telran.urlshortener.entity.Role;
@@ -11,7 +11,8 @@ import de.telran.urlshortener.mapper.RoleMapper;
 
 import de.telran.urlshortener.entity.Subscription;
 
-import de.telran.urlshortener.service.SubscriptionService;
+import de.telran.urlshortener.service.roleService.RoleService;
+import de.telran.urlshortener.service.subscriptionService.SubscriptionService;
 import de.telran.urlshortener.validator.EmailValidator;
 import de.telran.urlshortener.validator.PasswordValidator;
 import lombok.RequiredArgsConstructor;

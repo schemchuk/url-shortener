@@ -1,4 +1,4 @@
-package de.telran.urlshortener.service;
+package de.telran.urlshortener.service.shortUrlService;
 
 import de.telran.urlshortener.entity.ShortUrl;
 import de.telran.urlshortener.exception.ShortUrlNotFoundException;

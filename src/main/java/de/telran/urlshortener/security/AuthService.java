@@ -6,7 +6,7 @@ import de.telran.urlshortener.entity.User;
 import de.telran.urlshortener.exception.AuthException;
 import de.telran.urlshortener.exception.InvalidJwtTokenException;
 import de.telran.urlshortener.exception.UserNotFoundException;
-import de.telran.urlshortener.service.UserService;
+import de.telran.urlshortener.service.userService.UserService;
 import io.jsonwebtoken.Claims;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;

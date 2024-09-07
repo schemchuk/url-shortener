@@ -1,4 +1,4 @@
-package de.telran.urlshortener.service;
+package de.telran.urlshortener.service.shortUrlService;
 
 import de.telran.urlshortener.config.ShortUrlConfig;
 import de.telran.urlshortener.dto.urlDto.ShortUrlRequest;

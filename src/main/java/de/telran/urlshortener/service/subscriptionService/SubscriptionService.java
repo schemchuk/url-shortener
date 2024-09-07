@@ -1,4 +1,4 @@
-package de.telran.urlshortener.service;
+package de.telran.urlshortener.service.subscriptionService;
 
 import de.telran.urlshortener.entity.Subscription;
 import de.telran.urlshortener.entity.User;

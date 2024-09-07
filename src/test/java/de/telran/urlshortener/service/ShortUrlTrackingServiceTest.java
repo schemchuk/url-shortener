@@ -3,6 +3,7 @@ package de.telran.urlshortener.service;
 import de.telran.urlshortener.entity.ShortUrl;
 import de.telran.urlshortener.exception.ShortUrlNotFoundException;
 import de.telran.urlshortener.repository.ShortUrlRepository;
+import de.telran.urlshortener.service.shortUrlService.ShortUrlTrackingService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;

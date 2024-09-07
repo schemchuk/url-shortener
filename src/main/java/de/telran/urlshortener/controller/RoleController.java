@@ -1,8 +1,7 @@
 package de.telran.urlshortener.controller;
 
-import de.telran.urlshortener.dto.RoleDto.RoleRequest;
 import de.telran.urlshortener.dto.RoleDto.RoleResponse;
-import de.telran.urlshortener.service.RoleService;
+import de.telran.urlshortener.service.roleService.RoleService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;

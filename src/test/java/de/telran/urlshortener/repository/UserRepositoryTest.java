@@ -15,7 +15,7 @@ class UserRepositoryTest {
     private UserRepository userRepository;
 
     @Test
-    void testExistsByEmail_WhenEmailExists() {
+    public void testExistsByEmail_WhenEmailExists() {
         // Arrange: create a user with a non-null password
         User user = new User();
         user.setUserName("testUser");
@@ -31,7 +31,7 @@ class UserRepositoryTest {
     }
 
     @Test
-    void testExistsByEmail_WhenEmailDoesNotExist() {
+    public void testExistsByEmail_WhenEmailDoesNotExist() {
         // Act: check if a user with a non-existing email exists
         boolean exists = userRepository.existsByEmail("nonexistent@example.com");
 

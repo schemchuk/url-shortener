@@ -23,14 +23,14 @@ class RoleServiceTest {
     private RoleService roleService;
 
     @BeforeEach
-    void setUp() {
+    public void setUp() {
         roleRepository = Mockito.mock(RoleRepository.class);
         roleMapper = Mockito.mock(RoleMapper.class);
         roleService = new RoleService(roleRepository, roleMapper);
     }
 
     @Test
-    void testGetRoleByName_Success() {
+    public void testGetRoleByName_Success() {
         // Arrange
         Role.RoleName roleNameEnum = Role.RoleName.ADMIN;
         Role role = new Role();
@@ -56,7 +56,7 @@ class RoleServiceTest {
     }
 
     @Test
-    void testGetRoleByName_InvalidRoleName() {
+    public void testGetRoleByName_InvalidRoleName() {
         // Arrange
         String invalidRoleName = "INVALID_ROLE";
 
@@ -78,7 +78,7 @@ class RoleServiceTest {
     }
 
     @Test
-    void testGetRoleByName_RoleNotFound() {
+    public void testGetRoleByName_RoleNotFound() {
         // Arrange
         Role.RoleName roleNameEnum = Role.RoleName.ADMIN;
         when(roleRepository.findByName(roleNameEnum)).thenReturn(java.util.Optional.empty());

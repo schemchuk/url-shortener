@@ -43,12 +43,12 @@ public class ShortUrlServiceTest {
     private ShortUrlService shortUrlService;
 
     @BeforeEach
-    void setUp() {
+    public void setUp() {
         MockitoAnnotations.openMocks(this);
     }
 
     @Test
-    void createShortUrl_ShouldReturnShortUrlResponse() {
+   public void createShortUrl_ShouldReturnShortUrlResponse() {
         // Arrange
         ShortUrlRequest request = new ShortUrlRequest("http://example.com", "user@example.com");
         User user = User.builder().id(1L).email("user@example.com").build();
@@ -85,7 +85,7 @@ public class ShortUrlServiceTest {
     }
 
     @Test
-    void getShortUrlByKey_ShouldReturnShortUrlResponse() {
+    public void getShortUrlByKey_ShouldReturnShortUrlResponse() {
         // Arrange
         String shortKey = "shortKey";
         ShortUrl shortUrl = ShortUrl.builder()
@@ -113,7 +113,7 @@ public class ShortUrlServiceTest {
     }
 
     @Test
-    void deleteShortUrl_ShouldThrowExceptionIfNotFound() {
+    public void deleteShortUrl_ShouldThrowExceptionIfNotFound() {
         // Arrange
         Long id = 1L;
         when(shortUrlRepository.findById(id)).thenReturn(Optional.empty());
@@ -124,7 +124,7 @@ public class ShortUrlServiceTest {
     }
 
     @Test
-    void deleteShortUrl_ShouldDeleteShortUrlIfFound() {
+    public void deleteShortUrl_ShouldDeleteShortUrlIfFound() {
         // Arrange
         Long id = 1L;
         ShortUrl shortUrl = ShortUrl.builder().id(id).build();

@@ -25,7 +25,7 @@ class SubscriptionServiceTest {
     private Subscription subscription;
 
     @BeforeEach
-    void setUp() {
+    public void setUp() {
         MockitoAnnotations.openMocks(this);
 
         user = User.builder()
@@ -42,7 +42,7 @@ class SubscriptionServiceTest {
     }
 
     @Test
-    void createSubscription_WithValidUser_Success() {
+    public void createSubscription_WithValidUser_Success() {
         // Arrange
         when(subscriptionRepository.save(subscription)).thenReturn(subscription);
 
@@ -54,7 +54,7 @@ class SubscriptionServiceTest {
     }
 
     @Test
-    void createSubscription_WithoutUser_ThrowsException() {
+    public void createSubscription_WithoutUser_ThrowsException() {
         // Arrange
         subscription.setUser(null);
 
@@ -67,7 +67,7 @@ class SubscriptionServiceTest {
     }
 
     @Test
-    void updateSubscription_Success() {
+    public void updateSubscription_Success() {
         // Arrange
         when(subscriptionRepository.save(subscription)).thenReturn(subscription);
 
@@ -79,7 +79,7 @@ class SubscriptionServiceTest {
     }
 
     @Test
-    void getSubscriptionByUser_Success() {
+    public void getSubscriptionByUser_Success() {
         // Arrange
         when(subscriptionRepository.findByUser(user)).thenReturn(subscription);
 
@@ -92,7 +92,7 @@ class SubscriptionServiceTest {
     }
 
     @Test
-    void getSubscriptionByUser_WithNonExistentUser_ReturnsNull() {
+    public void getSubscriptionByUser_WithNonExistentUser_ReturnsNull() {
         // Arrange
         when(subscriptionRepository.findByUser(user)).thenReturn(null);
 

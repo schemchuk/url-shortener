@@ -20,12 +20,12 @@ class RedirectServiceTest {
     private RedirectService redirectService;
 
     @BeforeEach
-    void setUp() {
+    public void setUp() {
         MockitoAnnotations.openMocks(this);
     }
 
     @Test
-    void getAndTrackFullUrl() {
+    public void getAndTrackFullUrl() {
         // Arrange
         String shortKey = "123ABc";
         String fullUrl = "http://example.com";

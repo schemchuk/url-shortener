@@ -29,7 +29,7 @@ public class ShortUrlTrackingServiceTest {
     private ShortUrl existingShortUrl;
 
     @BeforeEach
-    void setUp() {
+    public void setUp() {
         MockitoAnnotations.openMocks(this);
 
         existingShortUrl = new ShortUrl();
@@ -42,20 +42,20 @@ public class ShortUrlTrackingServiceTest {
     }
 
     @Test
-    void testGetShortUrlByKey_Found() {
+    public void testGetShortUrlByKey_Found() {
         ShortUrl shortUrl = shortUrlTrackingService.getShortUrlByKey("abc123");
         assertEquals("http://example.com", shortUrl.getFullUrl());
         assertEquals(0L, shortUrl.getClickCount()); // Using Long to match the entity
     }
 
     @Test
-    void testGetShortUrlByKey_NotFound() {
+    public void testGetShortUrlByKey_NotFound() {
         assertThrows(ShortUrlNotFoundException.class, () ->
                 shortUrlTrackingService.getShortUrlByKey("nonexistent"));
     }
 
     @Test
-    void testIncrementClickCount() {
+    public void testIncrementClickCount() {
         shortUrlTrackingService.incrementClickCount(existingShortUrl);
 
         verify(shortUrlRepository, times(1)).save(argThat(shortUrl ->

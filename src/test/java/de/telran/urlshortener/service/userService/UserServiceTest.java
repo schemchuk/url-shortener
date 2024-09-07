@@ -49,12 +49,12 @@ class UserServiceTest {
     private UserService userService;
 
     @BeforeEach
-    void setUp() {
+    public void setUp() {
         MockitoAnnotations.openMocks(this);
     }
 
     @Test
-    void createUser_shouldCreateNewUser_whenEmailIsValid() {
+    public void createUser_shouldCreateNewUser_whenEmailIsValid() {
         String userName = "user";
         String email = "user@example.com";
         String password = "password";
@@ -84,7 +84,7 @@ class UserServiceTest {
     }
 
     @Test
-    void createUser_shouldThrowException_whenEmailAlreadyExists() {
+    public void createUser_shouldThrowException_whenEmailAlreadyExists() {
         String email = "existing@example.com";
 
         when(userLookupService.getUserByEmail(email)).thenReturn(Optional.of(new User()));
@@ -95,7 +95,7 @@ class UserServiceTest {
     }
 
     @Test
-    void updateUser_shouldUpdateExistingUser_whenUserExists() {
+    public void updateUser_shouldUpdateExistingUser_whenUserExists() {
         Long userId = 1L;
         User existingUser = User.builder().id(userId).userName("oldUser").email("old@example.com").build();
         User updatedData = User.builder().userName("newUser").email("new@example.com").password("newPassword").build();
@@ -115,7 +115,7 @@ class UserServiceTest {
     }
 
     @Test
-    void deleteUser_shouldDeleteUser_whenUserExists() {
+    public void deleteUser_shouldDeleteUser_whenUserExists() {
         Long userId = 1L;
         User existingUser = User.builder().id(userId).build();
 
@@ -128,7 +128,7 @@ class UserServiceTest {
     }
 
     @Test
-    void changeUserRole_shouldChangeRole_whenUserAndRoleExist() {
+    public void changeUserRole_shouldChangeRole_whenUserAndRoleExist() {
         // Arrange
         Long userId = 1L;
         String newRoleName = "PAID";

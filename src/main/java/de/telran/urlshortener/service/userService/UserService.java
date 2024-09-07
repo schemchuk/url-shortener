@@ -6,13 +6,12 @@ import de.telran.urlshortener.entity.User;
 import de.telran.urlshortener.entity.enums.SubscriptionType;
 import de.telran.urlshortener.repository.UserRepository;
 import de.telran.urlshortener.exception.UserNameAlreadyTakenException;
-
 import de.telran.urlshortener.mapper.RoleMapper;
-
 import de.telran.urlshortener.entity.Subscription;
-
 import de.telran.urlshortener.service.roleService.RoleService;
 import de.telran.urlshortener.service.subscriptionService.SubscriptionService;
+import de.telran.urlshortener.util.subscriptionServiceUtil.SubscriptionUtil;
+import de.telran.urlshortener.util.userRoleServiceUtil.UserRoleUtil;
 import de.telran.urlshortener.validator.EmailValidator;
 import de.telran.urlshortener.validator.PasswordValidator;
 import lombok.RequiredArgsConstructor;
@@ -21,7 +20,6 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.HashSet;
 import java.util.Optional;
 
 @Service
@@ -57,12 +55,9 @@ public class UserService {
         RoleResponse trialRoleResponse = roleService.getRoleByName("TRIAL");
         Role trialRole = roleMapper.toRole(trialRoleResponse);
 
-        addRoleToUser(savedUser, trialRole);
+        UserRoleUtil.addRoleToUser(savedUser, trialRole);
 
-        Subscription subscription = Subscription.builder()
-                .user(savedUser)
-                .subscriptionType(SubscriptionType.TRIAL)
-                .build();
+        Subscription subscription = SubscriptionUtil.createSubscription(savedUser, SubscriptionType.TRIAL);
         subscriptionService.createSubscription(subscription);
 
         log.info("User created successfully with ID: {}", savedUser.getId());
@@ -110,8 +105,8 @@ public class UserService {
         RoleResponse newRoleResponse = roleService.getRoleByName(newRoleName);
         Role newRole = roleMapper.toRole(newRoleResponse);
 
-        removeAllRolesFromUser(user);
-        addRoleToUser(user, newRole);
+        UserRoleUtil.removeAllRolesFromUser(user);
+        UserRoleUtil.addRoleToUser(user, newRole);
 
         SubscriptionType newSubscriptionType = SubscriptionType.valueOf(newRoleName);
         Subscription existingSubscription = subscriptionService.getSubscriptionByUser(user);
@@ -120,10 +115,7 @@ public class UserService {
             existingSubscription.setSubscriptionType(newSubscriptionType);
             subscriptionService.updateSubscription(existingSubscription);
         } else {
-            Subscription newSubscription = Subscription.builder()
-                    .user(user)
-                    .subscriptionType(newSubscriptionType)
-                    .build();
+            Subscription newSubscription = SubscriptionUtil.createSubscription(user, newSubscriptionType);
             subscriptionService.createSubscription(newSubscription);
         }
 
@@ -143,18 +135,5 @@ public class UserService {
 
     public void save(User user) {
         userRepository.save(user);
-    }
-
-    public void addRoleToUser(User user, Role role) {
-        if (user.getRoles() == null) {
-            user.setRoles(new HashSet<>());
-        }
-        user.getRoles().add(role);
-    }
-
-    public void removeAllRolesFromUser(User user) {
-        if (user.getRoles() != null) {
-            user.getRoles().clear();
-        }
     }
 }

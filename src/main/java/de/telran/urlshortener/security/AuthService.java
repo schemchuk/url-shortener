@@ -6,7 +6,8 @@ import de.telran.urlshortener.entity.User;
 import de.telran.urlshortener.exception.AuthException;
 import de.telran.urlshortener.exception.InvalidJwtTokenException;
 import de.telran.urlshortener.exception.UserNotFoundException;
-import de.telran.urlshortener.service.userService.UserService;
+import de.telran.urlshortener.service.userService.UserLookupService;
+import de.telran.urlshortener.service.userService.UserPersistenceService;
 import io.jsonwebtoken.Claims;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
@@ -14,29 +15,19 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-/**
- * Service class for handling authentication-related operations.
- * <p>
- * This service provides methods for user login, access token generation, refresh token generation,
- * and obtaining authentication information from the security context.
- * </p>
- *
- * @Service               - Indicates that an annotated class is a service component.
- * @RequiredArgsConstructor - Lombok annotation to generate a constructor for all final fields,
- *                           with parameter order same as field order.
- *
- * @author A-R
- * @version 1.0
- * @since 1.0
- */
 @Service
 @RequiredArgsConstructor
 public class AuthService {
 
     /**
-     * The user service for fetching user data.
+     * The service for looking up users (e.g., by login or email).
      */
-    private final UserService userService;
+    private final UserLookupService userLookupService;
+
+    /**
+     * The service for persisting user data (saving/updating).
+     */
+    private final UserPersistenceService userPersistenceService;
 
     /**
      * The JWT provider for generating and validating JWT tokens.
@@ -58,7 +49,7 @@ public class AuthService {
      */
     public JwtResponse login(@NonNull JwtRequest authRequest) throws AuthException {
         // Fetch the user by login
-        final User user = userService.getByLogin(authRequest.getLogin())
+        final User user = userLookupService.getByLogin(authRequest.getLogin())
                 .orElseThrow(() -> new UserNotFoundException("User not found"));
 
         // Check if the provided password matches the stored password
@@ -69,7 +60,7 @@ public class AuthService {
 
             // Save the refresh token in the user entity and update the database
             user.setRefreshToken(refreshToken);
-            userService.save(user);  // Save the updated user object with the refresh token
+            userPersistenceService.save(user);  // Save the updated user object with the refresh token
 
             // Return the access and refresh tokens
             return new JwtResponse(accessToken, refreshToken);
@@ -98,7 +89,7 @@ public class AuthService {
             // Get the user login from the token claims
             final String login = claims.getSubject();
             // Fetch the user from the database
-            final User user = userService.getByLogin(login)
+            final User user = userLookupService.getByLogin(login)
                     .orElseThrow(() -> new UserNotFoundException("User is not found"));
 
             // Compare the stored refresh token with the provided token
@@ -132,7 +123,7 @@ public class AuthService {
             // Get the user login from the token claims
             final String login = claims.getSubject();
             // Fetch the user from the database
-            final User user = userService.getByLogin(login)
+            final User user = userLookupService.getByLogin(login)
                     .orElseThrow(() -> new UserNotFoundException("User is not found"));
 
             // Compare the stored refresh token with the provided token
@@ -143,7 +134,7 @@ public class AuthService {
 
                 // Update the refresh token in the user entity and save it to the database
                 user.setRefreshToken(newRefreshToken);
-                userService.save(user);
+                userPersistenceService.save(user);
 
                 // Return a JwtResponse with the new access and refresh tokens
                 return new JwtResponse(accessToken, newRefreshToken);

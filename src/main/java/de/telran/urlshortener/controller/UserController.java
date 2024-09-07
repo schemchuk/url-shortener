@@ -3,7 +3,9 @@ package de.telran.urlshortener.controller;
 import de.telran.urlshortener.dto.userDto.UserRequest;
 import de.telran.urlshortener.dto.userDto.UserResponse;
 import de.telran.urlshortener.entity.User;
+import de.telran.urlshortener.exception.UserNameAlreadyTakenException;
 import de.telran.urlshortener.mapper.UserMapper;
+import de.telran.urlshortener.service.userService.UserLookupService;
 import de.telran.urlshortener.service.userService.UserService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -25,6 +27,7 @@ public class UserController {
 
     private final UserService userService;
     private final UserMapper userMapper;
+    private final UserLookupService userLookupService;
 
     /**
      * Creates a new user.
@@ -41,6 +44,9 @@ public class UserController {
             User createdUser = userService.createUser(user.getUserName(), user.getEmail(), user.getPassword());
             log.info("User created successfully with ID: {}", createdUser.getId());
             return ResponseEntity.status(HttpStatus.CREATED).body(userMapper.mapToUserResponse(createdUser));
+        } catch (UserNameAlreadyTakenException e) {
+            log.error("Error creating user: Email already in use", e);
+            return ResponseEntity.status(HttpStatus.CONFLICT).build();
         } catch (Exception e) {
             log.error("Error creating user", e);
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
@@ -58,7 +64,7 @@ public class UserController {
     public ResponseEntity<UserResponse> getUserById(@PathVariable Long id) {
         log.info("Received request to get user with ID: {}", id);
         try {
-            User user = userService.getUserById(id);
+            User user = userLookupService.getUserById(id);
             log.info("User fetched successfully with ID: {}", id);
             return ResponseEntity.ok(userMapper.mapToUserResponse(user));
         } catch (Exception e) {

@@ -3,7 +3,7 @@ package de.telran.urlshortener.init;
 import de.telran.urlshortener.entity.Role;
 import de.telran.urlshortener.entity.User;
 import de.telran.urlshortener.repository.RoleRepository;
-import de.telran.urlshortener.repository.UserRepository;
+import de.telran.urlshortener.service.userService.UserPersistenceService;
 import de.telran.urlshortener.util.userRoleServiceUtil.UserRoleUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.ApplicationRunner;
@@ -17,7 +17,7 @@ import java.util.Date;
 @RequiredArgsConstructor
 public class AdminInitializer {
 
-    private final UserRepository userRepository;
+    private final UserPersistenceService userPersistenceService;
     private final RoleRepository roleRepository;
     private final PasswordEncoder passwordEncoder;
 
@@ -36,24 +36,24 @@ public class AdminInitializer {
                     .orElseThrow(() -> new RuntimeException("User role not found"));
 
             // Создание пользователей
-            if (!userRepository.existsByEmail("admin@example.com")) {
+            if (!userPersistenceService.existsByEmail("admin@example.com")) {
                 User adminUser = User.builder()
                         .userName("admin")
                         .email("admin@example.com")
                         .password(passwordEncoder.encode("adminpassword"))
                         .build();
                 UserRoleUtil.addRoleToUser(adminUser, adminRole); // Использование UserRoleUtil
-                userRepository.save(adminUser);
+                userPersistenceService.save(adminUser);
             }
 
-            if (!userRepository.existsByEmail("user@example.com")) {
+            if (!userPersistenceService.existsByEmail("user@example.com")) {
                 User regularUser = User.builder()
                         .userName("user")
                         .email("user@example.com")
                         .password(passwordEncoder.encode("userpassword"))
                         .build();
                 UserRoleUtil.addRoleToUser(regularUser, userRole); // Использование UserRoleUtil
-                userRepository.save(regularUser);
+                userPersistenceService.save(regularUser);
             }
         };
     }

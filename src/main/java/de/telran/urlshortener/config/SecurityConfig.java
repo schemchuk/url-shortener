@@ -65,10 +65,12 @@ public class SecurityConfig {
      * @return the SecurityFilterChain instance.
      * @throws Exception if an error occurs during configuration.
      */
+
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         return http.csrf(AbstractHttpConfigurer::disable)
                 .cors(withDefaults())
+                .headers(headers -> headers.frameOptions().sameOrigin()) // Разрешаем использование фреймов только с того же домена
                 .sessionManagement(manager -> manager.sessionCreationPolicy(STATELESS))
                 .authorizeHttpRequests(
                         authz -> authz
@@ -84,8 +86,10 @@ public class SecurityConfig {
                                         "/h2-console/**"
                                 ).permitAll()
                                 .anyRequest().authenticated()
-                ).addFilterAfter(jwtFilter, UsernamePasswordAuthenticationFilter.class).build();
+                ).addFilterAfter(jwtFilter, UsernamePasswordAuthenticationFilter.class)
+                .build();
     }
+    
     @Bean
     CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();

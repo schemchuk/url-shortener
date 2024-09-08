@@ -58,7 +58,7 @@ public class AdminInitializer {
         };
     }
 
-    private void createRoleIfNotExists(Role.RoleName roleName, Date expiryDate) {
+    void createRoleIfNotExists(Role.RoleName roleName, Date expiryDate) {
         roleRepository.findByName(roleName)
                 .orElseGet(() -> roleRepository.save(new Role(null, roleName, expiryDate)));
     }

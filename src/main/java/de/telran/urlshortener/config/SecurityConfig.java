@@ -75,7 +75,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(
                         authz -> authz
                                 .requestMatchers(
-                                        "/r{shortKey}",
+                                        "/r/**",
                                         "/users",
                                         "/api/auth/login",
                                         "/api/auth/token",

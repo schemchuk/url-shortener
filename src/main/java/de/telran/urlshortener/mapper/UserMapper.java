@@ -14,16 +14,14 @@ public class UserMapper {
     @Autowired
     private RoleMapper roleMapper;
 
-    // Обновленный метод для маппинга User в UserResponse без поля shortUrls
     public UserResponse mapToUserResponse(User user) {
         return UserResponse.builder()
                 .id(user.getId())
                 .userName(user.getUserName())
                 .email(user.getEmail())
                 .roles(user.getRoles().stream()
-                        .map(roleMapper::toRoleResponse) // Используем нестатический метод из RoleMapper
+                        .map(roleMapper::toRoleResponse)
                         .collect(Collectors.toSet()))
-                // Удалено поле shortUrls
                 .build();
     }
 

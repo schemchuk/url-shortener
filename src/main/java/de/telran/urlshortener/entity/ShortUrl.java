@@ -3,8 +3,6 @@ package de.telran.urlshortener.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.time.LocalDateTime;
-
 @Entity
 @Table(name = "short_urls")
 @Getter

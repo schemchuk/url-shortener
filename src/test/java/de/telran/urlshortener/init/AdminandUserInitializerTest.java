@@ -1,10 +1,8 @@
 package de.telran.urlshortener.init;
 
 import de.telran.urlshortener.entity.Role;
-import de.telran.urlshortener.entity.User;
 import de.telran.urlshortener.repository.RoleRepository;
 import de.telran.urlshortener.service.userService.UserPersistenceService;
-import de.telran.urlshortener.util.userRoleServiceUtil.UserRoleUtil;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -19,10 +17,10 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.argThat;
 import static org.mockito.Mockito.*;
 
-class AdminInitializerTest {
+class AdminandUserInitializerTest {
 
     @InjectMocks
-    private AdminInitializer adminInitializer;
+    private AdminAndUserInitializer adminInitializer;
 
     @Mock
     private RoleRepository roleRepository;

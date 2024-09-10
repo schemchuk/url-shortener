@@ -1,7 +1,6 @@
 package de.telran.urlshortener.dto.userDto;
 
 import de.telran.urlshortener.dto.RoleDto.RoleResponse;
-import de.telran.urlshortener.dto.urlDto.ShortUrlResponse;
 import lombok.*;
 
 import java.util.Set;

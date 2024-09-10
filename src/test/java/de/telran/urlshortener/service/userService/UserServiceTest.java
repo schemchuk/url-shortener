@@ -9,10 +9,7 @@ import de.telran.urlshortener.exception.UserNameAlreadyTakenException;
 import de.telran.urlshortener.mapper.RoleMapper;
 import de.telran.urlshortener.service.roleService.RoleService;
 import de.telran.urlshortener.service.subscriptionService.SubscriptionService;
-import de.telran.urlshortener.util.subscriptionServiceUtil.SubscriptionUtil;
-import de.telran.urlshortener.util.userRoleServiceUtil.UserRoleUtil;
-import de.telran.urlshortener.validator.EmailValidator;
-import de.telran.urlshortener.validator.PasswordValidator;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;

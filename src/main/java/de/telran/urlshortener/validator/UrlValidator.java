@@ -1,8 +1,6 @@
 package de.telran.urlshortener.validator;
 
 import de.telran.urlshortener.exception.UrlValidationException;
-
-import java.net.MalformedURLException;
 import java.net.URL;
 
 public class UrlValidator {
@@ -15,4 +13,3 @@ public class UrlValidator {
         }
     }
 }
-

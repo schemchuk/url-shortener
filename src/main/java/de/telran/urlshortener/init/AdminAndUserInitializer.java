@@ -15,7 +15,7 @@ import java.util.Date;
 
 @Component
 @RequiredArgsConstructor
-public class AdminInitializer {
+public class AdminAndUserInitializer {
 
     private final UserPersistenceService userPersistenceService;
     private final RoleRepository roleRepository;

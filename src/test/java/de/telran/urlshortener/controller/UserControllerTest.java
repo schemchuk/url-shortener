@@ -181,5 +181,4 @@ class UserControllerTest {
                 .andExpect(jsonPath("$.userName").value(updatedUserResponse.getUserName()))
                 .andExpect(jsonPath("$.roles[0].roleName").value("ADMIN"));
     }
-
 }

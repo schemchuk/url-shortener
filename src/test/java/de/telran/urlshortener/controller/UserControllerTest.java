@@ -66,7 +66,6 @@ class UserControllerTest {
     @Setter
     @Getter
     private UserRequest userRequest;
-    private UserResponse userResponse;
     private RoleResponse roleResponse;
 
     @BeforeEach
@@ -86,7 +85,7 @@ class UserControllerTest {
 
         roleResponse = new RoleResponse(1L, "ADMIN", null);
 
-        userResponse = UserResponse.builder()
+        UserResponse userResponse = UserResponse.builder()
                 .id(1L)
                 .userName("testUser")
                 .email("test@example.com")

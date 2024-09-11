@@ -3,7 +3,7 @@ package de.telran.urlshortener.controller;
 import de.telran.urlshortener.config.SecurityConfig;
 import de.telran.urlshortener.dto.userDto.UserRequest;
 import de.telran.urlshortener.dto.userDto.UserResponse;
-import de.telran.urlshortener.dto.RoleDto.RoleResponse;
+import de.telran.urlshortener.dto.roleDto.RoleResponse;
 import de.telran.urlshortener.entity.Role;
 import de.telran.urlshortener.entity.User;
 import de.telran.urlshortener.mapper.UserMapper;

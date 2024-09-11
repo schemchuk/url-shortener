@@ -1,4 +1,4 @@
-package de.telran.urlshortener.dto.RoleDto;
+package de.telran.urlshortener.dto.roleDto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

@@ -1,6 +1,6 @@
 package de.telran.urlshortener.service.roleService;
 
-import de.telran.urlshortener.dto.RoleDto.RoleResponse;
+import de.telran.urlshortener.dto.roleDto.RoleResponse;
 import de.telran.urlshortener.entity.Role;
 import de.telran.urlshortener.mapper.RoleMapper;
 import de.telran.urlshortener.repository.RoleRepository;

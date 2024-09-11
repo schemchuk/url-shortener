@@ -1,6 +1,6 @@
 package de.telran.urlshortener.service.userService;
 
-import de.telran.urlshortener.dto.RoleDto.RoleResponse;
+import de.telran.urlshortener.dto.roleDto.RoleResponse;
 import de.telran.urlshortener.entity.Role;
 import de.telran.urlshortener.entity.Subscription;
 import de.telran.urlshortener.entity.User;

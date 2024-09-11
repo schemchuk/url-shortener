@@ -1,4 +1,4 @@
-package de.telran.urlshortener.dto.JwtDto;
+package de.telran.urlshortener.dto.jwtDto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

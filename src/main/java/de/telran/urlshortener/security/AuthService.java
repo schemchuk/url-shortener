@@ -1,7 +1,7 @@
 package de.telran.urlshortener.security;
 
-import de.telran.urlshortener.dto.JwtDto.JwtRequest;
-import de.telran.urlshortener.dto.JwtDto.JwtResponse;
+import de.telran.urlshortener.dto.jwtDto.JwtRequest;
+import de.telran.urlshortener.dto.jwtDto.JwtResponse;
 import de.telran.urlshortener.entity.User;
 import de.telran.urlshortener.exception.AuthException;
 import de.telran.urlshortener.exception.InvalidJwtTokenException;

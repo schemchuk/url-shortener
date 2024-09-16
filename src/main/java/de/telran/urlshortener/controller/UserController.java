@@ -1,12 +1,12 @@
 package de.telran.urlshortener.controller;
 
-import de.telran.urlshortener.dto.userDto.UserRequest;
-import de.telran.urlshortener.dto.userDto.UserResponse;
+import de.telran.urlshortener.dto.userdto.UserRequest;
+import de.telran.urlshortener.dto.userdto.UserResponse;
 import de.telran.urlshortener.entity.User;
 import de.telran.urlshortener.exception.UserNameAlreadyTakenException;
 import de.telran.urlshortener.mapper.UserMapper;
-import de.telran.urlshortener.service.userService.UserLookupService;
-import de.telran.urlshortener.service.userService.UserService;
+import de.telran.urlshortener.service.userservice.UserLookupService;
+import de.telran.urlshortener.service.userservice.UserService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;

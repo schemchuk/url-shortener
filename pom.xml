@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.telran</groupId>
-    <artifactId>libraryApp</artifactId>
+    <artifactId>url-shortener</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>libraryApp</name>
-    <description>libraryApp</description>
+    <name>url-shortener</name>
+    <description>url-shortener</description>
     <properties>
         <java.version>17</java.version>
         <mapstruct.version>1.5.5.Final</mapstruct.version>

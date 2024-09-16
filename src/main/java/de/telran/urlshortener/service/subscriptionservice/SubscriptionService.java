@@ -27,4 +27,3 @@ public class SubscriptionService {
         return subscriptionRepository.findByUser(user);
     }
 }
-

@@ -2,7 +2,7 @@ package de.telran.urlshortener.init;
 
 import de.telran.urlshortener.entity.Role;
 import de.telran.urlshortener.repository.RoleRepository;
-import de.telran.urlshortener.service.userService.UserPersistenceService;
+import de.telran.urlshortener.service.userservice.UserPersistenceService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;

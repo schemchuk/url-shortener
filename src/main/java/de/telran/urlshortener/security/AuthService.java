@@ -1,13 +1,13 @@
 package de.telran.urlshortener.security;
 
-import de.telran.urlshortener.dto.jwtDto.JwtRequest;
-import de.telran.urlshortener.dto.jwtDto.JwtResponse;
+import de.telran.urlshortener.dto.jwtdto.JwtRequest;
+import de.telran.urlshortener.dto.jwtdto.JwtResponse;
 import de.telran.urlshortener.entity.User;
 import de.telran.urlshortener.exception.AuthException;
 import de.telran.urlshortener.exception.InvalidJwtTokenException;
 import de.telran.urlshortener.exception.UserNotFoundException;
-import de.telran.urlshortener.service.userService.UserLookupService;
-import de.telran.urlshortener.service.userService.UserPersistenceService;
+import de.telran.urlshortener.service.userservice.UserLookupService;
+import de.telran.urlshortener.service.userservice.UserPersistenceService;
 import io.jsonwebtoken.Claims;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;

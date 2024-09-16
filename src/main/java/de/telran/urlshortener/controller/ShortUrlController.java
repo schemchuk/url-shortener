@@ -1,8 +1,8 @@
 package de.telran.urlshortener.controller;
 
-import de.telran.urlshortener.dto.urlDto.ShortUrlRequest;
-import de.telran.urlshortener.dto.urlDto.ShortUrlResponse;
-import de.telran.urlshortener.service.shortUrlService.ShortUrlService;
+import de.telran.urlshortener.dto.urldto.ShortUrlRequest;
+import de.telran.urlshortener.dto.urldto.ShortUrlResponse;
+import de.telran.urlshortener.service.shorturlservice.ShortUrlService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;

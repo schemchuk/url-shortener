@@ -1,7 +1,7 @@
 package de.telran.urlshortener.mapper;
 
-import de.telran.urlshortener.dto.userDto.UserRequest;
-import de.telran.urlshortener.dto.userDto.UserResponse;
+import de.telran.urlshortener.dto.userdto.UserRequest;
+import de.telran.urlshortener.dto.userdto.UserResponse;
 import de.telran.urlshortener.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

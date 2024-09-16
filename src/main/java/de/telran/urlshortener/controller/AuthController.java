@@ -1,8 +1,8 @@
 package de.telran.urlshortener.controller;
 
-import de.telran.urlshortener.dto.jwtDto.JwtRequest;
-import de.telran.urlshortener.dto.jwtDto.JwtRequestRefresh;
-import de.telran.urlshortener.dto.jwtDto.JwtResponse;
+import de.telran.urlshortener.dto.jwtdto.JwtRequest;
+import de.telran.urlshortener.dto.jwtdto.JwtRequestRefresh;
+import de.telran.urlshortener.dto.jwtdto.JwtResponse;
 import de.telran.urlshortener.security.AuthService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;

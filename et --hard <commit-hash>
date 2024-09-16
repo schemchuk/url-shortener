@@ -1,0 +1,261 @@
+[33mcommit 97ce59fb908ba87fef6642185fb5ce4a3fbf2636[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: shemchuk <shemchukaga@gmail.com>
+Date:   Mon Sep 16 10:30:13 2024 +0200
+
+    clipped wings
+
+[33mcommit bd7b935ac718557049155ce16ce6a007e76e0f7d[m[33m ([m[1;31morigin/changeTyp[m[33m)[m
+Author: shemchuk <shemchukaga@gmail.com>
+Date:   Thu Sep 12 18:31:23 2024 +0200
+
+    changet the relationship between User and Role to one-to-one. works only test database
+
+[33mcommit 7abfb9e7c8a7a7f8a202a27562801a475f2bc63a[m
+Author: shemchuk <shemchukaga@gmail.com>
+Date:   Wed Sep 11 12:48:09 2024 +0200
+
+    fixed package names
+
+[33mcommit 91ad24ab68617d09101118c6c7543a9274aa4680[m
+Author: shemchuk <shemchukaga@gmail.com>
+Date:   Wed Sep 11 12:35:19 2024 +0200
+
+    corrected dev.properties
+
+[33mcommit dd5e44dacdece4f89ab042bfa5e10bbf745a2439[m
+Author: shemchuk <shemchukaga@gmail.com>
+Date:   Tue Sep 10 19:16:27 2024 +0200
+
+    updated database model
+
+[33mcommit c19a64dd6b4a2d3eb85e923ae1393b69c681586a[m
+Author: shemchuk <shemchukaga@gmail.com>
+Date:   Tue Sep 10 17:14:21 2024 +0200
+
+    launchen product database using mysql
+
+[33mcommit aee013356c9c7b8ce0ca116ecf5ad9fe0c1874a6[m
+Author: shemchuk <shemchukaga@gmail.com>
+Date:   Tue Sep 10 15:30:26 2024 +0200
+
+    remove non-existent depensies
+
+[33mcommit 58128eeac61561ccf9d7d2906ab98e5989a9ce5e[m
+Merge: aaac9cb 96020eb
+Author: shemchuk <shemchukaga@gmail.com>
+Date:   Tue Sep 10 14:23:48 2024 +0200
+
+    Update database filesMerge branch 'controllerTest'
+
+[33mcommit 96020eb19ecb957932caa3bd91bcbcece872ae2e[m
+Author: shemchuk <shemchukaga@gmail.com>
+Date:   Tue Sep 10 14:21:36 2024 +0200
+
+    update database files
+
+[33mcommit aaac9cb96576820e1e0875423557d2d29660d276[m
+Author: shemchuk <shemchukaga@gmail.com>
+Date:   Tue Sep 10 13:24:28 2024 +0200
+
+    Make file README.md
+
+[33mcommit 9de00374507f0eef0a8a1a9ab1ff943c57e3cce0[m
+Author: shemchuk <shemchukaga@gmail.com>
+Date:   Tue Sep 10 07:14:15 2024 +0200
+
+    writte modul tests from UserController
+
+[33mcommit 7ad84c800489aeabb48eb193cefa22eb973b71ac[m
+Author: shemchuk <shemchukaga@gmail.com>
+Date:   Mon Sep 9 10:26:13 2024 +0200
+
+    fixed redirect
+
+[33mcommit 54a0b4a90b89cc893d7440a73ba5cbb06ab69709[m
+Author: shemchuk <shemchukaga@gmail.com>
+Date:   Sun Sep 8 08:26:23 2024 +0200
+
+    written tests for AdminInitialiser
+
+[33mcommit e5bc562dc1f324d90beef38c8248d124d84298bb[m
+Author: shemchuk <shemchukaga@gmail.com>
+Date:   Sun Sep 8 07:53:01 2024 +0200
+
+    works H2 console
+
+[33mcommit 2d7f8475975ed26d9f73527075a01c66ad8add1f[m
+Author: shemchuk <shemchukaga@gmail.com>
+Date:   Sat Sep 7 19:43:58 2024 +0200
+
+    made tests for the rest of the services UserService
+
+[33mcommit 53a70aef1e62e0f767569b1b23f791b07d0872a5[m
+Author: shemchuk <shemchukaga@gmail.com>
+Date:   Sat Sep 7 15:24:44 2024 +0200
+
+    fixed tests for RoleService
+
+[33mcommit b5acdc19a552dbf548ea1fb0e6a359194200a9f0[m
+Author: shemchuk <shemchukaga@gmail.com>
+Date:   Sat Sep 7 12:58:04 2024 +0200
+
+    written tests for UserService
+
+[33mcommit 0bd862277daeec297aead686214d4fde83bfbc7f[m
+Author: shemchuk <shemchukaga@gmail.com>
+Date:   Sat Sep 7 08:21:56 2024 +0200
+
+    removed utillity methods from UserService
+
+[33mcommit f8801fd0fa676fc9608094f6776453e7c6ad8b18[m
+Author: shemchuk <shemchukaga@gmail.com>
+Date:   Sat Sep 7 07:45:48 2024 +0200
+
+    ritten tests for Subscription Serwice
+
+[33mcommit f84adb3e13979db230dfa3f27a0d62a3ac04ca38[m
+Author: shemchuk <shemchukaga@gmail.com>
+Date:   Sat Sep 7 07:04:08 2024 +0200
+
+    refactoring for a service  package
+
+[33mcommit bfa45f1020f40f153550a20b1191b68773e18630[m
+Author: shemchuk <shemchukaga@gmail.com>
+Date:   Fri Sep 6 20:22:21 2024 +0200
+
+    written tests for ShortUrlService
+
+[33mcommit f6182a01d6cf42d05c2426b878bf8de0d478e81c[m
+Author: shemchuk <shemchukaga@gmail.com>
+Date:   Fri Sep 6 15:01:03 2024 +0200
+
+    wrotte test for RedirectService
+
+[33mcommit 3b409cd9bf0fae2c202ea7d11621bc48661f213a[m
+Author: shemchuk <shemchukaga@gmail.com>
+Date:   Fri Sep 6 14:35:22 2024 +0200
+
+    wrotte tests for ShortUrlTrackingService
+
+[33mcommit 52f5ec9f2575446727c15ce5a481dce362cb05f1[m
+Author: shemchuk <shemchukaga@gmail.com>
+Date:   Fri Sep 6 13:25:10 2024 +0200
+
+    the code was refactored in ShortUrlService
+
+[33mcommit 0943e4899c3817a0e6aa47c339c28c63634cfc6d[m
+Author: shemchuk <shemchukaga@gmail.com>
+Date:   Fri Sep 6 11:59:21 2024 +0200
+
+    redirect works in an unknown way
+
+[33mcommit 36a9ba59868c4b85587433a99e543e7fc29c4b26[m
+Author: shemchuk <shemchukaga@gmail.com>
+Date:   Fri Sep 6 07:41:01 2024 +0200
+
+    move the redirect method to a separate service
+
+[33mcommit 5645aa3e772bbc0f8b443a0222ccca81577008bc[m
+Merge: c762287 9a2cd97
+Author: shemchuk <shemchukaga@gmail.com>
+Date:   Thu Sep 5 19:42:24 2024 +0200
+
+    Merge branch 'tests'
+    written tests for RoleService
+
+[33mcommit 9a2cd977eea9afac42584291eb4c4568c8d05cb7[m
+Author: shemchuk <shemchukaga@gmail.com>
+Date:   Thu Sep 5 19:38:24 2024 +0200
+
+    written tests for RoleService
+
+[33mcommit c7622875eecf87e423ae3848d727327d264b82bb[m
+Author: shemchuk <shemchukaga@gmail.com>
+Date:   Thu Sep 5 19:24:35 2024 +0200
+
+    not drop database
+
+[33mcommit 99f42312a64d7e5350674033d18d310dfffe7464[m
+Author: shemchuk <shemchukaga@gmail.com>
+Date:   Thu Sep 5 12:20:37 2024 +0200
+
+    makes tests for repositories
+
+[33mcommit 2971ef8978194f2d8d47f3850ded77d901f89fe8[m
+Merge: 06b5c64 43d778c
+Author: shemchuk <shemchukaga@gmail.com>
+Date:   Thu Sep 5 11:27:20 2024 +0200
+
+    Resolve merge conflicts and complete merge
+
+[33mcommit 43d778c460ce2f607b02d44b0deb301be90f1183[m
+Author: shemchuk <shemchukaga@gmail.com>
+Date:   Thu Sep 5 11:13:10 2024 +0200
+
+    refactoring
+
+[33mcommit 06b5c646561d024ee437ead7ed9f285aa8102be7[m
+Author: shemchuk <shemchukaga@gmail.com>
+Date:   Thu Sep 5 10:56:30 2024 +0200
+
+    Refresh .gitignore
+
+[33mcommit be312e113c30c86415f0fb44323bae69e6eecc09[m
+Author: shemchuk <shemchukaga@gmail.com>
+Date:   Thu Sep 5 10:33:22 2024 +0200
+
+    Remove dev.lock.db from version control and add to .gitignore
+
+[33mcommit cf3c979a013ae1cc2d13785fcbabcac10a12b46b[m
+Author: shemchuk <shemchukaga@gmail.com>
+Date:   Thu Sep 5 10:17:46 2024 +0200
+
+    Remove dev.mv.db from version control and add to .gitignore
+
+[33mcommit b6b6fbd618cdeb2df06b2255c43dfe18b2b499b2[m
+Author: shemchuk <shemchukaga@gmail.com>
+Date:   Thu Sep 5 10:02:18 2024 +0200
+
+    makes refactoring of entitys
+
+[33mcommit 4139eddadf069ae0bec87cb1c9a2e1f6e7e495dc[m
+Author: shemchuk <shemchukaga@gmail.com>
+Date:   Thu Sep 5 08:16:57 2024 +0200
+
+    add file gitignore
+
+[33mcommit b2490ff1a60317cb0213cb27f3f1e43735ae91ce[m
+Author: shemchuk <shemchukaga@gmail.com>
+Date:   Thu Sep 5 07:57:55 2024 +0200
+
+    integrated refresh token
+
+[33mcommit c2c472273f12409319e8b67841e5dddc7eb039df[m
+Author: shemchuk <shemchukaga@gmail.com>
+Date:   Tue Sep 3 17:10:25 2024 +0200
+
+    minor improvements
+
+[33mcommit cc74d274e404f060acac12a01eb7c3dfc8c46eb1[m
+Author: shemchuk <shemchukaga@gmail.com>
+Date:   Tue Sep 3 08:32:43 2024 +0200
+
+    ligybase files are connected
+
+[33mcommit 777887e3b74872ff536b37934ded4c845518e97e[m
+Author: shemchuk <shemchukaga@gmail.com>
+Date:   Mon Sep 2 18:38:12 2024 +0200
+
+    made documentation of the swagger
+
+[33mcommit 50fb1542c860254e56bba175e5030ff16476c6cf[m
+Author: shemchuk <shemchukaga@gmail.com>
+Date:   Mon Sep 2 17:26:07 2024 +0200
+
+    roles are practiced on a regular basic
+
+[33mcommit 92938df847f8a9a661f0369cb7f6400093f4760d[m
+Author: shemchuk <shemchukaga@gmail.com>
+Date:   Mon Sep 2 13:36:55 2024 +0200
+
+    search for an error in security

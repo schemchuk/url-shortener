@@ -11,8 +11,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
-import java.util.Date;
-
 @Component
 @RequiredArgsConstructor
 public class AdminAndUserInitializer {
@@ -25,41 +23,32 @@ public class AdminAndUserInitializer {
     public ApplicationRunner initializer() {
         return args -> {
             // Создание ролей, если они отсутствуют
-            createRoleIfNotExists(Role.RoleName.ADMIN, new Date(System.currentTimeMillis() + 3L * 365 * 24 * 60 * 60 * 1000)); // 3 года
-            createRoleIfNotExists(Role.RoleName.TRIAL, new Date(System.currentTimeMillis() + 30L * 24 * 60 * 60 * 1000)); // 30 дней
-            createRoleIfNotExists(Role.RoleName.PAID, new Date(System.currentTimeMillis() + 365L * 24 * 60 * 60 * 1000)); // 1 год
-
-            // Поиск ролей
-            Role adminRole = roleRepository.findByName(Role.RoleName.ADMIN)
-                    .orElseThrow(() -> new RuntimeException("Admin role not found"));
-            Role userRole = roleRepository.findByName(Role.RoleName.TRIAL)
-                    .orElseThrow(() -> new RuntimeException("User role not found"));
+            createRoleIfNotExists(Role.RoleName.ADMIN);
+            createRoleIfNotExists(Role.RoleName.TRIAL);
+            createRoleIfNotExists(Role.RoleName.PAID);
 
             // Создание пользователей
-            if (!userPersistenceService.existsByEmail("admin@example.com")) {
-                User adminUser = User.builder()
-                        .userName("admin")
-                        .email("admin@example.com")
-                        .password(passwordEncoder.encode("adminpassword"))
-                        .build();
-                UserRoleUtil.addRoleToUser(adminUser, adminRole); // Использование UserRoleUtil
-                userPersistenceService.save(adminUser);
-            }
-
-            if (!userPersistenceService.existsByEmail("user@example.com")) {
-                User regularUser = User.builder()
-                        .userName("user")
-                        .email("user@example.com")
-                        .password(passwordEncoder.encode("userpassword"))
-                        .build();
-                UserRoleUtil.addRoleToUser(regularUser, userRole); // Использование UserRoleUtil
-                userPersistenceService.save(regularUser);
-            }
+            createUserIfNotExists("admin@example.com", "admin", "adminpassword", Role.RoleName.ADMIN);
+            createUserIfNotExists("boss@string.com", "boss", "123string", Role.RoleName.TRIAL);
         };
     }
 
-    void createRoleIfNotExists(Role.RoleName roleName, Date expiryDate) {
+    private void createRoleIfNotExists(Role.RoleName roleName) {
         roleRepository.findByName(roleName)
-                .orElseGet(() -> roleRepository.save(new Role(null, roleName, expiryDate)));
+                .orElseGet(() -> roleRepository.save(new Role(null, roleName, null)));
+    }
+
+    private void createUserIfNotExists(String email, String userName, String password, Role.RoleName roleName) {
+        if (!userPersistenceService.existsByEmail(email)) {
+            User user = User.builder()
+                    .userName(userName)
+                    .email(email)
+                    .password(passwordEncoder.encode(password))
+                    .build();
+            Role role = roleRepository.findByName(roleName)
+                    .orElseThrow(() -> new RuntimeException("Role not found: " + roleName));
+            UserRoleUtil.addRoleToUser(user, role);
+            userPersistenceService.save(user);
+        }
     }
 }

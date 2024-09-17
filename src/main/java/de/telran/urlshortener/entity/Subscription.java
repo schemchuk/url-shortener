@@ -38,10 +38,10 @@ public class Subscription {
         if (this.endDate == null) {
             switch (this.subscriptionType) {
                 case TRIAL:
-                    this.endDate = this.startDate.plusMonths(1);
+                    this.endDate = this.startDate.plusDays(30);
                     break;
                 case PAID:
-                    this.endDate = this.startDate.plusYears(1);
+                    this.endDate = this.startDate.plusDays(365);
                     break;
                 case ADMIN:
                     this.endDate = null;

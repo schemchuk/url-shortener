@@ -22,7 +22,6 @@ public class AdminAndUserInitializer {
     @Bean
     public ApplicationRunner initializer() {
         return args -> {
-            // Создание пользователей
             createUserIfNotExists("admin@example.com", "admin", "adminpassword", Role.RoleName.ADMIN);
             createUserIfNotExists("boss@string.com", "boss", "123string", Role.RoleName.TRIAL);
         };

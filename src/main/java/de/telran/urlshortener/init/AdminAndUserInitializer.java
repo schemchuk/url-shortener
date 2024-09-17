@@ -22,20 +22,10 @@ public class AdminAndUserInitializer {
     @Bean
     public ApplicationRunner initializer() {
         return args -> {
-            // Создание ролей, если они отсутствуют
-            createRoleIfNotExists(Role.RoleName.ADMIN);
-            createRoleIfNotExists(Role.RoleName.TRIAL);
-            createRoleIfNotExists(Role.RoleName.PAID);
-
             // Создание пользователей
             createUserIfNotExists("admin@example.com", "admin", "adminpassword", Role.RoleName.ADMIN);
             createUserIfNotExists("boss@string.com", "boss", "123string", Role.RoleName.TRIAL);
         };
-    }
-
-    private void createRoleIfNotExists(Role.RoleName roleName) {
-        roleRepository.findByName(roleName)
-                .orElseGet(() -> roleRepository.save(new Role(null, roleName, null)));
     }
 
     private void createUserIfNotExists(String email, String userName, String password, Role.RoleName roleName) {

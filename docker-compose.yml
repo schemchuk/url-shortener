@@ -13,16 +13,15 @@ services:
       - app-network
 
   db:
-    image: postgres:14-alpine
+    image: mysql:8.0
     container_name: url_shortener_db
     environment:
-      POSTGRES_DB: url_shortener_db
-      POSTGRES_USER: root
-      POSTGRES_PASSWORD: 123
+      MYSQL_DATABASE: url_shortener_db
+      MYSQL_ROOT_PASSWORD: 123
     volumes:
-      - db_data:/var/lib/postgresql/data
+      - db_data:/var/lib/mysql
     ports:
-      - "5432:5432"
+      - "3307:3306"
     networks:
       - app-network
 

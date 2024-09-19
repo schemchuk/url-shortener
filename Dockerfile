@@ -1,24 +1,20 @@
-# Используем официальный образ JDK 17
+# Используем официальный образ OpenJDK
 FROM openjdk:17-jdk-slim
 
-# Устанавливаем рабочую директорию внутри контейнера
+# Устанавливаем рабочую директорию
 WORKDIR /app
 
-# Устанавливаем Maven
-RUN apt-get update && apt-get install -y maven
+# Копируем JAR-файл в контейнер
+COPY target/url-shortener-0.0.1-SNAPSHOT.jar app.jar
 
-# Копируем файл pom.xml и директорию с исходными кодами
-COPY pom.xml /app/
-COPY src /app/src
+# Устанавливаем переменные окружения для базы данных
+ENV SPRING_PROFILES_ACTIVE=prod
+ENV SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/url_shortener_db?createDatabaseIfNotExist=true
+ENV SPRING_DATASOURCE_USERNAME=root
+ENV SPRING_DATASOURCE_PASSWORD=123
 
-# Сборка приложения с помощью Maven
-RUN mvn clean install -DskipTests
-
-# Копируем собранный JAR файл
-COPY target/url-shortener-0.0.1-SNAPSHOT.jar /app/url-shortener-0.0.1-SNAPSHOT.jar
-
-# Порт, на котором приложение будет доступно
+# Открываем порт 8080
 EXPOSE 8080
 
-# Запуск Spring Boot приложения
-ENTRYPOINT ["java", "-jar", "/app/url-shortener-0.0.1-SNAPSHOT.jar"]
+# Команда для запуска приложения
+ENTRYPOINT ["java", "-jar", "app.jar"]

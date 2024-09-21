@@ -25,7 +25,6 @@ public class JwtRequestRefresh {
      * The refresh token used to obtain a new access token.
      */
     public String refreshToken;
-
 }
 
 

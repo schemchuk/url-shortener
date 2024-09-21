@@ -35,6 +35,5 @@ public class JwtResponse {
      * The refresh token for obtaining a new access token.
      */
     private String refreshToken;
-
 }
 
